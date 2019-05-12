@@ -1,0 +1,25 @@
+@import 'constants';
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, html{
+  width: 100%;
+  height: 100%;
+}
+
+/* DEFAULT INPUT */
+input{
+  border: 1px solid black;
+  background-color: transparent;
+}
+/* DEFAULT HR */
+hr {
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid color('hr');
+  width: 80%;
+}
+

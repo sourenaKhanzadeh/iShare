@@ -1,0 +1,61 @@
+@import "defaults";
+@import "constants";
+
+
+/* LANDING PAGE STARTS HERE */
+.landing{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  form{
+    position: relative;
+    border: border('default');
+    $padding: 30px;
+    padding: ($padding * 5) $padding;
+    border-radius: 10px;
+    align-self: center;
+    align-content: center;
+    box-shadow: shadow('default');
+    label, input{
+      width: 100%;
+      margin: 10px 0;
+      &[type='submit'], &[type='button']{
+        cursor: pointer;
+      }
+      &[type='submit']{
+        color:lavender;
+        background-color: color('orange-light');
+        &:hover{
+          background-color: color('orange-dark');
+        }
+      }
+      &[type='button']{
+        color: lavender;
+        background-color: color('pink-gentle');
+        &:hover{
+          background-color: color('pink-hot');
+        }
+
+      }
+    }
+    input{
+      border: border('default');
+      padding: 10px;
+      border-radius: 20px;
+    }
+    .clip{
+      position: absolute;
+      bottom: 0;
+      left:0;
+      $border: 9px;
+      border-radius: 0 0 $border $border;
+      background: linear-gradient(black, color('blue-navy'));
+      width: 100%;
+      height: 300px;
+      -webkit-clip-path: polygon(0 90%, 100% 66%, 100% 100%, 0% 100%);
+      clip-path: polygon(0 90%, 100% 66%, 100% 100%, 0% 100%);
+    }
+  }
+}
+/* LANDING ENDS HERE */
