@@ -1,6 +1,7 @@
 @import "defaults";
 @import "constants";
 @import "mixins";
+@import "animation";
 
 /* Nav STARTS HERE */
 nav{
@@ -24,10 +25,17 @@ nav{
       }
       input{
         border-color: lavender;
-        padding: 5px;
+        padding: 2.5px;
         &::placeholder{
           color: inherit;
         }
+      }
+      button{
+        cursor: pointer;
+        color: lavender;
+        font-size: 15pt;
+        background-color: transparent;
+        border: none;
       }
     }
 
@@ -101,5 +109,17 @@ nav{
       clip-path: polygon(0 90%, 100% 66%, 100% 100%, 0% 100%);
     }
   }
+}
+
+// Preload Icon
+.loading{
+  display: none;
+  $width: 100px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid color('skin-tan2');
+  border-radius: 50%;
+  width: $width;
+  height: $width;
+  animation: spin 3s infinite, changeColor 3s infinite;
 }
 /* LANDING ENDS HERE */

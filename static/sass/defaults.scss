@@ -25,11 +25,21 @@ hr {
 
 /* DEFAULT BUTTON */
 button{
+  outline: none;
   background-color: red;
+
+  &:active {
+    color: #B64926;
+  }
 }
 
 /* DEFAULT a */
 a{
   text-decoration: none;
   color: inherit;
+}
+
+/* DEFAULT input */
+input{
+  outline: none;
 }

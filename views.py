@@ -7,4 +7,4 @@ from myModules.model.signup import *
 
 @app.route('/')
 def welcome():
-    return render_template('pages/landingpage.html')
+    return render_template('pages/landingpage.html', session=session)

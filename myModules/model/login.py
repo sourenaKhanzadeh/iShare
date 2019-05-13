@@ -1,6 +1,7 @@
 from app import app, request, render_template
 from myModules.model.database import all_users
 from myModules.model.hash import *
+from flask import session, redirect
 
 @app.route("/account/login", methods=['GET', 'POST'])
 def login():
@@ -25,8 +26,11 @@ def login():
 
             # if user enter the correct password
             if check:
-                # then welcome the user
-                return 'Welcome'
+                # store username in a session
+                session['username'] = request.form['username']
+                # then redirect to the homepage
+                return redirect('/?login=success')
+
             # else tell the user they entered the wrong password
             # TODO: Flash User The Info
             return 'Wrong password entered'

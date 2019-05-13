@@ -5,6 +5,7 @@
     <title>iShare</title>
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- styleA.css -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/styleA.css') }}">
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -16,12 +17,18 @@
 <nav>
     <ul>
         <li>
-            Search <input type="text" name="search" placeholder="search......">
+            Search <input type="text" name="search" placeholder="search......"><button id="search"><i class="fa fa-search"></i></button>
         </li>
-        <li class="underline">Browse The State</li>
+        <li class="underline">Browse All Time</li>
         <div class="nav-right">
-            <li class="underline">About</li>
-            <li class="underline">Login/Register</li>
+            <ul>
+                <li class="underline">About</li>
+                {% if not session %}
+                <li class="underline"><a href="/account/login">Login/Register</a></li>
+                {% else %}
+                <li class="underline" id="user"><a href="/">Hello , {{session['username']}}</a></li>
+                {% endif %}
+            </ul>
         </div>
     </ul>
 </nav>

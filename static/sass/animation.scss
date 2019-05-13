@@ -1,0 +1,20 @@
+@keyframes spin {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+
+  }
+}
+
+
+@keyframes changeColor {
+  0%{
+    border-bottom-color: rgba(color('skin-tan2'), 1);
+  }
+  100%{
+    border-bottom-color: rgba(color('skin-tan2'), 0.5);
+
+  }
+}

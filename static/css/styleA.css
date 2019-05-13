@@ -31,12 +31,19 @@ hr {
 
 /* DEFAULT BUTTON */
 button {
+  outline: none;
   background-color: red; }
+  button:active {
+    color: #B64926; }
 
 /* DEFAULT a */
 a {
   text-decoration: none;
   color: inherit; }
+
+/* DEFAULT input */
+input {
+  outline: none; }
 
 .underline {
   cursor: pointer; }
@@ -48,6 +55,18 @@ a {
     transition: all 150ms ease-in-out; }
   .underline:hover::after {
     width: 100%; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes changeColor {
+  0% {
+    border-bottom-color: #e87551; }
+  100% {
+    border-bottom-color: rgba(232, 117, 81, 0.5); } }
 
 /* Nav STARTS HERE */
 nav {
@@ -68,9 +87,15 @@ nav {
       display: table; }
     nav ul li input {
       border-color: lavender;
-      padding: 5px; }
+      padding: 2.5px; }
       nav ul li input::placeholder {
         color: inherit; }
+    nav ul li button {
+      cursor: pointer;
+      color: lavender;
+      font-size: 15pt;
+      background-color: transparent;
+      border: none; }
   nav ul .nav-right {
     float: right; }
 
@@ -130,5 +155,14 @@ nav {
       height: 300px;
       -webkit-clip-path: polygon(0 90%, 100% 66%, 100% 100%, 0% 100%);
       clip-path: polygon(0 90%, 100% 66%, 100% 100%, 0% 100%); }
+
+.loading {
+  display: none;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #E87551;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 3s infinite, changeColor 3s infinite; }
 
 /* LANDING ENDS HERE */
