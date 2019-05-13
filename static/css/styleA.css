@@ -7,7 +7,7 @@ body, html {
   height: 100%; }
 
 /* DEFAULT INPUT */
-input {
+input, button {
   border: 1px solid black;
   background-color: transparent; }
 
@@ -18,8 +18,21 @@ hr {
   border-bottom: 1px solid #c2c2c2;
   width: 80%; }
 
+/* DEFAULT BUTTON */
+button {
+  background-color: red; }
+
+/* DEFAULT a */
+a {
+  text-decoration: none;
+  color: inherit; }
+
 /* LANDING PAGE STARTS HERE */
 .landing {
+  /*
+  flex objects and
+  center it
+  */
   display: flex;
   width: 100%;
   height: 100%;
@@ -32,25 +45,29 @@ hr {
     align-self: center;
     align-content: center;
     box-shadow: 10px 10px 200px 55px #a0a0a0; }
-    .landing form label, .landing form input {
+    .landing form label, .landing form input, .landing form .sign {
       width: 100%;
       margin: 10px 0; }
-      .landing form label[type='submit'], .landing form label[type='button'], .landing form input[type='submit'], .landing form input[type='button'] {
-        cursor: pointer; }
-      .landing form label[type='submit'], .landing form input[type='submit'] {
-        color: lavender;
-        background-color: #FFB03B; }
-        .landing form label[type='submit']:hover, .landing form input[type='submit']:hover {
-          background-color: #FD7400; }
-      .landing form label[type='button'], .landing form input[type='button'] {
-        color: lavender;
-        background-color: #D95B5B; }
-        .landing form label[type='button']:hover, .landing form input[type='button']:hover {
-          background-color: #F2385A; }
     .landing form input {
       border: 1px solid #b6b6b6;
       padding: 10px;
       border-radius: 20px; }
+      .landing form input[type='submit'] {
+        cursor: pointer;
+        color: lavender;
+        background-color: #FFB03B; }
+        .landing form input[type='submit']:hover {
+          background-color: #FD7400; }
+    .landing form .sign {
+      border: 1px solid #b6b6b6;
+      padding: 10px;
+      border-radius: 20px;
+      color: lavender;
+      cursor: pointer;
+      text-align: center;
+      background-color: #D95B5B; }
+      .landing form .sign:hover {
+        background-color: #F2385A; }
     .landing form .clip {
       position: absolute;
       bottom: 0;

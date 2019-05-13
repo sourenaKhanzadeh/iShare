@@ -6,6 +6,12 @@
 /* LANDING PAGE STARTS HERE */
 .landing{
   @include flexCenter;
+  @mixin land-btn{
+    border: border('default');
+    padding: 10px;
+    border-radius: 20px;
+  }
+
   form{
     position: relative;
     border: border('default');
@@ -15,32 +21,31 @@
     align-self: center;
     align-content: center;
     box-shadow: shadow('default');
-    label, input{
+    label, input, .sign{
       width: 100%;
       margin: 10px 0;
-      &[type='submit'], &[type='button']{
-        cursor: pointer;
-      }
+    }
+    input{
+      @include land-btn;
       &[type='submit']{
+        cursor: pointer;
         color:lavender;
         background-color: color('orange-light');
         &:hover{
           background-color: color('orange-dark');
         }
       }
-      &[type='button']{
-        color: lavender;
-        background-color: color('pink-gentle');
-        &:hover{
-          background-color: color('pink-hot');
-        }
-
-      }
     }
-    input{
-      border: border('default');
-      padding: 10px;
-      border-radius: 20px;
+    .sign{
+        @include land-btn;
+        color:lavender;
+        cursor: pointer;
+        text-align: center;
+        background-color: color('pink-gentle');
+      &:hover{
+        background-color: color('pink-hot');
+      }
+
     }
     .clip{
       position: absolute;
