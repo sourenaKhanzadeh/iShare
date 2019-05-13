@@ -1,6 +1,7 @@
 from werkzeug.security import generate_password_hash, \
                               check_password_hash
 
+
 class User(object):
 
     def __init__(self, username, password):
@@ -13,3 +14,8 @@ class User(object):
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
 
+
+# class User2:
+#
+#     def __init__(self):
+#         bcrypt = Bcrypt()
