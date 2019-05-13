@@ -2,6 +2,42 @@
 @import "constants";
 @import "mixins";
 
+/* Nav STARTS HERE */
+nav{
+  position: sticky;
+  background-color: color('skin-tan2');
+  color: lavender;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  z-index: 10;
+  ul{
+    li{
+      float: left;
+      margin: 20px 10px;
+      list-style-type: none;
+      &::before{
+        content: '';
+        clear: both;
+        display: table;
+
+      }
+      input{
+        border-color: lavender;
+        padding: 5px;
+        &::placeholder{
+          color: inherit;
+        }
+      }
+    }
+
+    .nav-right{
+      float: right;
+    }
+
+  }
+}
+/* Nav ENDS HERE */
 
 /* LANDING PAGE STARTS HERE */
 .landing{
@@ -27,6 +63,11 @@
     }
     input{
       @include land-btn;
+      transition: background-color 250ms ease-in-out;
+      &:focus{
+        outline: none;
+        background-color: color('green-hazard');
+      }
       &[type='submit']{
         cursor: pointer;
         color:lavender;

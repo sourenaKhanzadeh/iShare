@@ -1,3 +1,5 @@
+@import "mixins";
+
 $colors: (
   landing: #0d7442aa,
   hr: #c2c2c2,
@@ -37,7 +39,8 @@ $colors: (
 );
 
 $borders: (
-  default: 1px solid #b6b6b6
+  default: 1px solid #b6b6b6,
+  lav: 1px solid lavender
 );
 
 
@@ -60,4 +63,10 @@ $shadows: (
 // Get Shadows
 @function shadow($name) {
   @return map-get($shadows, $name);
+}
+
+
+// underline animation
+.underline{
+        @include hoverUnderline(150ms);
 }

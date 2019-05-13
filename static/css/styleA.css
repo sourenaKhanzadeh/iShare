@@ -1,3 +1,14 @@
+.underline {
+  cursor: pointer; }
+  .underline::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid lavender;
+    width: 0;
+    transition: all 150ms ease-in-out; }
+  .underline:hover::after {
+    width: 100%; }
+
 * {
   margin: 0;
   box-sizing: border-box; }
@@ -27,6 +38,43 @@ a {
   text-decoration: none;
   color: inherit; }
 
+.underline {
+  cursor: pointer; }
+  .underline::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid lavender;
+    width: 0;
+    transition: all 150ms ease-in-out; }
+  .underline:hover::after {
+    width: 100%; }
+
+/* Nav STARTS HERE */
+nav {
+  position: sticky;
+  background-color: #E87551;
+  color: lavender;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  z-index: 10; }
+  nav ul li {
+    float: left;
+    margin: 20px 10px;
+    list-style-type: none; }
+    nav ul li::before {
+      content: '';
+      clear: both;
+      display: table; }
+    nav ul li input {
+      border-color: lavender;
+      padding: 5px; }
+      nav ul li input::placeholder {
+        color: inherit; }
+  nav ul .nav-right {
+    float: right; }
+
+/* Nav ENDS HERE */
 /* LANDING PAGE STARTS HERE */
 .landing {
   /*
@@ -51,7 +99,11 @@ a {
     .landing form input {
       border: 1px solid #b6b6b6;
       padding: 10px;
-      border-radius: 20px; }
+      border-radius: 20px;
+      transition: background-color 250ms ease-in-out; }
+      .landing form input:focus {
+        outline: none;
+        background-color: #BEDB39; }
       .landing form input[type='submit'] {
         cursor: pointer;
         color: lavender;

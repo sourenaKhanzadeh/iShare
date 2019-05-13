@@ -2,7 +2,7 @@ from app import app, request, render_template
 from myModules.model.database import all_users
 from myModules.model.hash import User
 
-@app.route('/signUp', methods=['GET', 'POST'])
+@app.route('/account/register', methods=['GET', 'POST'])
 def register():
     """
     """
@@ -34,5 +34,5 @@ def register():
 
     # User is filling the form
     elif request.method == "GET":
-        return render_template('pages/landingpage.html', sign=True)
+        return render_template('pages/login-register.html', sign=True)
 

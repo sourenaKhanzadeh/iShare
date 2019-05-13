@@ -1,0 +1,10 @@
+.underline {
+  cursor: pointer; }
+  .underline::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid lavender;
+    width: 0;
+    transition: all 150ms ease-in-out; }
+  .underline:hover::after {
+    width: 100%; }

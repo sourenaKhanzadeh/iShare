@@ -8,3 +8,18 @@
   height: 100%;
   justify-content: center;
 }
+
+@mixin hoverUnderline($time){
+  cursor: pointer;
+  &::after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid lavender;
+    width: 0;
+    transition: all $time ease-in-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}

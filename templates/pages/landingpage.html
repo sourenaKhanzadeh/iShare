@@ -1,32 +1,7 @@
 {% extends './template/header.html'%}
 
-{% block body %}
-<div class="landing">
-    <form method="post">
-        <h1>Login</h1>
-        <hr>
-        <label for="username"> Username</label>
-        <input type="text" name="username" placeholder="username.....">
-        {% if sign %}
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="email.....">
-        {% endif %}
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="password.....">
-        {% if not sign %}
-        <input type="submit" name="login" value="Login">
-        <div class="sign"><a href="/signUp">SignUp</a></div>
-        {% else %}
-            <input type="submit" name="sign" value="SignUp">
-        {% endif %}
-        <div class="clip"></div>
-    </form>
-</div>
-<script>
-    $('.sign').on('click', ()=>{
-        window.location = '/signUp';
-    })
-</script>
+{% block body%}
+
 {% endblock %}
 
 
