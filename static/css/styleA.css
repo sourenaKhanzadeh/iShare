@@ -170,9 +170,17 @@ nav {
 .repos {
   display: grid;
   width: 85%;
-  height: 90vh;
+  height: auto;
   border: 1px solid #b6b6b6;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto; }
+  .repos .git-profile {
+    margin: 10px 20px; }
+    .repos .git-profile img {
+      width: auto;
+      height: 100px;
+      border-radius: 20px; }
+    .repos .git-profile h2 {
+      font-size: 12pt; }
 
 /* LANDING PAGE ENDS HERE */

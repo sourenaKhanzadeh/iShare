@@ -3,12 +3,23 @@
 {% block body%}
 <div class="repos">
     {% for user in users %}
-    <div>{{user['login']}}</div>
+    <div class="git-profile">
+        <img src="{{user['avatar_url']}}">
+        <h2>{{user['login']}}</h2>
+    </div>
     {% endfor %}
 </div>
 <script>
     $('#search').on('click', ()=>{
         $('.loading').css('display', 'block');
+        window.location = $('#sea').val();
+    });
+    document.addEventListener('keyup', (event)=>{
+        if(event.which === 13 || evet.key === 13)
+        {
+            $('.loading').css('display', 'block');
+            window.location = $('#sea').val();
+        }
     })
 </script>
 {% endblock %}
