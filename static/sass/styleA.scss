@@ -47,8 +47,8 @@ nav{
 }
 /* Nav ENDS HERE */
 
-/* LANDING PAGE STARTS HERE */
-.landing{
+/* LOGIN PAGE STARTS HERE */
+.login{
   @include flexCenter;
   @mixin land-btn{
     border: border('default');
@@ -122,4 +122,15 @@ nav{
   height: $width;
   animation: spin 3s infinite, changeColor 3s infinite;
 }
-/* LANDING ENDS HERE */
+/* LOGIN ENDS HERE */
+
+/* LANDING PAGE BEGINS HERE */
+.repos{
+  display: grid;
+  width: 85%;
+  height: 90vh;
+  border: border('default');
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+}
+/* LANDING PAGE ENDS HERE */

@@ -100,8 +100,8 @@ nav {
     float: right; }
 
 /* Nav ENDS HERE */
-/* LANDING PAGE STARTS HERE */
-.landing {
+/* LOGIN PAGE STARTS HERE */
+.login {
   /*
   flex objects and
   center it
@@ -110,7 +110,7 @@ nav {
   width: 100%;
   height: 100%;
   justify-content: center; }
-  .landing form {
+  .login form {
     position: relative;
     border: 1px solid #b6b6b6;
     padding: 150px 30px;
@@ -118,24 +118,24 @@ nav {
     align-self: center;
     align-content: center;
     box-shadow: 10px 10px 200px 55px #a0a0a0; }
-    .landing form label, .landing form input, .landing form .sign {
+    .login form label, .login form input, .login form .sign {
       width: 100%;
       margin: 10px 0; }
-    .landing form input {
+    .login form input {
       border: 1px solid #b6b6b6;
       padding: 10px;
       border-radius: 20px;
       transition: background-color 250ms ease-in-out; }
-      .landing form input:focus {
+      .login form input:focus {
         outline: none;
         background-color: #BEDB39; }
-      .landing form input[type='submit'] {
+      .login form input[type='submit'] {
         cursor: pointer;
         color: lavender;
         background-color: #FFB03B; }
-        .landing form input[type='submit']:hover {
+        .login form input[type='submit']:hover {
           background-color: #FD7400; }
-    .landing form .sign {
+    .login form .sign {
       border: 1px solid #b6b6b6;
       padding: 10px;
       border-radius: 20px;
@@ -143,9 +143,9 @@ nav {
       cursor: pointer;
       text-align: center;
       background-color: #D95B5B; }
-      .landing form .sign:hover {
+      .login form .sign:hover {
         background-color: #F2385A; }
-    .landing form .clip {
+    .login form .clip {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -165,4 +165,14 @@ nav {
   height: 100px;
   animation: spin 3s infinite, changeColor 3s infinite; }
 
-/* LANDING ENDS HERE */
+/* LOGIN ENDS HERE */
+/* LANDING PAGE BEGINS HERE */
+.repos {
+  display: grid;
+  width: 85%;
+  height: 90vh;
+  border: 1px solid #b6b6b6;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto; }
+
+/* LANDING PAGE ENDS HERE */

@@ -1,7 +1,11 @@
 {% extends './template/header.html'%}
 
 {% block body%}
-
+<div class="repos">
+    {% for user in users %}
+    <div>{{user['login']}}</div>
+    {% endfor %}
+</div>
 <script>
     $('#search').on('click', ()=>{
         $('.loading').css('display', 'block');
