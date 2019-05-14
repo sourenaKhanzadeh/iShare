@@ -144,4 +144,14 @@ nav{
     }
   }
 }
+.page{
+  text-align: center;
+  color: color('skin-tan2');
+  font: {
+    size: 15pt;
+  };
+  .fa{
+    cursor: pointer;
+  }
+}
 /* LANDING PAGE ENDS HERE */

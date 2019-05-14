@@ -1,5 +1,6 @@
 from app import app, request, render_template
-from myModules.git.repos import Repo, GitUser
+from myModules.git.repos import Repo
+from myModules.git.users import GitUser
 # import the post login
 from myModules.model.login import *
 # import the get signUP
@@ -13,9 +14,10 @@ def welcome():
 
 @app.route('/<user>')
 def search(user):
-    search = GitUser(user)
+    search = GitUser(user, request.args.get('page'))
     users = []
-    for use in search.users:
-        users.append(use)
+    if 'items' in search.users:
+        for use in search.users['items']:
+            users.append(use)
 
-    return render_template('pages/landingpage.html', session=session, users=users)
+    return render_template('pages/landingpage.html', session=session, users=users, page=search.page, search=user)

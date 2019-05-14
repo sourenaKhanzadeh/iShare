@@ -26,16 +26,3 @@ class Repo:
     def getStars(self):
         return self.rep['stargazers_count']
 
-
-class GitUser:
-
-    def __init__(self, user):
-        self.users = self.search(user)['items']
-
-
-    def search(self, user):
-        return requests.get(gitApi + 'search/users?q=' + user).json()
-
-    def getRepo(self, repo):
-        rep = Repo(self.users['login'], repo)
-        return  rep.rep

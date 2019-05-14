@@ -2,14 +2,20 @@
 
 {% block body%}
 <div class="repos">
-    {% for user in users %}
-    <div class="git-profile">
-        <img src="{{user['avatar_url']}}">
-        <h2>{{user['login']}}</h2>
-    </div>
-    {% endfor %}
+    {% if users %}
+        {% for user in users %}
+        <div class="git-profile">
+            <img src="{{user['avatar_url']}}">
+            <h2>{{user['login']}}</h2>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="page">
+    <i class="fa fa-angle-double-left"></i>  {{page}}  <i class="fa fa-angle-double-right"></i>
 </div>
 <script>
+    let page = {{page}};
     $('#search').on('click', ()=>{
         $('.loading').css('display', 'block');
         window.location = $('#sea').val();
@@ -20,7 +26,16 @@
             $('.loading').css('display', 'block');
             window.location = $('#sea').val();
         }
-    })
+    });
+    $('.fa-angle-double-right').on('click', ()=>{
+        page++;
+        window.location = `{{user}}?page=${page}`;
+    });
+    if(page > 1)
+    $('.fa-angle-double-left').on('click', ()=>{
+        page--;
+        window.location = `{{user}}?page=${page}`;
+    });
 </script>
 {% endblock %}
 

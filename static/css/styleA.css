@@ -183,4 +183,11 @@ nav {
     .repos .git-profile h2 {
       font-size: 12pt; }
 
+.page {
+  text-align: center;
+  color: #E87551;
+  font-size: 15pt; }
+  .page .fa {
+    cursor: pointer; }
+
 /* LANDING PAGE ENDS HERE */
