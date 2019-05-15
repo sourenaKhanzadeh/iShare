@@ -1,6 +1,6 @@
 from app import app, request, render_template
-from myModules.git.repos import Repo
-from myModules.git.users import GitUser
+from myModules.github.repos import Repo
+from myModules.github.users import GitUser
 # import the post login
 from myModules.model.logout import *
 from myModules.model.login import *

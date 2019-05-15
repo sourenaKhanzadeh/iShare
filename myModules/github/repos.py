@@ -1,12 +1,7 @@
 from myModules.model.database import repos
 from app import app, request, render_template
+from myModules.github.github_api import gitApi
 import requests
-
-# global git api
-gitApi = 'https://api.github.com/'
-
-class GitApi:
-    pass
 
 class Repo:
 
@@ -20,7 +15,7 @@ class Repo:
         :param owner: the user
         :param repo: the repository
         """
-        return requests.get(gitApi + 'repos/' + owner + '/' + repo).json()
+        return requests.get(gitApi.repository_url + 'repos/' + owner + '/' + repo).json()
 
 
     def getStars(self):

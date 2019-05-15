@@ -1,4 +1,6 @@
-from myModules.git.repos import *
+from myModules.github.repos import Repo
+from myModules.github.github_api import gitApi
+import requests
 
 class GitUser:
 
@@ -13,7 +15,7 @@ class GitUser:
 
 
     def search(self, user):
-        return requests.get(gitApi + f'search/users?q={user}'
+        return requests.get(gitApi.user_search_url + f'?q={user}'
                                      f'&page={self.page}'
                                      f'&per_page={self.per_page}').json()
 
@@ -22,4 +24,4 @@ class GitUser:
         return  rep.rep
 
     def allRepo(self, user):
-        return requests.get(gitApi + 'users/' + user + '/repos')
+        return requests.get(gitApi.getUserRepo(user))
