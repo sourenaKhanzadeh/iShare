@@ -41,19 +41,21 @@ nav{
 
     .nav-right{
       float: right;
-      ul > ul{
+      ul  ul{
         position: fixed;
         right: 0;
+        $top: 40px;
         li{
           @include hoverUnderline(150ms);
           position: fixed;
           right: 0;
-          top: 40px;
+          top: $top;
           width: 100px;
           padding: 10px;
-          height: auto;
           background-color: color('skin-tan2');
-
+        }
+        #upload{
+          top: ($top + 40px);
         }
       }
     }

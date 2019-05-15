@@ -98,26 +98,27 @@ nav {
       border: none; }
   nav ul .nav-right {
     float: right; }
-    nav ul .nav-right ul > ul {
+    nav ul .nav-right ul ul {
       position: fixed;
       right: 0; }
-      nav ul .nav-right ul > ul li {
+      nav ul .nav-right ul ul li {
         cursor: pointer;
         position: fixed;
         right: 0;
         top: 40px;
         width: 100px;
         padding: 10px;
-        height: auto;
         background-color: #E87551; }
-        nav ul .nav-right ul > ul li::after {
+        nav ul .nav-right ul ul li::after {
           content: '';
           display: block;
           border-bottom: 1px solid lavender;
           width: 0;
           transition: all 150ms ease-in-out; }
-        nav ul .nav-right ul > ul li:hover::after {
+        nav ul .nav-right ul ul li:hover::after {
           width: 100%; }
+      nav ul .nav-right ul ul #upload {
+        top: 80px; }
 
 /* Nav ENDS HERE */
 /* LOGIN PAGE STARTS HERE */
