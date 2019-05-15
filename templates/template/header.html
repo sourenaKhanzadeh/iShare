@@ -17,21 +17,47 @@
 <nav>
     <ul>
         <li>
+            {% if users%}
             Search <input id="sea" type="text" name="search" placeholder="search......"><button id="search"><i class="fa fa-search"></i></button>
+            {% endif %}
         </li>
-        <li class="underline">Browse All Time</li>
+        <li class="underline"><a href="/">Browse All Time</a></li>
         <div class="nav-right">
             <ul>
                 <li class="underline">About</li>
-                {% if not session %}
+                {% if not session['username'] %}
                 <li class="underline"><a href="/account/login">Login/Register</a></li>
                 {% else %}
                 <li class="underline" id="user"><a href="/">Hello , {{session['username']}}</a></li>
+                <ul>
+                    <li id="logout">
+                        Log Out
+                    </li>
+                </ul>
                 {% endif %}
             </ul>
         </div>
     </ul>
 </nav>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flashes">
+            {% for message in messages %}
+                {% with suc = 'Success' in message%}
+                    {% if suc %}
+                        <div class="flash-success">{{message}}</div>
+                    {% else %}
+                        <div class="flash-failure">{{message}}</div>
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
 {% block body %}{% endblock %}
-
+<script>
+    $('#logout').on('click',()=>{
+        window.location = '/account/logout';
+    })
+</script>
 {% extends './template/footer.html'%}

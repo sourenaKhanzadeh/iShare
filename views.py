@@ -2,7 +2,9 @@ from app import app, request, render_template
 from myModules.git.repos import Repo
 from myModules.git.users import GitUser
 # import the post login
+from myModules.model.logout import *
 from myModules.model.login import *
+# import the get logout
 # import the get signUP
 from myModules.model.signup import *
 
@@ -10,7 +12,7 @@ from myModules.model.signup import *
 def welcome():
     # get all users with name
 
-    return render_template('pages/landingpage.html', session=session)
+    return render_template('pages/landingpage.html', session=session, page=0)
 
 @app.route('/<user>')
 def search(user):
@@ -20,4 +22,10 @@ def search(user):
         for use in search.users['items']:
             users.append(use)
 
-    return render_template('pages/landingpage.html', session=session, users=users, page=search.page, search=user)
+    return render_template('pages/landingpage.html',
+                           session=session,
+                           users=users,
+                           page=search.page,
+                           search=user)
+
+

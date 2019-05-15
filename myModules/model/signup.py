@@ -1,6 +1,7 @@
 from app import app, request, render_template
 from myModules.model.database import all_users
 from myModules.model.hash import User
+from flask import flash, redirect
 
 @app.route('/account/register', methods=['GET', 'POST'])
 def register():
@@ -14,7 +15,8 @@ def register():
         username = all_users.find({'username': user.username})
 
         # if user exist in the database then return a flash
-        # TODO: CREATE A FLASH FOR THE ERROR
+        # CREATE A FLASH FOR THE ERROR
+
         if username.count()  == 0:
             # get all users data
             user = {
@@ -24,13 +26,15 @@ def register():
             }
             # insert user into the database
             all_users.insert(user)
-
+            # user created...
+            flash("User Successfully Registered")
             # go back to the landing page
-            return '<script>window.location = "/"</script>'
+            return redirect('/?Register=success')
 
         else:
             #TODO: GET ALL ERRORS AND DISPLAY IT AS WARNING TO THE USER
-            return 'User Exist In The Database'
+            flash("Username Already Taken")
+            return render_template('pages/login-register.html', sign=True)
 
     # User is filling the form
     elif request.method == "GET":

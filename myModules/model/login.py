@@ -1,7 +1,7 @@
 from app import app, request, render_template
 from myModules.model.database import all_users
 from myModules.model.hash import *
-from flask import session, redirect
+from flask import session, redirect, flash
 
 @app.route("/account/login", methods=['GET', 'POST'])
 def login():
@@ -16,8 +16,9 @@ def login():
         username = all_users.find_one({'username': request.form['username']})
         # user not in the database
         if username is None:
-            #TODO: Make Flash User
-            return 'Username Does Not Exist'
+            # User Does Not Exist Message Sent
+            flash("User Does Not Exist....")
+            return  render_template('pages/login-register.html', sign=False)
         else:
             password = username['password']
 
@@ -28,11 +29,14 @@ def login():
             if check:
                 # store username in a session
                 session['username'] = request.form['username']
+                # inform the user they have succesfully signed in
+                flash('Login Successful')
                 # then redirect to the homepage
                 return redirect('/?login=success')
 
             # else tell the user they entered the wrong password
-            # TODO: Flash User The Info
-            return 'Wrong password entered'
+            # Flash User The Info
+            flash("Password Incorrect...")
+            return render_template('pages/login-register.html', sign=False)
 
 

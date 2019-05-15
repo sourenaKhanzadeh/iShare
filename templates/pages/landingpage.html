@@ -1,40 +1,59 @@
 {% extends './template/header.html'%}
 
 {% block body%}
-<div class="repos">
-    {% if users %}
-        {% for user in users %}
-        <div class="git-profile">
-            <img src="{{user['avatar_url']}}">
-            <h2>{{user['login']}}</h2>
-        </div>
-        {% endfor %}
-    {% endif %}
-</div>
-<div class="page">
-    <i class="fa fa-angle-double-left"></i>  {{page}}  <i class="fa fa-angle-double-right"></i>
-</div>
+{% if users %}
+    <div class="repos">
+            {% for user in users %}
+            <div class="git-profile">
+                <img src="{{user['avatar_url']}}">
+                <h2>{{user['login']}}</h2>
+            </div>
+            {% endfor %}
+    <div class="loading"></div>
+    </div>
+    <div class="page">
+        <i class="fa fa-angle-double-left"></i>  <span> {{page}} </span> <i class="fa fa-angle-double-right"></i>
+    </div>
+{% else %}
+    <div class="welcome">
+        <h1>Welcome To iShare</h1>
+        <h2>Search</h2>
+        <input id="sea" type="text" name="search">
+        <button id="search">
+            GO
+        </button>
+        <div class="loading"></div>
+
+    </div>
+{% endif %}
 <script>
     let page = {{page}};
-    $('#search').on('click', ()=>{
-        $('.loading').css('display', 'block');
+    function search(){
+        /*
+        * search git api
+        * */
+        document.querySelector('.loading').style.display = 'block';
         window.location = $('#sea').val();
+    }
+    $('#search').on('click', ()=>{
+        search();
     });
     document.addEventListener('keyup', (event)=>{
         if(event.which === 13 || evet.key === 13)
         {
-            $('.loading').css('display', 'block');
-            window.location = $('#sea').val();
+            search();
         }
     });
     $('.fa-angle-double-right').on('click', ()=>{
         page++;
         window.location = `{{user}}?page=${page}`;
+        document.querySelector('.loading').style.display = 'block';
     });
     if(page > 1)
     $('.fa-angle-double-left').on('click', ()=>{
         page--;
         window.location = `{{user}}?page=${page}`;
+        document.querySelector('.loading').style.display = 'block';
     });
 </script>
 {% endblock %}
