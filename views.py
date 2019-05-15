@@ -18,10 +18,16 @@ def welcome():
 def search(user):
     search = GitUser(user, request.args.get('page'))
     users = []
+
     if 'items' in search.users:
+        # get all gits search result and append it
         for use in search.users['items']:
             users.append(use)
 
+    # if user was not found
+    if len(users) == 0:
+        # message the user
+        flash("No Result Found.....")
     return render_template('pages/landingpage.html',
                            session=session,
                            users=users,
