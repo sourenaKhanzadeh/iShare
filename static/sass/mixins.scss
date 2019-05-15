@@ -33,3 +33,18 @@
     padding: 10px;
     border-radius: 5px;
 }
+
+@mixin land-btn{
+    border: border('default');
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+@mixin centerAbsolute{
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+
+}

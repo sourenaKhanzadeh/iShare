@@ -276,4 +276,42 @@ nav {
 
 /* FLASHES ENDS HERE */
 /* Upload Begins Here */
+.upload {
+  display: flex;
+  justify-content: center; }
+  .upload form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 80%;
+    height: 100vh;
+    padding: 25px; }
+    .upload form::before {
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      left: 0;
+      margin: 0 auto;
+      content: 'Upload a project';
+      display: block;
+      height: 25em;
+      border: 1px solid #D95B5B;
+      color: #D95B5B; }
+    .upload form input[type='submit'] {
+      border: 1px solid #b6b6b6;
+      padding: 10px;
+      border-radius: 20px;
+      color: lavender;
+      cursor: pointer;
+      text-align: center;
+      background-color: #D95B5B;
+      margin-top: 20px;
+      transition: background-color 250ms ease-in-out; }
+      .upload form input[type='submit']:hover {
+        background-color: #F2385A; }
+    .upload form textarea {
+      resize: none; }
+
 /* Upload Ends Here */

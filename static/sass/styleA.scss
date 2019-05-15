@@ -67,11 +67,6 @@ nav{
 /* LOGIN PAGE STARTS HERE */
 .login{
   @include flexCenter;
-  @mixin land-btn{
-    border: border('default');
-    padding: 10px;
-    border-radius: 20px;
-  }
 
   form{
     position: relative;
@@ -238,6 +233,44 @@ nav{
 
 /* Upload Begins Here */
 .upload{
+  display: flex;
+  justify-content: center;
+  form{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    width: 80%;
+    height: 100vh;
+    padding: 25px;
+    &::before{
+      @include centerAbsolute;
+      content: 'Upload a project';
+      display: block;
+      height: 25em;
+      border: 1px solid color('pink-gentle');
+      color: color('pink-gentle');
 
+    }
+    input{
+      &[type='submit']{
+        @include land-btn;
+        color:lavender;
+        cursor: pointer;
+        text-align: center;
+        background-color: color('pink-gentle');
+        margin-top: 20px;
+        transition: background-color 250ms ease-in-out;
+        &:hover{
+          background-color: color('pink-hot');
+        }
+      }
+
+    }
+    textarea{
+      resize: none;
+    }
+  }
 }
 /* Upload Ends Here */
