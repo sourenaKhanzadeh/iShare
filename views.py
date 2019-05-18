@@ -4,7 +4,7 @@ from myModules.github.users import GitUser
 # import the post login
 from myModules.model.logout import *
 from myModules.model.login import *
-from myModules.project_manager.upload import *
+from myModules.paper_manager.upload import *
 # import the get logout
 # import the get signUP
 from myModules.model.signup import *

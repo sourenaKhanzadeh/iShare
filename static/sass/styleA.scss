@@ -246,7 +246,7 @@ nav{
     padding: 25px;
     &::before{
       @include centerAbsolute;
-      content: 'Upload a project';
+      content: 'Upload a paper';
       display: block;
       height: 25em;
       border: 1px solid color('pink-gentle');

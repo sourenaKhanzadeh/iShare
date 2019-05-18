@@ -3,11 +3,13 @@
 {% block body%}
 
 <div class="upload">
-    <form align="center">
+    <form align="center" method="post">
         <label for="title">Title</label>
         <input type="text" name="title">
         <label for="repo">Url to The Repository</label>
         <input type="text" name="repo">
+        <label for="pdf">Url to The PDF</label>
+        <input type="text" name="pdf">
         <label for="desc">Description</label>
         <textarea name="desc" cols="6" rows="6"></textarea>
         <input type="submit" name="submit" value="Upload" onclick="preload()">
