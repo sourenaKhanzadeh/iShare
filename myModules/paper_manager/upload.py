@@ -12,10 +12,10 @@ def upload(user):
         # insert into the database
         repos.insert({
             'username':session['username'],
-            'Title: ': request.form['title'],
-            'url_repo: ': request.form['repo'],
-            'url_pdf: ': request.form['pdf'],
-            'description: ': request.form['desc']
+            'title': request.form['title'],
+            'url_repo': request.form['repo'],
+            'url_pdf': request.form['pdf'],
+            'description': request.form['desc']
         })
         # success flash popped up
         flash("Paper Successfully Uploaded")

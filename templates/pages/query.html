@@ -1,0 +1,17 @@
+{% extends './template/header.html'%}
+
+{% block body%}
+<div class="query">
+    {% for query in queries %}
+        <section>
+            <h1>{{ query['title'] }}</h1>
+            <h3>{{ query['username'] }}</h3>
+            <h3>{{ query['url_repo'] }}</h3>
+            <h3>{{ query['url_pdf'] }}</h3>
+            <h3>{{ query['description'] }}</h3>
+        </section>
+    {% endfor%}
+</div>
+
+
+{% endblock %}
