@@ -9,6 +9,7 @@ class GitUser:
             page = 1
         self.page = page
         self.per_page = per_page
+        self.user = user
         self.repos = self.allRepo(user)
         self.users = self.search(user)
 
@@ -20,8 +21,12 @@ class GitUser:
                                      f'&per_page={self.per_page}').json()
 
     def getRepo(self, repo):
-        rep = Repo(self.users['login'], repo)
-        return  rep.rep
+        return Repo(self.user, repo)
+
 
     def allRepo(self, user):
-        return requests.get(gitApi.getUserRepo(user))
+        return requests.get(gitApi.getUserRepos(user))
+
+    def getRepoStar(self, repo):
+        repo = self.getRepo(repo)
+        return repo.getStars()

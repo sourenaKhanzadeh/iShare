@@ -48,3 +48,23 @@
   margin: 0 auto;
 
 }
+
+@mixin after($text){
+      &::after{
+        content: $text;
+        font-size: 0.5em;
+        color: lavenderblush;
+        margin-left: 5px;
+      }
+}
+
+@mixin changeColor($color){
+  transition: 350ms color ease-in-out, 1s background-color ease-in-out;
+  &:hover{
+    color: $color;
+    background-color: transparent;
+    &::after{
+      color: inherit;
+    }
+  }
+}

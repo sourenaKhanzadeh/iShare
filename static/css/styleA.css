@@ -311,6 +311,10 @@ nav {
       transition: background-color 250ms ease-in-out; }
       .upload form input[type='submit']:hover {
         background-color: #F2385A; }
+    .upload form input[type='file'] {
+      border: none; }
+    .upload form #label-img {
+      text-align: justify; }
     .upload form textarea {
       resize: none; }
 
@@ -319,5 +323,64 @@ nav {
 .query {
   display: flex;
   flex-direction: column; }
+  .query section {
+    position: relative;
+    margin: 40px 0;
+    border: 1px solid #F2385A;
+    box-shadow: 0 0 50px 10px #00000055;
+    display: flex;
+    flex-direction: column; }
+    .query section h1 {
+      font-size: 2em;
+      background-color: #F2385A;
+      color: lavenderblush;
+      padding: 5px; }
+    .query section h4, .query section p {
+      margin-left: 5px; }
+    .query section p {
+      height: 150px;
+      overflow-y: scroll;
+      overflow-wrap: normal; }
+    .query section h4 {
+      color: #5F5F5F;
+      font-size: 0.85em; }
+    .query section a {
+      float: right;
+      font-size: 2.5em;
+      padding: 10px; }
+    .query section i {
+      font-size: 2.5rem;
+      margin: 10px; }
+    .query section .git {
+      background-color: #FD7400;
+      transition: 350ms color ease-in-out, 1s background-color ease-in-out; }
+      .query section .git::after {
+        content: "Code";
+        font-size: 0.5em;
+        color: lavenderblush;
+        margin-left: 5px; }
+      .query section .git:hover {
+        color: #FD7400;
+        background-color: transparent; }
+        .query section .git:hover::after {
+          color: inherit; }
+    .query section .pdf {
+      padding: 10px 15px;
+      background-color: #468966;
+      transition: 350ms color ease-in-out, 1s background-color ease-in-out; }
+      .query section .pdf::after {
+        content: "Paper";
+        font-size: 0.5em;
+        color: lavenderblush;
+        margin-left: 5px; }
+      .query section .pdf:hover {
+        color: #468966;
+        background-color: transparent; }
+        .query section .pdf:hover::after {
+          color: inherit; }
+    .query section .fa-star {
+      color: orange;
+      position: sticky;
+      top: 5px; }
 
 /* QUERY ENDS HERE */

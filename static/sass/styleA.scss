@@ -266,7 +266,12 @@ nav{
           background-color: color('pink-hot');
         }
       }
-
+      &[type='file']{
+        border:none;
+      }
+    }
+    #label-img{
+      text-align: justify;
     }
     textarea{
       resize: none;
@@ -279,6 +284,57 @@ nav{
 .query{
   display: flex;
   flex-direction: column;
-  
+  section{
+    position: relative;
+    margin: 40px 0;
+    border: 1px solid color('pink-hot');
+    box-shadow: 0 0 50px 10px #00000055;
+    display: flex;
+    flex-direction: column;
+    h1{
+      font-size: 2em;
+      background-color: color('pink-hot');
+      color: lavenderblush;
+      padding: 5px;
+    }
+    h4, p{
+      margin-left: 5px;
+    }
+    p{
+      height: 150px;
+      overflow-y: scroll;
+      overflow-wrap: normal;
+    }
+    h4{
+      color: color('metal-irondark');
+      font-size: 0.85em;
+    }
+    a{
+      float:right;
+      font-size: 2.5em;
+      padding: 10px;
+    }
+    i{
+      font-size: 2.5rem;
+      margin: 10px;
+    }
+    .git{
+      background-color: color('orange-dark');
+      @include after('Code');
+      @include changeColor(color('orange-dark'));
+    }
+    .pdf{
+      padding: 10px 15px;
+      background-color: color('green-jade');
+      @include after('Paper');
+      @include changeColor(color('green-jade'));
+    }
+    .fa-star{
+      color: orange;
+      position: sticky;
+      top: 5px;
+    }
+
+  }
 }
 /* QUERY ENDS HERE */

@@ -15,7 +15,7 @@ class Repo:
         :param owner: the user
         :param repo: the repository
         """
-        return requests.get(gitApi.repository_url + 'repos/' + owner + '/' + repo).json()
+        return requests.get(gitApi.repository_url + owner + '/' + repo).json()
 
 
     def getStars(self):

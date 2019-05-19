@@ -38,9 +38,10 @@ class GitApi:
         self.user_organizations_url = "https://api.github.com/user/orgs"
         self.user_search_url = "https://api.github.com/search/users"#q={query}{&page,&per_page,&sort,&order}
 
-    def getUserRepo(self, user, q=''):
+    def getUserRepos(self, user, q=''):
         user_repositories_url = f"https://api.github.com/users/{user}/repos{q}"#?type,page,per_page,sort
         return user_repositories_url
+
 
 # global github api
 gitApi = GitApi()
