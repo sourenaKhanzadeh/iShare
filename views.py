@@ -6,8 +6,8 @@ from myModules.model.logout import *
 from myModules.model.login import *
 from myModules.paper_manager.upload import *
 from myModules.paper_manager.query import *
-# import the get logout
-# import the get signUP
+# import logout
+# import signUP
 from myModules.model.signup import *
 
 @app.route('/')

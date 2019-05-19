@@ -19,5 +19,21 @@ class Repo:
 
 
     def getStars(self):
-        return self.rep['stargazers_count']
+        """
+        get repo star
+        :return: repo star
+        """
+        try:
+            return self.rep['stargazers_count']
+        except KeyError:
+            return self.rep
 
+    def getAvatar(self):
+        """
+        get repo avatar
+        :return: repo avatar
+        """
+        try:
+            return self.rep['owner']['avatar_url']
+        except KeyError:
+            return self.rep

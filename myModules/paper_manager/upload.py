@@ -22,11 +22,23 @@ def upload(user):
         repo = request.form['repo'].replace('https://github.com/', '')
         user, repo = repo.split('/')
 
-        # Get user Repo
+        # Get user
         user = GitUser(user)
+        # Get user repo
+        user_repo = user.getRepo(repo)
 
         # get Users stars
-        stars = user.getRepoStar(repo)
+        stars = user_repo.getStars()
+
+        # get owner avatar
+        avatar = user_repo.getAvatar()
+
+        # Api maximum limit has reached
+        if isinstance(stars, dict) or isinstance(avatar, dict):
+            # Flash the message
+            flash(stars)
+            # redirect to homepage
+            return redirect('/')
 
         # insert into the database
         repos.insert({
@@ -36,8 +48,10 @@ def upload(user):
             'url_pdf': request.form['pdf'],
             'date': f'{date}',
             'description': request.form['desc'],
-            'star':stars
+            'star':stars,
+            'avatar':avatar
         })
+
         # success flash popped up
         flash("Paper Successfully Uploaded")
         # redirect to the homepage

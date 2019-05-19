@@ -266,12 +266,6 @@ nav{
           background-color: color('pink-hot');
         }
       }
-      &[type='file']{
-        border:none;
-      }
-    }
-    #label-img{
-      text-align: justify;
     }
     textarea{
       resize: none;
@@ -333,6 +327,11 @@ nav{
       color: orange;
       position: sticky;
       top: 5px;
+    }
+    img{
+      $portion: 60px;
+      width: $portion;
+      height: $portion;
     }
 
   }

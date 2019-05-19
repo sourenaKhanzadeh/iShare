@@ -311,10 +311,6 @@ nav {
       transition: background-color 250ms ease-in-out; }
       .upload form input[type='submit']:hover {
         background-color: #F2385A; }
-    .upload form input[type='file'] {
-      border: none; }
-    .upload form #label-img {
-      text-align: justify; }
     .upload form textarea {
       resize: none; }
 
@@ -382,5 +378,8 @@ nav {
       color: orange;
       position: sticky;
       top: 5px; }
+    .query section img {
+      width: 60px;
+      height: 60px; }
 
 /* QUERY ENDS HERE */
