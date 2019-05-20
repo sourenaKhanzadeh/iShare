@@ -16,12 +16,8 @@
 <body>
 <!-- CREATING A NAV-BAR -->
 <nav>
+    <i class="fas fa-grip-horizontal" id="menu" onclose="defaultNav();"></i>
     <ul>
-        <li>
-            {% if users%}
-            Search <input id="sea" type="text" name="search" placeholder="search......"><button id="search"><i class="fa fa-search"></i></button>
-            {% endif %}
-        </li>
         <li class="underline"><a href="/Browse-all-time">Browse All Time</a></li>
         <div class="nav-right">
             <ul>
@@ -59,12 +55,5 @@
     {% endif %}
 {% endwith %}
 {% block body %}{% endblock %}
-<script>
-    $('#logout').on('click',()=>{
-        window.location = '/account/logout';
-    });
-    function preload(){
-        $('.loading').css('display', 'block');
-    }
-</script>
+<script src="{{ url_for('static', filename='js/header.js') }}"></script>
 {% extends './template/footer.html'%}

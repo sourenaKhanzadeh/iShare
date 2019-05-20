@@ -22,8 +22,10 @@ def millify(n):
 @app.route('/Browse-all-time')
 def allTime():
     # get all the repos
-    query = repos.find()
+    # sort by star in descending order
+    query = repos.find().sort('star', -1)
     queries = []
+
     # query all the repos
     for i in range(query.count()):
         # get the next data

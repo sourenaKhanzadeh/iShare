@@ -76,26 +76,43 @@ nav {
   width: 100%;
   height: 50px;
   top: 0;
-  z-index: 10; }
-  nav ul li {
-    float: left;
-    margin: 20px 10px;
-    list-style-type: none; }
-    nav ul li::before {
-      content: '';
-      clear: both;
-      display: table; }
-    nav ul li input {
-      border-color: lavender;
-      padding: 2.5px; }
-      nav ul li input::placeholder {
-        color: inherit; }
-    nav ul li button {
-      cursor: pointer;
-      color: lavender;
-      font-size: 15pt;
-      background-color: transparent;
-      border: none; }
+  z-index: 10;
+  transition: height 350ms ease-in-out; }
+  nav .fa-grip-horizontal {
+    cursor: pointer;
+    font-size: 2.5em;
+    text-align: center;
+    width: 100%;
+    margin: 5px auto; }
+    @media (min-width: 800px) {
+      nav .fa-grip-horizontal {
+        display: none; } }
+  @media (min-width: 200px) {
+    nav ul {
+      display: none; } }
+  @media (min-width: 800px) {
+    nav ul {
+      display: block; } }
+  @media (min-width: 800px) {
+    nav ul li {
+      float: left;
+      margin: 20px 10px;
+      list-style-type: none; }
+      nav ul li::before {
+        content: '';
+        clear: both;
+        display: table; } }
+  nav ul li input {
+    border-color: lavender;
+    padding: 2.5px; }
+    nav ul li input::placeholder {
+      color: inherit; }
+  nav ul li button {
+    cursor: pointer;
+    color: lavender;
+    font-size: 15pt;
+    background-color: transparent;
+    border: none; }
   nav ul .nav-right {
     float: right; }
     nav ul .nav-right ul ul {
@@ -318,7 +335,14 @@ nav {
 /* QUERY BEGINS HERE */
 .query {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin: 0 auto; }
+  @media (min-width: 200px) {
+    .query {
+      width: 100%; } }
+  @media (min-width: 800px) {
+    .query {
+      width: 90%; } }
   .query section {
     position: relative;
     margin: 40px 0;
@@ -330,7 +354,19 @@ nav {
       font-size: 2em;
       background-color: #F2385A;
       color: lavenderblush;
-      padding: 5px; }
+      padding: 5px;
+      cursor: pointer; }
+      .query section h1::after {
+        content: 'View More \21D2';
+        margin-left: 30px;
+        opacity: 0;
+        font-size: 1rem;
+        transition: opacity 250ms ease-in-out, margin-left 250ms ease-in-out; }
+      .query section h1:hover {
+        background-color: #3498DB; }
+        .query section h1:hover::after {
+          opacity: 1;
+          margin-left: 80px; }
     .query section h4, .query section p {
       margin-left: 5px; }
     .query section p {
@@ -347,6 +383,12 @@ nav {
     .query section i {
       font-size: 2.5rem;
       margin: 10px; }
+      @media (min-width: 200px) {
+        .query section i {
+          width: 100%; } }
+      @media (min-width: 800px) {
+        .query section i {
+          width: auto; } }
     .query section .git {
       background-color: #FD7400;
       transition: 350ms color ease-in-out, 1s background-color ease-in-out; }
