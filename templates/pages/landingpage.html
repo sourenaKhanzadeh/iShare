@@ -27,35 +27,21 @@
     </div>
 {% endif %}
 <script>
-    let page = {{page}};
-    function search(){
-        /*
-        * search github api
-        * */
-        document.querySelector('.loading').style.display = 'block';
-        window.location = $('#sea').val();
-    }
-    $('#search').on('click', ()=>{
-        search();
-    });
-    document.addEventListener('keyup', (event)=>{
-        if(event.which === 13 || evet.key === 13)
-        {
-            search();
-        }
-    });
-    $('.fa-angle-double-right').on('click', ()=>{
-        page++;
-        window.location = `{{user}}?page=${page}`;
-        document.querySelector('.loading').style.display = 'block';
-    });
-    if(page > 1)
-    $('.fa-angle-double-left').on('click', ()=>{
-        page--;
-        window.location = `{{user}}?page=${page}`;
-        document.querySelector('.loading').style.display = 'block';
-    });
+let page = {{ page }};
+
+$('.fa-angle-double-right').on('click', ()=>{
+    page++;
+    window.location = `{{user}}?page=${page}`;
+    document.querySelector('.loading').style.display = 'block';
+});
+if(page > 1)
+$('.fa-angle-double-left').on('click', ()=>{
+    page--;
+    window.location = `{{user}}?page=${page}`;
+    document.querySelector('.loading').style.display = 'block';
+});
 </script>
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 {% endblock %}
 
 

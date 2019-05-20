@@ -68,3 +68,31 @@
     }
   }
 }
+
+@mixin hoverContent($content, $color, $margin){
+  &::after{
+        content: $content;
+        margin-left: $margin;
+        opacity: 0;
+        font-size: 1rem;
+        transition: opacity 250ms ease-in-out, margin-left 250ms ease-in-out;
+      }
+      &:hover{
+        background-color: $color;
+        &::after{
+          opacity: 1;
+          margin-left: ($margin*2);
+        }
+      }
+}
+
+@mixin beforeForm($content){
+  &::before{
+    @include centerAbsolute;
+    content: $content;
+    display: block;
+    height: 25em;
+    border: 1px solid color('pink-gentle');
+    color: color('pink-gentle');
+  }
+}

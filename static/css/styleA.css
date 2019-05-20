@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .underline {
   cursor: pointer; }
   .underline::after {
@@ -31,6 +32,7 @@ hr {
 
 /* DEFAULT BUTTON */
 button {
+  cursor: pointer;
   outline: none;
   background-color: red; }
   button:active {
@@ -293,10 +295,10 @@ nav {
 
 /* FLASHES ENDS HERE */
 /* Upload Begins Here */
-.upload {
+.upload, .edit {
   display: flex;
   justify-content: center; }
-  .upload form {
+  .upload form, .edit form {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -305,18 +307,18 @@ nav {
     width: 80%;
     height: 100vh;
     padding: 25px; }
-    .upload form::before {
+    .upload form::before, .edit form::before {
       position: absolute;
       z-index: -1;
       right: 0;
       left: 0;
       margin: 0 auto;
-      content: 'Upload a paper';
+      content: "Upload a paper";
       display: block;
       height: 25em;
       border: 1px solid #D95B5B;
       color: #D95B5B; }
-    .upload form input[type='submit'] {
+    .upload form input[type='submit'], .edit form input[type='submit'] {
       border: 1px solid #b6b6b6;
       padding: 10px;
       border-radius: 20px;
@@ -326,9 +328,9 @@ nav {
       background-color: #D95B5B;
       margin-top: 20px;
       transition: background-color 250ms ease-in-out; }
-      .upload form input[type='submit']:hover {
+      .upload form input[type='submit']:hover, .edit form input[type='submit']:hover {
         background-color: #F2385A; }
-    .upload form textarea {
+    .upload form textarea, .edit form textarea {
       resize: none; }
 
 /* Upload Ends Here */
@@ -357,7 +359,7 @@ nav {
       padding: 5px;
       cursor: pointer; }
       .query section h1::after {
-        content: 'View More \21D2';
+        content: "View More ⇒";
         margin-left: 30px;
         opacity: 0;
         font-size: 1rem;
@@ -366,7 +368,7 @@ nav {
         background-color: #3498DB; }
         .query section h1:hover::after {
           opacity: 1;
-          margin-left: 80px; }
+          margin-left: 60px; }
     .query section h4, .query section p {
       margin-left: 5px; }
     .query section p {
@@ -425,3 +427,46 @@ nav {
       height: 60px; }
 
 /* QUERY ENDS HERE */
+/* PROFILE BEGINS */
+.profile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; }
+  .profile section {
+    margin: 30px auto; }
+    .profile section div {
+      float: right; }
+    .profile section button {
+      width: 6em;
+      height: 3em;
+      color: lavenderblush;
+      background-color: #FD7400; }
+      .profile section button::after {
+        content: "⇒";
+        margin-left: 5px;
+        opacity: 0;
+        font-size: 1rem;
+        transition: opacity 250ms ease-in-out, margin-left 250ms ease-in-out; }
+      .profile section button:hover {
+        background-color: #3498DB; }
+        .profile section button:hover::after {
+          opacity: 1;
+          margin-left: 10px; }
+      .profile section button:active {
+        background-color: red; }
+
+/* PROFILE ENDS */
+/* EDIT BEGINS */
+.edit form::before {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  content: "Edit Paper";
+  display: block;
+  height: 25em;
+  border: 1px solid #D95B5B;
+  color: #D95B5B; }
+
+/* EDIT ENDS */

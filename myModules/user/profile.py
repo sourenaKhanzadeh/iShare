@@ -1,13 +1,13 @@
-from app import app, render_template
+from app import app, render_template, request
 from myModules.model.database import repos
 from flask import session, redirect, flash
 from myModules.tools.tools import millify
 
-@app.route('/Browse-all-time')
-def allTime():
+@app.route('/<user>/profile')
+def profile(user):
     # get all the repos
     # sort by star in descending order
-    query = repos.find().sort('star', -1)
+    query = repos.find({'username':user}).sort('star', -1)
     queries = []
 
     # query all the repos
@@ -18,5 +18,8 @@ def allTime():
         next_query['star'] = millify(next_query['star'])
         # append data into the query
         queries.append(next_query)
-    # render all time
-    return render_template('pages/query.html', queries=queries)
+        # render all time
+    return render_template('pages/profile.html', queries=queries)
+
+# import edit profile
+from myModules.user.edit import *

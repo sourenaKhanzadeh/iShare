@@ -265,15 +265,7 @@ nav{
     width: 80%;
     height: 100vh;
     padding: 25px;
-    &::before{
-      @include centerAbsolute;
-      content: 'Upload a paper';
-      display: block;
-      height: 25em;
-      border: 1px solid color('pink-gentle');
-      color: color('pink-gentle');
-
-    }
+    @include beforeForm('Upload a paper');
     input{
       &[type='submit']{
         @include land-btn;
@@ -320,20 +312,7 @@ nav{
       color: lavenderblush;
       padding: 5px;
       cursor: pointer;
-      &::after{
-        content: 'View More \21D2';
-        margin-left: 30px;
-        opacity: 0;
-        font-size: 1rem;
-        transition: opacity 250ms ease-in-out, margin-left 250ms ease-in-out;
-      }
-      &:hover{
-        background-color: color('blue-sky');
-        &::after{
-          opacity: 1;
-          margin-left: 80px;
-        }
-      }
+      @include hoverContent('View More \21D2', color('blue-sky'), 30px)
     }
     h4, p{
       margin-left: 5px;
@@ -387,3 +366,36 @@ nav{
   }
 }
 /* QUERY ENDS HERE */
+
+/* PROFILE BEGINS */
+.profile{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  section{
+    margin: 30px auto;
+    div{
+      float: right;
+    }
+    button{
+      width: 6em;
+      height: 3em;
+      color: lavenderblush;
+      background-color: color('orange-dark');
+      @include hoverContent('\21D2', color('blue-sky'), 5px);
+      &:active{
+        background-color: red;
+      }
+    }
+  }
+}
+/* PROFILE ENDS */
+
+/* EDIT BEGINS */
+.edit{
+  @extend .upload;
+  form{
+    @include beforeForm('Edit Paper')
+  }
+}
+/* EDIT ENDS */

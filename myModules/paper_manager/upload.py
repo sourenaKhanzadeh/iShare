@@ -1,8 +1,8 @@
 from app import app, request, render_template
 from myModules.model.database import repos
 from flask import session, redirect, flash
-from myModules.github.users import GitUser
-import datetime
+from myModules.tools.tools import validate
+
 
 def limitFile(file):
     pass
@@ -14,24 +14,8 @@ def upload(user):
         return render_template('pages/upload.html')
     # user is submitting the paper
     else:
-        # get current date
-        current = datetime.datetime.now()
-        date = current.strftime('%d %B %Y')
-
-        # trim repo
-        repo = request.form['repo'].replace('https://github.com/', '')
-        user, repo = repo.split('/')
-
-        # Get user
-        user = GitUser(user)
-        # Get user repo
-        user_repo = user.getRepo(repo)
-
-        # get Users stars
-        stars = user_repo.getStars()
-
-        # get owner avatar
-        avatar = user_repo.getAvatar()
+        # get date stars and avatar and validate data
+        date, stars, avatar = validate(request)
 
         # Api maximum limit has reached
         if isinstance(stars, dict) or isinstance(avatar, dict):
