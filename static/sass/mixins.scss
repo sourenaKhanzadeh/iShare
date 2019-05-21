@@ -96,3 +96,12 @@
     color: color('pink-gentle');
   }
 }
+
+@mixin afterCirc($content){
+      &::after{
+        content: $content;
+        color: inherit;
+        font-size: 0.65em;
+        margin: 0 3px;
+      }
+    }

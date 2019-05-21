@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d656594d-e9d6-4415-baa3-113c84b913b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myModules/admin/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/pages/admin.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/admin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/model/login.py" afterPath="$PROJECT_DIR$/myModules/model/login.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/model/signup.py" afterPath="$PROJECT_DIR$/myModules/model/signup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/paper_manager/upload.py" afterPath="$PROJECT_DIR$/myModules/paper_manager/upload.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/user/edit.py" afterPath="$PROJECT_DIR$/myModules/user/edit.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styleA.css" afterPath="$PROJECT_DIR$/static/css/styleA.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/header.js" afterPath="$PROJECT_DIR$/static/js/header.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sass/mixins.scss" afterPath="$PROJECT_DIR$/static/sass/mixins.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sass/styleA.scss" afterPath="$PROJECT_DIR$/static/sass/styleA.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/profile.html" afterPath="$PROJECT_DIR$/templates/pages/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/query.html" afterPath="$PROJECT_DIR$/templates/pages/query.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/template/header.html" afterPath="$PROJECT_DIR$/templates/template/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views.py" afterPath="$PROJECT_DIR$/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/admin.html" afterPath="$PROJECT_DIR$/templates/pages/admin.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,12 +60,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="admin.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/pages/admin.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+                <state relative-caret-position="408">
+                  <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
                   <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/static/js/admin.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -85,8 +91,8 @@
               <file leaf-file-name="styleA.scss" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/static/sass/styleA.scss">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="186">
-                      <caret line="435" column="19" lean-forward="false" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
+                    <state relative-caret-position="390">
+                      <caret line="442" column="29" lean-forward="false" selection-start-line="442" selection-start-column="29" selection-end-line="442" selection-end-column="29" />
                       <folding />
                     </state>
                   </provider>
@@ -105,8 +111,8 @@
               <file leaf-file-name="mixins.scss" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/static/sass/mixins.scss">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="183">
-                      <caret line="95" column="32" lean-forward="false" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+                    <state relative-caret-position="217">
+                      <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
                       <folding />
                     </state>
                   </provider>
@@ -135,9 +141,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -174,13 +180,11 @@
         <option value="$PROJECT_DIR$/templates/pages/upload.html" />
         <option value="$PROJECT_DIR$/myModules/github/users.py" />
         <option value="$PROJECT_DIR$/myModules/github/repos.py" />
-        <option value="$PROJECT_DIR$/static/js/header.js" />
         <option value="$PROJECT_DIR$/static/js/landing.js" />
         <option value="$PROJECT_DIR$/templates/pages/landingpage.html" />
         <option value="$PROJECT_DIR$/myModules/paper_manager/query.py" />
         <option value="$PROJECT_DIR$/static/sass/media.scss" />
         <option value="$PROJECT_DIR$/static/sass/defaults.scss" />
-        <option value="$PROJECT_DIR$/static/sass/mixins.scss" />
         <option value="$PROJECT_DIR$/templates/pages/edit.html" />
         <option value="$PROJECT_DIR$/myModules/user/profile.py" />
         <option value="$PROJECT_DIR$/myModules/tools/tools.py" />
@@ -193,8 +197,11 @@
         <option value="$PROJECT_DIR$/templates/template/header.html" />
         <option value="$PROJECT_DIR$/myModules/admin/admin.py" />
         <option value="$PROJECT_DIR$/views.py" />
+        <option value="$PROJECT_DIR$/static/sass/mixins.scss" />
+        <option value="$PROJECT_DIR$/static/js/header.js" />
         <option value="$PROJECT_DIR$/templates/pages/admin.html" />
         <option value="$PROJECT_DIR$/static/sass/styleA.scss" />
+        <option value="$PROJECT_DIR$/static/js/admin.js" />
       </list>
     </option>
   </component>
@@ -269,6 +276,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -641,13 +666,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/template/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sass_compile.py" />
     <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/myModules/router/router.py" />
@@ -781,14 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="857">
@@ -841,14 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-63">
           <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/sass/mixins.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="95" column="32" lean-forward="false" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1001,19 +1003,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/sass/styleA.scss">
+    <entry file="file://$PROJECT_DIR$/static/sass/mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="435" column="19" lean-forward="false" selection-start-line="435" selection-start-column="19" selection-end-line="435" selection-end-column="19" />
+        <state relative-caret-position="217">
+          <caret line="106" column="5" lean-forward="false" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/sass/styleA.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="442" column="29" lean-forward="false" selection-start-line="442" selection-start-column="29" selection-end-line="442" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

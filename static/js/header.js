@@ -41,3 +41,38 @@ function remove(){
 //media query if media 800px
 let media = window.matchMedia('(min-width: 800px)');
 media.addListener(defaultNav);
+
+// post input
+/**
+ * sends a request to the specified url from a form. this will change the window location.
+ * @param {string} path the path to send the post request to
+ * @param {object} params the paramiters to add to the url
+ * @param {string} [method=post] the method to use on the form
+ */
+
+function post(path, params, method='post') {
+
+  // The rest of this code assumes you are not using a library.
+  // It can be made less wordy if you use one.
+  const form = document.createElement('form');
+  form.method = method;
+  form.action = path;
+
+  // get keys of parameters
+  for (const key in params) {
+    // if key in params
+    if (params.hasOwnProperty(key)) {
+      // create a hidden input and append it
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = key;
+      hiddenField.value = params[key];
+
+      form.appendChild(hiddenField);
+    }
+  }
+  // append to body
+  document.body.appendChild(form);
+  // submit form
+  form.submit();
+}

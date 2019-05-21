@@ -437,8 +437,9 @@ nav {
   flex-wrap: wrap; }
   .profile section, .admin section {
     margin: 30px auto; }
-    .profile section div, .admin section div {
-      float: right; }
+    .profile section div a, .admin section div a {
+      float: right;
+      margin: 0 3px; }
     .profile section button, .admin section button {
       width: 6em;
       height: 3em;
@@ -497,4 +498,24 @@ nav {
 
 /* EDIT ENDS */
 /* ADMIN BEGINS */
+.admin {
+  width: 50%; }
+  .admin div button {
+    font-size: 2rem;
+    width: 100%;
+    background-color: #2F2F2F;
+    border: none; }
+    .admin div button .fa-check-circle::after {
+      content: "Approve";
+      color: inherit;
+      font-size: 0.65em;
+      margin: 0 3px; }
+    .admin div button .fa-times-circle {
+      color: #cc0000; }
+      .admin div button .fa-times-circle::after {
+        content: "Dissapprove";
+        color: inherit;
+        font-size: 0.65em;
+        margin: 0 3px; }
+
 /* ADMIN ENDS */

@@ -382,7 +382,10 @@ nav{
   section{
     margin: 30px auto;
     div{
-      float: right;
+      a{
+        float: right;
+        margin: 0 3px;
+      }
     }
     button{
       width: 6em;
@@ -396,14 +399,6 @@ nav{
     }
     .status{
       float: right;
-    }
-    @mixin afterCirc($content){
-      &::after{
-        content: $content;
-        color: inherit;
-        font-size: 0.65em;
-        margin: 0 3px;
-      }
     }
     .fa-minus-circle{
       color: color('orange-dark');
@@ -434,5 +429,21 @@ nav{
 /* ADMIN BEGINS */
 .admin{
   @extend .profile;
+  width: 50%;
+  div{
+    button{
+      font-size: 2rem;
+      width:100%;
+      background-color: #2F2F2F;
+      border: none;
+      .fa-check-circle{
+        @include afterCirc('Approve');
+      }
+      .fa-times-circle{
+        color: darken(red, 10);
+        @include afterCirc('Dissapprove')
+      }
+    }
+  }
 }
 /* ADMIN ENDS */
