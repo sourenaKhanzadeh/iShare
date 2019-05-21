@@ -15,8 +15,8 @@
                     <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
                 </div>
                 <div>
-                    <button><i class="fa fa-check-circle"></i></button>
-                    <button><i class="fa fa-times-circle"></i></button>
+                    <button><i class="fa fa-check-circle" onclick="post('/{{session['username']}}/admin', {'approve':true, 'repo': {{ query['title'] }} }); preload();"></i></button>
+                    <button><i class="fa fa-times-circle" onclick="post('/{{session['username']}}/admin', {'approve':false, 'repo': {{ query['title'] }} }); preload();"></i></button>
                 </div>
             </section>
         {% endif %}
