@@ -9,7 +9,7 @@ def limitFile(file):
 
 @app.route("/<user>/upload", methods=['GET', 'POST'])
 def upload(user):
-    # user is uploading a file
+    # user is uploading a paper
     if request.method == "GET":
         return render_template('pages/upload.html')
     # user is submitting the paper
@@ -33,7 +33,9 @@ def upload(user):
             'date': f'{date}',
             'description': request.form['desc'],
             'star':stars,
-            'avatar':avatar
+            'avatar':avatar,
+            'pending':True,
+            'approved':False
         })
 
         # success flash popped up

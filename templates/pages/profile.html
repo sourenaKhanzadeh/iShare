@@ -5,7 +5,18 @@
     {% for query in queries %}
         <section>
             <h1>{{ query['title'] }}</h1>
-            <h4>on {{ query['date'] }} by {{ query['username'] }}</h4>
+            <h4>
+                on {{ query['date'] }} by {{ query['username'] }}
+                {% if query['pending']%}
+                    <i class="fa fa-minus-circle status"></i>
+                {% else %}
+                    {% if query['approved']%}
+                        <i class="fa fa-check-circle status"></i>
+                    {% else %}
+                        <i class="fa fa-times-circle status"></i>
+                    {% endif %}
+                {% endif %}
+            </h4>
             <p>{{ query['description'] }}</p>
             <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}'">Edit</button>
             <img src="{{ query['avatar'] }}">

@@ -35,7 +35,7 @@ def edit(user,title):
         }
         # update the repo
         repos.replace_one({'username': user, 'title':title}, content, True)
-        
+
         # show success
         flash("Successfully updated the paper. now wait for admin to approve")
         return redirect(f'/{user}/profile')

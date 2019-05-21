@@ -76,7 +76,14 @@ nav{
           background-color: color('skin-tan2');
         }
         #upload{
-          top: ($top + 40px);
+          $top: $top + 40px;
+          top: ($top);
+        }
+        #admin{
+          $top: $top + 40px;
+          top: ($top);
+          background-color: color('pink-hot');
+
         }
       }
     }
@@ -387,6 +394,30 @@ nav{
         background-color: red;
       }
     }
+    .status{
+      float: right;
+    }
+    @mixin afterCirc($content){
+      &::after{
+        content: $content;
+        color: inherit;
+        font-size: 0.65em;
+        margin: 0 3px;
+      }
+    }
+    .fa-minus-circle{
+      color: color('orange-dark');
+      @include afterCirc('Pending');
+    }
+    .fa-times-circle{
+      color: red;
+      @include afterCirc('Dissapproved')
+    }
+    .fa-check-circle{
+      color: color('teals');
+      @include afterCirc('Approved')
+
+    }
   }
 }
 /* PROFILE ENDS */
@@ -399,3 +430,9 @@ nav{
   }
 }
 /* EDIT ENDS */
+
+/* ADMIN BEGINS */
+.admin{
+  @extend .profile;
+}
+/* ADMIN ENDS */

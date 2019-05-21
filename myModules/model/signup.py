@@ -22,7 +22,8 @@ def register():
             user = {
                 'username': user.username,
                 'email': request.form['email'],
-                'password':user.pw_hash
+                'password':user.pw_hash,
+                'fsr':False
             }
             # insert user into the database
             all_users.insert(user)

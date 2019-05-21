@@ -1,9 +1,9 @@
 {% extends './template/header.html'%}
 
 {% block body%}
-<div class="query">
+<div class="admin">
     {% for query in queries %}
-        {% if query['approved'] %}
+        {% if not query['approved'] %}
             <section>
                 <h1>{{ query['title'] }}</h1>
                 <h4>on {{ query['date'] }} by {{ query['username'] }}</h4>
