@@ -3,7 +3,7 @@
 {% block body%}
 <div class="admin">
     {% for query in queries %}
-        {% if not query['approved'] %}
+        {% if query['pending'] %}
             <section>
                 <h1>{{ query['title'] }}</h1>
                 <h4>on {{ query['date'] }} by {{ query['username'] }}</h4>
@@ -15,8 +15,8 @@
                     <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
                 </div>
                 <div>
-                    <button><i class="fa fa-check-circle" onclick="post('/{{session['username']}}/admin', {'approve':true, 'repo': {{ query['title'] }} }); preload();"></i></button>
-                    <button><i class="fa fa-times-circle" onclick="post('/{{session['username']}}/admin', {'approve':false, 'repo': {{ query['title'] }} }); preload();"></i></button>
+                    <button><i class="fa fa-check-circle" onclick="post('/{{session['username']}}/admin', {'approve':'True', 'repo':'{{query['title']}}'}); preload();"></i></button>
+                    <button><i class="fa fa-times-circle" onclick="post('/{{session['username']}}/admin', {'approve':'False', 'repo':'{{query['title']}}'}); preload();"></i></button>
                 </div>
             </section>
         {% endif %}

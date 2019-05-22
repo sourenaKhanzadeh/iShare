@@ -31,7 +31,9 @@ def edit(user,title):
             'date': f'{date}',
             'description': request.form['desc'],
             'star':stars,
-            'avatar':avatar
+            'avatar':avatar,
+            'pending':True,
+            'approved':False
         }
         # update the repo
         repos.replace_one({'username': user, 'title':title}, content, True)

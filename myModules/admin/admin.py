@@ -37,12 +37,27 @@ def admin(user):
         queries = queryAll()
 
         # take admin decision
-        decision = request.form['approve']
+        decision = bool(request.form['approve'])
+
+        # take repo title
+        title = request.form['repo']
 
         # if admin approved
-        # if decision:
+        if decision:
             # then approve the paper
-            # repos.update({'title':request.form['repo']}, {'$set':{'fsr':True}})
+            repos.update({'title':title}, {'$set':{'approved':True, 'pending':False}})
+            # message admin they successfully approved
+            flash("Successfully approved the paper")
+            # redirect to admin
+            return redirect(f'/{user}/admin')
+        # if admin disapproves
+        else:
+            # then reject the paper
+            repos.update({'title':title}, {'$set':{'approved':False, 'pending':False}})
+            # message admin they successfully approved
+            flash("Successfully disapproved the paper")
+            # redirect to admin
+            return redirect(f'/{user}/admin')
 
         # render all time
         return render_template('pages/admin.html', queries=queries)
