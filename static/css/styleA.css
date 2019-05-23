@@ -429,6 +429,21 @@ nav {
       width: 60px;
       height: 60px; }
 
+.load {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: center; }
+  .load #load_more {
+    width: 50%;
+    height: 2em;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: #2F2F2F;
+    color: lavenderblush; }
+  .load .loading {
+    align-self: center; }
+
 /* QUERY ENDS HERE */
 /* PROFILE BEGINS */
 .profile, .admin {

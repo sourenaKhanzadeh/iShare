@@ -18,6 +18,10 @@
         {% endif %}
     {% endfor%}
 </div>
-
+<div class="load">
+    <div class="loading"></div>
+    <button id="load_more">Load more</button>
+</div>
+<script src="{{ url_for('static', filename='js/query.js') }}"></script>
 
 {% endblock %}

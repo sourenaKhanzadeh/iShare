@@ -76,3 +76,14 @@ function post(path, params, method='post') {
   // submit form
   form.submit();
 }
+
+
+window.onscroll = function(ev) {
+    /*
+    * window on scroll
+    * */
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        // you're at the bottom of the page
+
+    }
+};

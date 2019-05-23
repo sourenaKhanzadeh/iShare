@@ -9,36 +9,46 @@ def limitFile(file):
 
 @app.route("/<user>/upload", methods=['GET', 'POST'])
 def upload(user):
-    # user is uploading a paper
-    if request.method == "GET":
-        return render_template('pages/upload.html')
-    # user is submitting the paper
-    else:
-        # get date stars and avatar and validate data
-        date, stars, avatar = validate(request)
+    # validate if username is signed in
+    if session['username'] and session['username'] == user:
 
-        # Api maximum limit has reached
-        if isinstance(stars, dict) or isinstance(avatar, dict):
-            # Flash the message
-            flash(stars)
-            # redirect to homepage
+        # user is uploading a paper
+        if request.method == "GET":
+            return render_template('pages/upload.html')
+        # user is submitting the paper
+        else:
+            # get date stars and avatar and validate data
+            date, stars, avatar = validate(request)
+
+            # Api maximum limit has reached
+            if isinstance(stars, dict) or isinstance(avatar, dict):
+                # Flash the message
+                flash(stars)
+                # redirect to homepage
+                return redirect('/')
+
+            # insert into the database
+            repos.insert({
+                'username':session['username'],
+                'title': request.form['title'],
+                'url_repo': request.form['repo'],
+                'url_pdf': request.form['pdf'],
+                'date': f'{date}',
+                'description': request.form['desc'],
+                'star':stars,
+                'avatar':avatar,
+                'pending':True,
+                'approved':False
+            })
+
+            # success flash popped up
+            flash("Paper Successfully Uploaded")
+            # redirect to the homepage
             return redirect('/')
 
-        # insert into the database
-        repos.insert({
-            'username':session['username'],
-            'title': request.form['title'],
-            'url_repo': request.form['repo'],
-            'url_pdf': request.form['pdf'],
-            'date': f'{date}',
-            'description': request.form['desc'],
-            'star':stars,
-            'avatar':avatar,
-            'pending':True,
-            'approved':False
-        })
-
-        # success flash popped up
-        flash("Paper Successfully Uploaded")
+        # user entered the wrong url
+    else:
+        # wrong url entered
+        flash('failure page does not exist')
         # redirect to the homepage
         return redirect('/')

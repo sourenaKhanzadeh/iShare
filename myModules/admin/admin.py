@@ -1,5 +1,5 @@
 from app import app, render_template, request
-from myModules.model.database import repos
+from myModules.model.database import repos,all_users
 from flask import session, redirect, flash
 from myModules.tools.tools import millify
 
@@ -22,40 +22,48 @@ def queryAll(type):
 
 @app.route('/<user>/admin', methods=['GET', 'POST'])
 def admin(user):
-    # get all queries
-    queries = queryAll(True)
-    
-    # admin is judging the post
-    if request.method == "GET":
+    # check  if user is admin
+    admin = all_users.find_one({'username':user})['fsr']
 
+    # validate if username is signed in and it is an admin
+    if session['username'] and session['username'] == user and admin:
 
-        # render all time
-        return render_template('pages/admin.html', queries=queries)
-    # admin made a decision
-    else:
+        # get all queries
+        queries = queryAll(True)
 
-        # take admin decision
-        decision = bool(request.form['approve'])
+        # admin is judging the post
+        if request.method == "GET":
 
-        # take repo title
-        title = request.form['repo']
+            # render all time
+            return render_template('pages/admin.html', queries=queries)
 
-        # if admin approved
-        if decision:
-            # then approve the paper
-            repos.update({'title':title}, {'$set':{'approved':True, 'pending':False}})
-            # message admin they successfully approved
-            flash("Successfully approved the paper")
-            # redirect to admin
-            return redirect(f'/{user}/admin')
-        # if admin disapproves
+        # admin made a decision
         else:
-            # then reject the paper
-            repos.update({'title':title}, {'$set':{'approved':False, 'pending':False}})
-            # message admin they successfully approved
-            flash("Successfully disapproved the paper")
-            # redirect to admin
-            return redirect(f'/{user}/admin')
 
-        # render all time
-        return render_template('pages/admin.html', queries=queries)
+            # take admin decision
+            decision = bool(request.form['approve'])
+
+            # take repo title
+            title = request.form['repo']
+
+            # if admin approved
+            if decision:
+                # then approve the paper
+                repos.update({'title':title}, {'$set':{'approved':True, 'pending':False}})
+                # message admin they successfully approved
+                flash("Successfully approved the paper")
+                # redirect to admin
+                return redirect(f'/{user}/admin')
+            # if admin disapproves
+            else:
+                # then reject the paper
+                repos.update({'title':title}, {'$set':{'approved':False, 'pending':False}})
+                # message admin they successfully approved
+                flash("Successfully disapproved the paper")
+                # redirect to admin
+                return redirect(f'/{user}/admin')
+
+    else:
+        # page does not exist
+        flash("Page does not exist")
+        return redirect('/')
