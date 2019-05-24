@@ -26,6 +26,8 @@
 
     </div>
 {% endif %}
+
+<canvas></canvas>
 <script>
 let page = {{ page }};
 
@@ -41,6 +43,7 @@ $('.fa-angle-double-left').on('click', ()=>{
     document.querySelector('.loading').style.display = 'block';
 });
 </script>
+<script src="{{ url_for( 'static', filename='js/wave.js' ) }}"></script>
 <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 {% endblock %}
 

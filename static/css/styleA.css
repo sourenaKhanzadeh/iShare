@@ -452,6 +452,14 @@ nav {
   flex-wrap: wrap; }
   .profile section, .admin section {
     margin: 30px auto; }
+    @media (min-width: 800px) {
+      .profile section, .admin section {
+        width: 700px; } }
+    @media (min-width: 600px) {
+      .profile section, .admin section {
+        width: 400px; }
+        .profile section img, .admin section img {
+          width: 100%; } }
     .profile section div a, .admin section div a {
       float: right;
       margin: 0 3px; }
@@ -534,3 +542,7 @@ nav {
         margin: 0 3px; }
 
 /* ADMIN ENDS */
+canvas {
+  position: absolute;
+  top: 0;
+  z-index: -10; }

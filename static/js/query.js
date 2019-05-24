@@ -21,9 +21,13 @@ $('#load_more').click(()=>{
                 //     console.log(jqXHR);
                 // }
     }).done((data)=>{
-        $('.loading').css('display', 'none');
+        // fade out the pre loader after 1sec
+        $('.loading').fadeOut(1000);
+        // check if more data exist
         if(data.limit >= data.queries_count || data.limit === 2)
+            // if not then fade the load more button
             $('#load_more').fadeOut(1000);
+        // check if user is approved
         if (data.approved){
             $('.query').append(
                 `<section>

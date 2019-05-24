@@ -10,13 +10,17 @@ def allTime():
 
     # get all the repos
     # sort by star in descending order
-    query = repos.find().sort('star', -1).limit(limit)
+    query = repos.find({'approved':True}).sort('star', -1).limit(limit)
     queries = []
 
+    # user clicked on load_more
     if limit > 2:
+        # get its limit
         for i in range(limit-1):
             query.next()
+        # get the second last query
         nex = query.next()
+        # store the content
         content = {
             'username':nex['username'],
             'title':nex['title'],
@@ -29,7 +33,8 @@ def allTime():
             'stars':nex['star'],
             'queries_count':query.count(),
             'limit':limit
-            }
+        }
+        # upload as json
         return jsonify(content)
 
 

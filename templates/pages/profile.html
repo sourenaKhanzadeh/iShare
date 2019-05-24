@@ -17,8 +17,8 @@
                     {% endif %}
                 {% endif %}
             </h4>
-            <p>{{ query['description'] }}</p>
             <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}'">Edit</button>
+            <p>{{ query['description'] }}</p>
             {% if not query['approved']%}
                 <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}/delete'">Delete</button>
             {% endif %}

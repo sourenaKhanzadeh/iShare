@@ -399,6 +399,16 @@ nav{
   flex-wrap: wrap;
   section{
     margin: 30px auto;
+    @include desktop(800px){
+      width: 700px;
+    }
+    @include desktop(600px){
+      width: 400px;
+      img{
+        width: 100%;
+
+      }
+    }
     div{
       a{
         float: right;
@@ -465,3 +475,9 @@ nav{
   }
 }
 /* ADMIN ENDS */
+
+canvas{
+  position: absolute;
+  top: 0;
+  z-index: -10;
+}
