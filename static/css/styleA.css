@@ -210,13 +210,23 @@ nav {
 
 /* LOGIN ENDS HERE */
 /* LANDING PAGE BEGINS HERE */
+.search {
+  margin: 20px; }
+
 .repos {
   display: grid;
   width: 85%;
   height: auto;
   border: 1px solid #b6b6b6;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto; }
+  margin: 0 auto;
+  justify-items: center; }
+  @media (min-width: 800px) {
+    .repos {
+      grid-template-columns: 1fr 1fr 1fr 1fr; } }
+  @media (min-width: 1500px) {
+    .repos {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr; } }
   .repos .git-profile {
     margin: 10px 20px; }
     .repos .git-profile img {
@@ -225,6 +235,22 @@ nav {
       border-radius: 20px; }
     .repos .git-profile h2 {
       font-size: 12pt; }
+    .repos .git-profile button {
+      width: 100%;
+      height: 2em;
+      color: lavenderblush;
+      background-color: #E87551; }
+      .repos .git-profile button::after {
+        content: "⇒ more";
+        margin-left: 10px;
+        opacity: 0;
+        font-size: 1rem;
+        transition: opacity 250ms ease-in-out, margin-left 250ms ease-in-out; }
+      .repos .git-profile button:hover {
+        background-color: #3498DB; }
+        .repos .git-profile button:hover::after {
+          opacity: 1;
+          margin-left: 20px; }
 
 .page {
   text-align: center;

@@ -1,7 +1,12 @@
+# import app
 from app import app, request, render_template
 
-from myModules.github.repos import Repo
-from myModules.github.users import GitUser
+# import database
+from myModules.model.database import repos
+
+# import regex
+import re
+
 # import the post login
 from myModules.model.logout import *
 from myModules.model.login import *
@@ -20,24 +25,32 @@ def welcome():
 
     return render_template('pages/landingpage.html', session=session, page=0)
 
-@app.route('/<user>')
-def search(user):
-    search = GitUser(user, request.args.get('page'))
-    users = []
+@app.route('/<repo>')
+def search(repo):
+    # regex pattern
+    pattern = re.compile(repo , re.IGNORECASE)
+    # get all liked repos or username and sort it deafeningly by the amount of repo star
+    search = repos.find({'$or':[{'title':pattern},
+                        {'username':pattern}]}).sort('star', -1)
 
-    if 'items' in search.users:
-        # get all gits search result and append it
-        for use in search.users['items']:
-            users.append(use)
+    # list of repositories
+    repository = []
 
-    # if user was not found
-    if len(users) == 0:
-        # message the user
-        flash("No Result Found.....")
+    # append the repos
+    for repo in search:
+        repository.append(repo)
+
+    # if repos do not exist
+    if len(repository) == 0:
+        # then message the user
+        flash("Could not find a result.....")
+
+    #get the page
+    page = request.args.get('page', 1)
+
+    # render the landing page
     return render_template('pages/landingpage.html',
-                           session=session,
-                           users=users,
-                           page=search.page,
-                           search=user)
+                           repositories=repository,
+                           page=page)
 
 

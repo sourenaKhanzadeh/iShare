@@ -10,6 +10,13 @@ const c = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
+// resize the window
+window.addEventListener('resize',()=>{
+    // set Canvas size
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+});
+
 // make wave object
 const Wave = {
   y:canvas.height-200,
