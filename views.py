@@ -11,6 +11,7 @@ import re
 from myModules.model.logout import *
 from myModules.model.login import *
 from myModules.user.profile import *
+from myModules.paper_manager.detail import *
 from myModules.paper_manager.upload import *
 from myModules.admin.admin import *
 from myModules.user.delete import *

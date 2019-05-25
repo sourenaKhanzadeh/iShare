@@ -546,8 +546,53 @@ nav{
 }
 /* ADMIN ENDS */
 
+/* DETAIL BEGINS */
+.detail{
+  display: flex;
+  flex-direction: column;
+  margin: 50px 10px;
+  section{
+    margin: 50px;
+    @media (max-width: 600px){
+      width: 100%;
+    }
+    img{
+      $portion: 100px;
+      float: left;
+      width:$portion;
+      height:$portion;
+    }
+    p{
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+    a{
+      @media (max-width: 600px) {
+        padding: 10px;
+      }
+      padding: 15px 50px;
+      background-color: #1F8A70;
+      color: lavenderblush;
+      font-size: 18pt;
+      border-radius: 10px;
+      &:hover{
+        background-color: darken(#1F8A70, 10);
+      }
+      &:active{
+        background-color: darken(#1F8A70, 20);
+      }
+    }
+  }
+  .fa-star{
+    float: right;
+  }
+}
+/* DETAIL ENDS */
+
+/* CANVAS BEGINS */
 canvas{
   position: absolute;
   top: 0;
   z-index: -10;
 }
+/* CANVAS ENDS */

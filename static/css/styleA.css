@@ -622,7 +622,44 @@ nav {
     background-color: #8E2800; }
 
 /* ADMIN ENDS */
+/* DETAIL BEGINS */
+.detail {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 10px; }
+  .detail section {
+    margin: 50px; }
+    @media (max-width: 600px) {
+      .detail section {
+        width: 100%; } }
+    .detail section img {
+      float: left;
+      width: 100px;
+      height: 100px; }
+    .detail section p {
+      max-height: 300px;
+      overflow-y: scroll; }
+    .detail section a {
+      padding: 15px 50px;
+      background-color: #1F8A70;
+      color: lavenderblush;
+      font-size: 18pt;
+      border-radius: 10px; }
+      @media (max-width: 600px) {
+        .detail section a {
+          padding: 10px; } }
+      .detail section a:hover {
+        background-color: #16604e; }
+      .detail section a:active {
+        background-color: #0c372c; }
+  .detail .fa-star {
+    float: right; }
+
+/* DETAIL ENDS */
+/* CANVAS BEGINS */
 canvas {
   position: absolute;
   top: 0;
   z-index: -10; }
+
+/* CANVAS ENDS */

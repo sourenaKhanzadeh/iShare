@@ -1,0 +1,20 @@
+{% extends './template/header.html'%}
+
+{% block body%}
+
+    <div class="detail">
+        <h1>{{ repo['title'] }}</h1>
+        <section>
+            <img src="{{ repo['avatar'] }}">
+            <p>{{ repo['description'] }}</p>
+        </section>
+        <section>
+            <a class="git" href="{{ repo['url_repo'] }}"><i class="fab fa-github"> Code</i></a>
+            <a class="pdf" href="{{ repo['url_pdf'] }}"><i class="far fa-file-pdf"> Paper</i></a>
+        </section>
+        <section>
+            <i class="fa fa-star">{{  repo['star']  }}</i>
+        </section>
+    </div>
+
+{%  endblock %}
