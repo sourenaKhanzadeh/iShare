@@ -11,7 +11,7 @@ $('#load_more').click(()=>{
                 type: "GET",
                 cache: false,
                 data:{limit:limit},
-                url: '/Browse-all-time',
+                url: window.location,
                 dataType: "json",
                 success: function(data) {
                     console.log(data);
