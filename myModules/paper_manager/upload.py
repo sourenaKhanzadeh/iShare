@@ -1,5 +1,5 @@
 from app import app, request, render_template
-from myModules.model.database import repos
+from myModules.model.database import repos, sections
 from flask import session, redirect, flash
 from myModules.tools.tools import validate
 
@@ -9,12 +9,22 @@ def limitFile(file):
 
 @app.route("/<user>/upload", methods=['GET', 'POST'])
 def upload(user):
+    # get all sections
+    sec = sections.find()
+
+    all_sections = []
+
+    # append all sections
+    for section in sec:
+        all_sections.append(section)
+
     # validate if username is signed in
-    if session['username'] and session['username'] == user:
+    if session.get('username') != None and session['username'] == user:
 
         # user is uploading a paper
         if request.method == "GET":
-            return render_template('pages/upload.html')
+            return render_template('pages/upload.html',
+                                   all_sections=all_sections)
         # user is submitting the paper
         else:
             # get date stars and avatar and validate data
@@ -37,6 +47,7 @@ def upload(user):
                 'description': request.form['desc'],
                 'star':stars,
                 'avatar':avatar,
+                'section':request.form['section'],
                 'pending':True,
                 'approved':False
             })

@@ -1,5 +1,5 @@
 from app import app, render_template
-from myModules.model.database import repos
+from myModules.model.database import repos, sections
 from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
 
@@ -8,13 +8,29 @@ def allTime():
     # set a limit
     limit = request.args.get('limit', 2, type=int)
 
-    # get all the repos
-    # sort by star in descending order
-    query = repos.find({'approved':True}).sort('star', -1).limit(limit)
-    queries = []
+    # if clicked on sections
+    if request.args.get('section') != None:
+        # query according to their section
+        query = \
+            repos.find(
+                {
+                    'approved': True,
+                    'section':request.args.get('section')
+                 }
+            ).sort('star', -1).limit(limit)
+    else:
+        # query all time
+        query = \
+            repos.find(
+                {
+                    'approved': True
+                }
+            ).sort('star', -1).limit(limit)
 
+    queries = []
+    print(query.count())
     # user clicked on load_more
-    if limit > 2:
+    if limit > 2 and query.count() != 0:
         # get its limit
         for i in range(limit-1):
             query.next()
@@ -44,5 +60,15 @@ def allTime():
         elem['star'] = millify(elem['star'])
         queries.append(elem)
 
+    # get all sections
+    sec = sections.find()
+    all_sections = []
+
+    for section in sec:
+        # append section to the list
+        all_sections.append(section)
+
     # render all time
-    return render_template('pages/query.html', queries=queries)
+    return render_template('pages/query.html',
+                           queries=queries,
+                           all_sections=all_sections)

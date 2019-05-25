@@ -15,6 +15,7 @@ from myModules.paper_manager.upload import *
 from myModules.admin.admin import *
 from myModules.user.delete import *
 from myModules.paper_manager.query import *
+
 # import logout
 # import signUP
 from myModules.model.signup import *
@@ -27,11 +28,14 @@ def welcome():
 
 @app.route('/<repo>')
 def search(repo):
+    user = repo
+
     # regex pattern
     pattern = re.compile(repo , re.IGNORECASE)
     # get all liked repos or username and sort it deafeningly by the amount of repo star
     search = repos.find({'$or':[{'title':pattern},
-                        {'username':pattern}]}).sort('star', -1)
+                        {'username':pattern}],
+                         '$and':[{'approved':True}]}).sort('star', -1)
 
     # list of repositories
     repository = []
@@ -51,6 +55,7 @@ def search(repo):
     # render the landing page
     return render_template('pages/landingpage.html',
                            repositories=repository,
-                           page=page)
+                           page=page,
+                           user=user)
 
 

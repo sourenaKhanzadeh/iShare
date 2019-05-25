@@ -27,8 +27,9 @@ hr {
 button{
   cursor: pointer;
   outline: none;
-  background-color: red;
-
+  background-color: color('skin-tan2');
+  color: lavenderblush;
+  border: none;
   &:active {
     color: #B64926;
   }

@@ -1,9 +1,15 @@
 from app import app, render_template, request
-from myModules.model.database import repos,all_users
+from myModules.model.database import repos,all_users, sections
 from flask import session, redirect, flash
 from myModules.tools.tools import millify
 
+
 def queryAll(type):
+    """
+    return all queries that are pending
+    :param type: query type pending/approved/disapproved
+    :return: all queries
+    """
     # get all the repos
     # sort by star in descending order
     query = repos.find({'pending':type}).sort('star', -1)
@@ -25,17 +31,28 @@ def admin(user):
     # check  if user is admin
     admin = all_users.find_one({'username':user})['fsr']
 
+
     # validate if username is signed in and it is an admin
-    if session['username'] and session['username'] == user and admin:
+    if session.get('username') != None and session['username'] == user and admin:
 
         # get all queries
         queries = queryAll(True)
 
         # admin is judging the post
         if request.method == "GET":
+            # get all sections from the database
+            sec = sections.find()
+
+            all_sections = []
+            # get all sections
+            for section in sec:
+                # append it
+                all_sections.append(section)
 
             # render all time
-            return render_template('pages/admin.html', queries=queries)
+            return render_template('pages/admin.html',
+                                   queries=queries,
+                                   all_sections=all_sections)
 
         # admin made a decision
         else:
@@ -67,3 +84,6 @@ def admin(user):
         # page does not exist
         flash("Page does not exist")
         return redirect('/')
+
+# import admin routs
+from myModules.admin.section import *

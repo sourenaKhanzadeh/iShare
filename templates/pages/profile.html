@@ -17,14 +17,16 @@
                     {% endif %}
                 {% endif %}
             </h4>
-            <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}'">Edit</button>
-            <p>{{ query['description'] }}</p>
-            {% if not query['approved']%}
-                <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}/delete'">Delete</button>
-            {% endif %}
-            <img src="{{ query['avatar'] }}">
-            <i class="fa fa-star">{{ query['star'] }}</i>
             <div>
+                <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}'">Edit</button>
+                {% if not query['approved']%}
+                    <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}/delete'">Delete</button>
+                {% endif %}
+            </div>
+            <p>{{ query['description'] }}</p>
+            <img src="{{ query['avatar'] }}">
+            <div>
+            <i class="fa fa-star">{{ query['star'] }}</i>
                 <a class="git" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
                 <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
             </div>

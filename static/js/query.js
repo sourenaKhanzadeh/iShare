@@ -23,6 +23,11 @@ $('#load_more').click(()=>{
     }).done((data)=>{
         // fade out the pre loader after 1sec
         $('.loading').fadeOut(1000);
+
+        // if query does not exits destroy load_more
+        if(data.queries_count === 0)
+            $('#load_more').fadeOut(1000);
+
         // check if more data exist
         if(data.limit >= data.queries_count || data.limit === 2)
             // if not then fade the load more button

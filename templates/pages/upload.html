@@ -12,6 +12,14 @@
         <input type="text" name="pdf">
         <label for="desc">Description</label>
         <textarea name="desc" cols="6" rows="6"></textarea>
+        <label for="section"> Choose a section </label>
+        <select name="section">
+            {% for section in all_sections %}
+                <option>
+                    {{ section['section'] }}
+                </option>
+            {% endfor %}
+        </select>
         <input type="submit" name="submit" value="Upload" onclick="preload()">
     <div class="loading" align="center"></div>
     </form>

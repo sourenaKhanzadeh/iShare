@@ -17,3 +17,16 @@ document.addEventListener('keyup', (event)=>{
         search();
     }
 });
+
+// second search
+$('#search2').click(()=>{
+    document.querySelector('.loading').style.display = 'block';
+    let search = $('#sea').val();
+    window.location = `/${search}`;
+});
+
+
+
+
+
+

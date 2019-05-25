@@ -167,6 +167,14 @@ nav{
 /* LANDING PAGE BEGINS HERE */
 .search{
   margin: 20px;
+  button{
+    border: 1px solid black;
+    color: lavenderblush;
+    background-color: color('skin-tan2');
+    &:active{
+      color: #2F2F2F;
+    }
+  }
 }
 .repos{
   display: grid;
@@ -193,7 +201,7 @@ nav{
       font-size: 12pt;
     }
     button{
-      @include hoverContent('\21D2  more', color('blue-sky'), 10px);
+      @include hoverContent('\21D2  More', color('blue-sky'), 10px);
       width:100%;
       height: 2em;
       color: lavenderblush;
@@ -245,7 +253,7 @@ nav{
     margin: 20px auto;
     font-size: 2em;
     background-color: transparent;
-    border-color: color('skin-tan2');
+    border: 1px solid color('skin-tan2');
     color: color('skin-tan2');
     transition: background-color 250ms ease-in-out;
     &:hover{
@@ -395,6 +403,7 @@ nav{
   flex-direction: column;
   width: 100%;
   align-self: center;
+  margin: 20px auto;
   #load_more{
     width: 50%;
     height: 2em;
@@ -407,6 +416,15 @@ nav{
     align-self: center;
   }
 
+}
+.sections{
+  margin: 50px;
+  a{
+    @include hoverContent('\21D2',color('blue-sky'), 5px);
+    color: lavenderblush;
+    background-color: color('brown-wooddark');
+    padding: 5px;
+  }
 }
 /* QUERY ENDS HERE */
 
@@ -475,7 +493,26 @@ nav{
 /* ADMIN BEGINS */
 .admin{
   @extend .profile;
-  width: 50%;
+  section {
+    align-self: center;
+    margin: 30px auto;
+    @include desktop(800px) {
+      width: 700px;
+    }
+    @include desktop(600px) {
+      width: 400px;
+      img {
+        width: 100%;
+
+      }
+    }
+    @media (max-width:600px) {
+      img{
+        width: 100%;
+      }
+    }
+
+  }
   div{
     button{
       font-size: 2rem;
@@ -490,6 +527,13 @@ nav{
         @include afterCirc('Dissapprove')
       }
     }
+  }
+}
+
+.section{
+  margin: 20px;
+  #remove{
+    background-color: color('red-harsh');
   }
 }
 /* ADMIN ENDS */

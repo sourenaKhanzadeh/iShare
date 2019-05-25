@@ -7,6 +7,8 @@ db = client['iShare']
 # create the user login
 all_users = db["allusers"]
 
-# create the
+# create the repos
 repos = db['repos']
 
+# create sections
+sections = db['sections']

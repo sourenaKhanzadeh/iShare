@@ -3,7 +3,7 @@
 {% block body%}
 {% if repositories %}
     <div class="search">
-        <input type="search"><button><i class="fa fa-search"></i></button>
+        <input type="search" id="sea"><button id="search2"><i class="fa fa-search"></i></button>
     </div>
     <div class="repos">
             {% for repo in repositories %}
@@ -34,19 +34,23 @@
 
 <canvas></canvas>
 <script>
-let page = {{ page }};
+    // get current page
+    let page = {{ page }};
 
-$('.fa-angle-double-right').on('click', ()=>{
-    page++;
-    window.location = `{{user}}?page=${page}`;
-    document.querySelector('.loading').style.display = 'block';
-});
-if(page > 1)
-$('.fa-angle-double-left').on('click', ()=>{
-    page--;
-    window.location = `{{user}}?page=${page}`;
-    document.querySelector('.loading').style.display = 'block';
-});
+    // go to the next page
+    $('.fa-angle-double-right').on('click', ()=>{
+        page++;
+        window.location = `{{user}}?page=${page}`;
+        document.querySelector('.loading').style.display = 'block';
+    });
+
+    // go back a page
+    if(page > 1)
+    $('.fa-angle-double-left').on('click', ()=>{
+        page--;
+        window.location = `{{user}}?page=${page}`;
+        document.querySelector('.loading').style.display = 'block';
+    });
 </script>
 <script src="{{ url_for( 'static', filename='js/wave.js' ) }}"></script>
 <script src="{{ url_for('static', filename='js/landing.js') }}"></script>

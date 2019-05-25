@@ -1,6 +1,11 @@
 {% extends './template/header.html'%}
 
 {% block body%}
+<div class="sections">
+    {% for section in all_sections %}
+        <a href="/Browse-all-time?section={{ section['section'] }}">{{ section['section'] }}</a><br><br>
+    {% endfor %}
+</div>
 <div class="query">
     {% for query in queries %}
         {% if query['approved'] %}
@@ -18,10 +23,12 @@
         {% endif %}
     {% endfor%}
 </div>
-<div class="load">
-    <div class="loading"></div>
-    <button id="load_more">Load more</button>
-</div>
+{% if queries|length > 1 %}
+    <div class="load">
+        <div class="loading"></div>
+        <button id="load_more">Load more</button>
+    </div>
+{% endif%}
 <script src="{{ url_for('static', filename='js/query.js') }}"></script>
 
 {% endblock %}

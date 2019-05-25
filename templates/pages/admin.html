@@ -1,6 +1,19 @@
 {% extends './template/header.html'%}
 
 {% block body%}
+<div class="section">
+    <label for="drop">Sections</label>
+    <select name="drop">
+        {% for section in all_sections %}
+            <option>
+                {{ section['section'] }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="text" id="section">
+    <button id="add"> Add <i class="fa fa-plus"></i></button>
+    <button id="remove"> Remove <i class="fa fa-minus"></i></button>
+</div>
 <div class="admin">
     {% for query in queries %}
         {% if query['pending'] %}
@@ -23,7 +36,21 @@
     {% endfor%}
 </div>
 
+
 <!-- ADMIN CLIENT SIDE-->
+<script>
+    // if add section is clicked
+    $('#add').click(()=>{
+       post(`/{{ session['username'] }}/admin/${$('#section').val()}/add`, {'section':$('#section').val()})
+    });
+
+
+    // if remove section is clicked
+    $('#remove').click(()=>{
+        post(`/{{ session['username'] }}/admin/${$('#section').val()}/remove`, {'section':$('#section').val()})
+    });
+</script>
+
 <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
 
 {% endblock %}
