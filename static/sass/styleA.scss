@@ -230,10 +230,17 @@ nav{
   align-self: center;
   align-items: center;
   width: 80%;
-  margin: 25% auto;
+  margin: 100px auto;
   color: color('skin-tan2');
   h1{
+    text-align: center;
     font-size: 5em;
+    @media (max-width: 600px) {
+      font-size: 3em;
+    }
+    @media (max-width: 1000px) {
+      font-size: 4em;
+    }
   }
   h2{
     font-size: 4em;
@@ -340,10 +347,11 @@ nav{
     display: flex;
     flex-direction: column;
     h1{
-      font-size: 2em;
+      font-size: 2rem;
       background-color: color('pink-hot');
       color: lavenderblush;
       padding: 5px;
+      box-shadow: -5px 5px 20px #616161;
       cursor: pointer;
       @include hoverContent('View More \21D2', color('blue-sky'), 30px)
     }

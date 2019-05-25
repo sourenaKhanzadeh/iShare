@@ -36,7 +36,7 @@ $('#load_more').click(()=>{
         if (data.approved){
             $('.query').append(
                 `<section>
-                <h1>${data.title}</h1>
+                <a href="/${data.username}/${data.title}"><h1>${data.title}</h1></a>
                 <h4>on ${data.date} by ${data.username}</h4>
                 <p>${data.description}</p>
                 <div>

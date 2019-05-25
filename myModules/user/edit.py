@@ -1,15 +1,28 @@
 from myModules.user.profile import *
 from app import app, render_template, request
 from myModules.tools.tools import validate
+from myModules.model.database import sections
 
 @app.route('/<user>/profile/<title>', methods=['GET', 'POST'])
 def edit(user,title):
+    # get all sections
+    sec = sections.find()
+
+    all_sections = []
+
+    # append all sections
+    for section in sec:
+        all_sections.append(section)
+
     # user editing the paper
     if request.method == "GET" and session['username']:
         # get the repo
         query = repos.find_one({'username': user, 'title':title})
 
-        return render_template('pages/edit.html', query=query)
+        return render_template('pages/edit.html',
+                               query=query,
+                               all_sections =all_sections
+                               )
     # user update the paper
     else:
         # get date stars and avatar and validate data
@@ -33,6 +46,7 @@ def edit(user,title):
             'star':stars,
             'avatar':avatar,
             'pending':True,
+            'section': request.form['section'],
             'approved':False
         }
         # update the repo

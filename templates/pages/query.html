@@ -10,7 +10,7 @@
     {% for query in queries %}
         {% if query['approved'] %}
             <section>
-                <h1>{{ query['title'] }}</h1>
+                <a href="/{{ query['username'] }}/{{ query['title']}}"><h1>{{ query['title'] }}</h1></a>
                 <h4>on {{ query['date'] }} by {{ query['username'] }}</h4>
                 <p>{{ query['description'] }}</p>
                 <div>

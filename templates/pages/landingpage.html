@@ -10,7 +10,7 @@
             <div class="git-profile">
                 <img src="{{repo['avatar']}}">
                 <h2>{{repo['title']}}</h2>
-                <button>view</button>
+                <button onclick="window.location='/{{repo['username']}}/{{repo['title']}}'">view</button>
             </div>
             {% endfor %}
     <div class="loading"></div>

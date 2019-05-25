@@ -43,7 +43,8 @@ button {
 /* DEFAULT a */
 a {
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  font-size: inherit; }
 
 /* DEFAULT input */
 input {
@@ -275,10 +276,17 @@ nav {
   align-self: center;
   align-items: center;
   width: 80%;
-  margin: 25% auto;
+  margin: 100px auto;
   color: #E87551; }
   .welcome h1 {
+    text-align: center;
     font-size: 5em; }
+    @media (max-width: 600px) {
+      .welcome h1 {
+        font-size: 3em; } }
+    @media (max-width: 1000px) {
+      .welcome h1 {
+        font-size: 4em; } }
   .welcome h2 {
     font-size: 4em; }
   .welcome input {
@@ -390,10 +398,11 @@ nav {
     display: flex;
     flex-direction: column; }
     .query section h1 {
-      font-size: 2em;
+      font-size: 2rem;
       background-color: #F2385A;
       color: lavenderblush;
       padding: 5px;
+      box-shadow: -5px 5px 20px #616161;
       cursor: pointer; }
       .query section h1::after {
         content: "View More ⇒";
