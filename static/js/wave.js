@@ -21,7 +21,8 @@ window.addEventListener('resize',()=>{
 const Wave = {
   y:canvas.height-200,
   length: 0.01,
-  amplitude:70,
+  amplitude:0,
+  dample: 1,
   frequency:0.01,
   increase_freq:1,
   flag : true,
@@ -53,25 +54,30 @@ const Wave = {
   },
   movement:function () {
       this.increase_freq += this.frequency;
-      velocity = 2;
-      this.frequency += 0.001;
+      dfreq = 0.007;
+      height = 50;
+      maxFreq = 0.01;
+      dincrease = 0.05;
+
+      this.increase_freq += dincrease;
+      this.amplitude += this.dample;
+
 
       // organize frequency
-      if(this.frequency > 0.5){
-          this.frequency = 0.001
+      if(this.frequency > maxFreq){
+          dfreq = -dfreq
+      }
+      if(this.frequency < -maxFreq){
+          dfreq = -dfreq
       }
       // create a wave form
-      if(this.flag){
-          this.amplitude -= velocity;
-          if(this.amplitude < -70){
-              this.flag = false;
-
-          }
-      }else{
-          this.amplitude += velocity;
-          if(this.amplitude > 70){
-              this.flag = true;
-          }
+      if(this.amplitude > height){
+          this.dample = -this.dample;
+          this.amplitude += this.dample;
+      }
+      if(this.amplitude < -height){
+          this.dample = -this.dample;
+          this.amplitude += this.dample;
 
       }
 
