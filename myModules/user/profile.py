@@ -1,5 +1,5 @@
 from app import app, render_template, request
-from myModules.model.database import repos
+from myModules.model.database import repos, global_database
 from flask import session, redirect, flash
 from myModules.tools.tools import millify
 
@@ -9,7 +9,8 @@ def profile(user):
     if session['username'] and session['username'] == user:
         # get all the repos
         # sort by star in descending order
-        query = repos.find({'username':user}).sort('star', -1)
+        query = global_database.query(1, username=session['username'])
+
         queries = []
 
         # query all the repos

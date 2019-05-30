@@ -1,5 +1,5 @@
 from app import app, render_template
-from myModules.model.database import repos, sections
+from myModules.model.database import global_database
 from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
 
@@ -11,24 +11,18 @@ def allTime():
     # if clicked on sections
     if request.args.get('section') != None:
         # query according to their section
-        query = \
-            repos.find(
-                {
-                    'approved': True,
-                    'section':request.args.get('section')
-                 }
-            ).sort('star', -1).limit(limit)
+        query = global_database.query(1,limit=limit,
+            approved=True,
+            section=request.args.get('section')
+        )
+
     else:
         # query all time
-        query = \
-            repos.find(
-                {
-                    'approved': True
-                }
-            ).sort('star', -1).limit(limit)
+        query = global_database.query(1, limit=limit,
+            approved=True
+        )
 
     queries = []
-    print(query.count())
     # user clicked on load_more
     if limit > 2 and query.count() != 0:
         # get its limit
@@ -59,9 +53,9 @@ def allTime():
         # millify star
         elem['star'] = millify(elem['star'])
         queries.append(elem)
-
     # get all sections
-    sec = sections.find()
+    sec = global_database.query(2 ,limit=global_database.count(2))
+
     all_sections = []
 
     for section in sec:
