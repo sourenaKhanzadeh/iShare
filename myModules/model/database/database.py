@@ -13,6 +13,12 @@ repos = db['repos']
 # create sections
 sections = db['sections']
 
+# collections id
+ids = {
+    'user':0,
+    'repo':1,
+    'section':2
+}
 
 class Database:
 
@@ -30,6 +36,16 @@ class Database:
             query.queryAllUsers(kwargs).limit(limit).sort(sort,d),
             query.queryRepo(kwargs).limit(limit).sort(sort,d),
             query.querySections(kwargs).limit(limit).sort(sort,d)
+        ][id]
+
+    def find_one(self, id, **kwargs):
+        from myModules.model.database.findone import FindOne
+
+        find_one = FindOne(client)
+        return [
+            find_one.findOneUser(kwargs),
+            find_one.findOneRepo(kwargs),
+            find_one.findOneSection(kwargs)
         ][id]
 
     def count(self, id):

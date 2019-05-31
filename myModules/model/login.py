@@ -1,5 +1,5 @@
 from app import app, request, render_template
-from myModules.model.database import all_users
+from myModules.model.database.database import all_users
 from myModules.model.hash import *
 from flask import session, redirect, flash
 

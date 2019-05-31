@@ -1,5 +1,5 @@
 from app import app, render_template
-from myModules.model.database import global_database
+from myModules.model.database.database import global_database
 from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
 

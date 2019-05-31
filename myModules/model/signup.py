@@ -1,5 +1,5 @@
 from app import app, request, render_template
-from myModules.model.database import all_users
+from myModules.model.database.database import all_users, global_database, ids
 from myModules.model.hash import User
 from flask import flash, redirect
 
@@ -12,12 +12,10 @@ def register():
         # HASH THE PASSWORD
         user = User(request.form['username'], request.form['password'])
         # check if user exists in the database
-        username = all_users.find({'username': user.username})
-
-        # if user exist in the database then return a flash
+        username = global_database.find_one(ids['user'], username=user.username)
+        # if user does not exist in the database then return a flash
         # CREATE A FLASH FOR THE ERROR
-
-        if username.count()  == 0:
+        if username == None:
             # get all users data
             user = {
                 'username': user.username,

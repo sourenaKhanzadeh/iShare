@@ -1,5 +1,5 @@
 from app import app, render_template
-from myModules.model.database import repos
+from myModules.model.database.database import global_database
 import locale
 
 
@@ -9,11 +9,9 @@ def detail(user, title):
     locale.setlocale(locale.LC_ALL, 'en_US')
 
     # get repo out of the database
-    repo = repos.find_one(
-        {
-        'username':user,
-        'title':title
-        }
+    repo = global_database.find_one(1,
+        username=user,
+        title=title
     )
 
     # make star human readable

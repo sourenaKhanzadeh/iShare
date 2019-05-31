@@ -1,5 +1,5 @@
 from app import app, render_template, request
-from myModules.model.database import repos,all_users, sections
+from myModules.model.database.database import repos,all_users, sections
 from flask import session, redirect, flash
 from myModules.tools.tools import millify
 

@@ -1,12 +1,13 @@
 from myModules.user.profile import *
 from app import app, render_template, request
 from myModules.tools.tools import validate
-from myModules.model.database import sections
+from myModules.model.database.database import global_database, ids
 
 @app.route('/<user>/profile/<title>', methods=['GET', 'POST'])
 def edit(user,title):
     # get all sections
-    sec = sections.find()
+    sec = global_database.query(ids['section'],
+                                limit=global_database.count(ids['section']))
 
     all_sections = []
 

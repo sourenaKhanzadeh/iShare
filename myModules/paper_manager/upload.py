@@ -1,5 +1,5 @@
 from app import app, request, render_template
-from myModules.model.database import repos, sections
+from myModules.model.database.database import repos ,global_database, ids
 from flask import session, redirect, flash
 from myModules.tools.tools import validate
 
@@ -10,7 +10,8 @@ def limitFile(file):
 @app.route("/<user>/upload", methods=['GET', 'POST'])
 def upload(user):
     # get all sections
-    sec = sections.find()
+    sec = global_database.query(ids['section'],
+                                limit=global_database.count(ids['section']))
 
     all_sections = []
 
