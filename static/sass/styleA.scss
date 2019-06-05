@@ -607,15 +607,13 @@ canvas{
     resize: none;
   }
   ul{
+    h3{
+      margin-top: 10px;
+    }
     li{
       list-style-type: none;
       padding: 10px;
-      &::before{
-        content: '';
-        border: 1px solid color('skin-tan2');
-        border-radius: 50%;
-        margin-right: 5px;
-      }
+      @include beforeBorder(color("skin-tan2"));
     }
   }
   h2, hr{

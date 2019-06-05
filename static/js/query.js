@@ -8,18 +8,18 @@ $('#load_more').click(()=>{
     limit++;
     $('.loading').css('display', 'block');
     $.ajax({
-                type: "GET",
-                cache: false,
-                data:{limit:limit},
-                url: window.location,
-                dataType: "json",
-                success: function(data) {
-                    console.log(data);
-                },
-                // error: function(jqXHR) {
-                //     alert("error: " + jqXHR.status);
-                //     console.log(jqXHR);
-                // }
+        type: "GET",
+        cache: false,
+        data:{limit:limit},
+        url: window.location,
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
+        },
+        // error: function(jqXHR) {
+        //     alert("error: " + jqXHR.status);
+        //     console.log(jqXHR);
+        // }
     }).done((data)=>{
         // fade out the pre loader after 1sec
         $('.loading').fadeOut(1000);

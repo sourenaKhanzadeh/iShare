@@ -1,4 +1,4 @@
-from app import app, render_template, socketio, send, session
+from app import app, render_template, socketio, send, session, request
 from myModules.model.database.database import global_database
 import locale
 
@@ -16,6 +16,12 @@ def detail(user, title):
 
     # make star human readable
     repo['star'] = locale.format('%d', repo['star'], True)
+
+    # user made comments
+    if request.args.get('user') is not None:
+        print(request.args.get('today'))
+        print(request.args.get('user'))
+        print(request.args.get('comment'))
 
     return render_template('pages/detail.html',
                            repo = repo,

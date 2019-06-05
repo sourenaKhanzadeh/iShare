@@ -670,6 +670,8 @@ canvas {
   .msg textarea {
     width: 100%;
     resize: none; }
+  .msg ul h3 {
+    margin-top: 10px; }
   .msg ul li {
     list-style-type: none;
     padding: 10px; }
