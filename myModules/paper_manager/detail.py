@@ -1,4 +1,4 @@
-from app import app, render_template
+from app import app, render_template, socketio, send, session
 from myModules.model.database.database import global_database
 import locale
 
@@ -18,4 +18,10 @@ def detail(user, title):
     repo['star'] = locale.format('%d', repo['star'], True)
 
     return render_template('pages/detail.html',
-                           repo = repo)
+                           repo = repo,
+                           session=session)
+
+@socketio.on('message')
+def handleMessage(msg):
+    print(f"Message: {msg}")
+    send(msg, broadcast=True)

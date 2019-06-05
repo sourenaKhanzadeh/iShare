@@ -14,13 +14,11 @@ def profile(user):
         queries = []
 
         # query all the repos
-        for i in range(query.count()):
-            # get the next data
-            next_query = query.next()
+        for query in query:
             # millify star
-            next_query['star'] = millify(next_query['star'])
+            query['star'] = millify(query['star'])
             # append data into the query
-            queries.append(next_query)
+            queries.append(query)
             # render all time
         return render_template('pages/profile.html', queries=queries)
     else:

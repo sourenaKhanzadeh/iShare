@@ -1,7 +1,6 @@
-from app import app, request, render_template
+from app import app, request, render_template, session, redirect, flash
 from myModules.model.database.database import all_users
 from myModules.model.hash import *
-from flask import session, redirect, flash
 
 
 @app.route("/account/login", methods=['GET', 'POST'])

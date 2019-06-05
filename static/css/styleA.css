@@ -663,3 +663,25 @@ canvas {
   z-index: -10; }
 
 /* CANVAS ENDS */
+/* COMMENTS BEGINS */
+.msg {
+  display: flex;
+  flex-direction: column; }
+  .msg textarea {
+    width: 100%;
+    resize: none; }
+  .msg ul li {
+    list-style-type: none;
+    padding: 10px; }
+    .msg ul li::before {
+      content: '';
+      border: 1px solid #E87551;
+      border-radius: 50%;
+      margin-right: 5px; }
+  .msg h2, .msg hr {
+    align-self: center; }
+  .msg button {
+    margin-top: 5px;
+    width: 5em; }
+
+/* COMMENTS ENDS */

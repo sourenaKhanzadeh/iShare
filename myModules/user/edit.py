@@ -1,7 +1,7 @@
 from myModules.user.profile import *
 from app import app, render_template, request
 from myModules.tools.tools import validate
-from myModules.model.database.database import global_database, ids
+from myModules.model.database.database import global_database, ids, repos
 
 @app.route('/<user>/profile/<title>', methods=['GET', 'POST'])
 def edit(user,title):
@@ -18,7 +18,7 @@ def edit(user,title):
     # user editing the paper
     if request.method == "GET" and session['username']:
         # get the repo
-        query = repos.find_one({'username': user, 'title':title})
+        query = global_database.find_one(ids['repo'],username= user, title=title)
 
         return render_template('pages/edit.html',
                                query=query,

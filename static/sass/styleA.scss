@@ -596,3 +596,34 @@ canvas{
   z-index: -10;
 }
 /* CANVAS ENDS */
+
+
+/* COMMENTS BEGINS */
+.msg{
+  display: flex;
+  flex-direction: column;
+  textarea{
+    width: 100%;
+    resize: none;
+  }
+  ul{
+    li{
+      list-style-type: none;
+      padding: 10px;
+      &::before{
+        content: '';
+        border: 1px solid color('skin-tan2');
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+    }
+  }
+  h2, hr{
+    align-self: center;
+  }
+  button{
+    margin-top: 5px;
+    width: 5em;
+  }
+}
+/* COMMENTS ENDS */
