@@ -38,6 +38,7 @@ def upload(user):
                 # redirect to homepage
                 return redirect('/')
 
+            #TODO:// prevent html injection
             # insert into the database
             repos.insert({
                 'username':session['username'],

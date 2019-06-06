@@ -3,7 +3,7 @@
  */
 $('#comment').on('click',()=>{
     let comment = $('.msg textarea').val();
-
+    comment = comment.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     // sent message
     $('.msg ul').append(`
     <h3>${user}</h3>

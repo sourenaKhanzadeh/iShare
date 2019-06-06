@@ -12,3 +12,6 @@ class Query:
 
     def querySections(self,kwargs:dict):
         return self.database.sections.find(kwargs)
+
+    def queryComments(self,kwargs:dict):
+        return self.database.comments.find(kwargs)

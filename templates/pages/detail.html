@@ -20,7 +20,11 @@
             <button id="comment"> comment </button>
             <h2>Discussion</h2>
             <hr>
-            <ul></ul>
+            <ul>
+                {% for query in queries%}
+                    <li></li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 <script>

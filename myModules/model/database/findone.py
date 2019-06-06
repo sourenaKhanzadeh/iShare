@@ -12,3 +12,6 @@ class FindOne:
 
     def findOneSection(self,kwargs:dict):
         return self.database.sections.find_one(kwargs)
+
+    def findOneComment(self,kwargs:dict):
+        return self.database.comments.find_one(kwargs)

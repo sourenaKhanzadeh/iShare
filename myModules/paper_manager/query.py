@@ -10,6 +10,7 @@ def allTime():
 
     # if clicked on sections
     if request.args.get('section') != None:
+
         # query according to their section
         query = global_database.query(1,limit=limit,
             approved=True,
@@ -17,19 +18,24 @@ def allTime():
         )
 
     else:
+
         # query all time
         query = global_database.query(1, limit=limit,
             approved=True
         )
 
     queries = []
+
     # user clicked on load_more
     if limit > 2 and query.count() != 0:
+
         # get its limit
         for i in range(limit-1):
             query.next()
+
         # get the second last query
         nex = query.next()
+
         # store the content
         content = {
             'username':nex['username'],
@@ -44,6 +50,7 @@ def allTime():
             'queries_count':query.count(),
             'limit':limit
         }
+
         # upload as json
         return jsonify(content)
 
@@ -53,6 +60,7 @@ def allTime():
         # millify star
         elem['star'] = millify(elem['star'])
         queries.append(elem)
+
     # get all sections
     sec = global_database.query(2 ,limit=global_database.count(2))
 
