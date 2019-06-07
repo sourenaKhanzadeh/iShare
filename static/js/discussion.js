@@ -3,14 +3,10 @@
  */
 $('#comment').on('click',()=>{
     let comment = $('.msg textarea').val();
+    //preventing sql injection
     comment = comment.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    // sent message
-    $('.msg ul').append(`
-    <h3>${user}</h3>
-    <h5>${today}</h5>
-    <li>${comment}</li>
-    `);
     $('textarea').val('');
+    $('.loading').fadeIn(1000);
 
     $.ajax({
         type: "GET",
@@ -20,6 +16,12 @@ $('#comment').on('click',()=>{
         dataType: "json",
         success: function(data) {
             console.log(data);
+            // sent message
+            $('.msg ul').append(`
+            <h3>${data.username}</h3>
+            <h5>${data.date}</h5>
+            <li>${data.comment}</li>
+            `);
 
         },
         // error: function(jqXHR) {
@@ -29,6 +31,7 @@ $('#comment').on('click',()=>{
         }).done((data)=>{
             // fade out the pre loader after 1sec
             $('.loading').fadeOut(1000);
+
 
 
     });

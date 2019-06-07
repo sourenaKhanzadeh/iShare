@@ -21,10 +21,15 @@
             <h2>Discussion</h2>
             <hr>
             <ul>
-                {% for query in queries%}
-                    <li></li>
-                {% endfor %}
+                {% if comments%}
+                    {% for comment in comments %}
+                        <h3>{{ comment['username'] }}</h3>
+                        <h5>{{ comment['date'] }}</h5>
+                        <li>{{ comment['comment'] }}</li>
+                    {% endfor %}
+                {% endif %}
             </ul>
+            <div class="loading"></div>
         </div>
     </div>
 <script>

@@ -26,7 +26,7 @@ ids = {
 
 class Database:
     """
-    Mongodb database
+    Mongodb
     URL: mongodb://localhost:27017/
     Database Name: iShare
     Collections
@@ -62,7 +62,8 @@ class Database:
         return [
             find_one.findOneUser(kwargs),
             find_one.findOneRepo(kwargs),
-            find_one.findOneSection(kwargs)
+            find_one.findOneSection(kwargs),
+            find_one.findOneComment(kwargs)
         ][id]
 
     def count(self, id):
@@ -77,12 +78,14 @@ class Database:
 
         insert = Insert(client)
 
-        return [
-            insert.insertAllUser(kwargs),
-            insert.insertRepo(kwargs),
-            insert.insertSection(kwargs),
+        if id == 0:
+            insert.insertAllUser(kwargs)
+        elif id == 1:
+            insert.insertRepo(kwargs)
+        elif id == 2:
+            insert.insertSection(kwargs)
+        elif id == 3:
             insert.insertComment(kwargs)
-        ]
 
 
 
