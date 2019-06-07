@@ -57,14 +57,11 @@ def admin(user):
         # admin made a decision
         else:
 
-            # take admin decision
-            decision = bool(request.form['approve'])
-
             # take repo title
             title = request.form['repo']
 
             # if admin approved
-            if decision:
+            if request.form['approve'] == 1:
                 # then approve the paper
                 repos.update({'title':title}, {'$set':{'approved':True, 'pending':False}})
                 # message admin they successfully approved

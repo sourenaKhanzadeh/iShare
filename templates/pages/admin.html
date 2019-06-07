@@ -28,8 +28,8 @@
                     <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
                 </div>
                 <div>
-                    <button><i class="fa fa-check-circle" onclick="post('/{{session['username']}}/admin', {'approve':'True', 'repo':'{{query['title']}}'}); preload();"></i></button>
-                    <button><i class="fa fa-times-circle" onclick="post('/{{session['username']}}/admin', {'approve':'False', 'repo':'{{query['title']}}'}); preload();"></i></button>
+                    <button><i class="fa fa-check-circle" onclick="post('/{{session['username']}}/admin', {'approve':1, 'repo':'{{query['title']}}'}); preload();"></i></button>
+                    <button><i class="fa fa-times-circle" onclick="post('/{{session['username']}}/admin', {'approve':0, 'repo':'{{query['title']}}'}); preload();"></i></button>
                 </div>
             </section>
         {% endif %}

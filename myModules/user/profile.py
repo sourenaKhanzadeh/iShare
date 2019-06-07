@@ -9,7 +9,8 @@ def profile(user):
     if session['username'] and session['username'] == user:
         # get all the repos
         # sort by star in descending order
-        query = global_database.query(ids['repo'], username=session['username'])
+        query = global_database.query(ids['repo'],
+        limit=global_database.count(ids['repo']),username=session['username'])
 
         queries = []
 

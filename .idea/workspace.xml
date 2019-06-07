@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d656594d-e9d6-4415-baa3-113c84b913b1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/admin/admin.py" afterPath="$PROJECT_DIR$/myModules/admin/admin.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/paper_manager/upload.py" afterPath="$PROJECT_DIR$/myModules/paper_manager/upload.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/tools/tools.py" afterPath="$PROJECT_DIR$/myModules/tools/tools.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styleA.css" afterPath="$PROJECT_DIR$/static/css/styleA.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sass/mixins.scss" afterPath="$PROJECT_DIR$/static/sass/mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sass/styleA.scss" afterPath="$PROJECT_DIR$/static/sass/styleA.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/login-register.html" afterPath="$PROJECT_DIR$/templates/pages/login-register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/upload.html" afterPath="$PROJECT_DIR$/templates/pages/upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views.py" afterPath="$PROJECT_DIR$/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/user/profile.py" afterPath="$PROJECT_DIR$/myModules/user/profile.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/admin.html" afterPath="$PROJECT_DIR$/templates/pages/admin.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,8 +37,8 @@
           <file leaf-file-name="upload.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/myModules/paper_manager/upload.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+                <state relative-caret-position="153">
+                  <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
                   <folding>
                     <element signature="e#0#54#0" expanded="true" />
                   </folding>
@@ -61,11 +56,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/myModules/admin/admin.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-204">
-                  <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+                <state relative-caret-position="204">
+                  <caret line="63" column="43" lean-forward="false" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
                   <folding>
                     <element signature="e#0#45#0" expanded="true" />
                   </folding>
@@ -73,11 +68,31 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="profile.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/myModules/user/profile.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/pages/admin.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="238">
+                  <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="tools.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/myModules/tools/tools.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="364">
-                  <caret line="53" column="39" lean-forward="true" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+                <state relative-caret-position="245">
+                  <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#42#0" expanded="true" />
                   </folding>
@@ -88,7 +103,7 @@
         </leaf>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.39107612">
+        <splitter split-orientation="horizontal" split-proportion="0.4304462">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="styleA.scss" pinned="false" current-in-tab="true">
@@ -135,21 +150,11 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
+              <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/templates/pages/profile.html">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="98">
                       <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="upload.html" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/templates/pages/upload.html">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="289">
-                      <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
                       <folding />
                     </state>
                   </provider>
@@ -195,7 +200,6 @@
         <option value="$PROJECT_DIR$/myModules/admin/remove_section.py" />
         <option value="$PROJECT_DIR$/myModules/admin/add_section.py" />
         <option value="$PROJECT_DIR$/static/js/admin.js" />
-        <option value="$PROJECT_DIR$/templates/pages/admin.html" />
         <option value="$PROJECT_DIR$/templates/pages/edit.html" />
         <option value="$PROJECT_DIR$/static/sass/defaults.scss" />
         <option value="$PROJECT_DIR$/templates/pages/query.html" />
@@ -203,12 +207,10 @@
         <option value="$PROJECT_DIR$/static/js/wave.js" />
         <option value="$PROJECT_DIR$/myModules/model/database.py" />
         <option value="$PROJECT_DIR$/myModules/github/repos.py" />
-        <option value="$PROJECT_DIR$/myModules/admin/admin.py" />
         <option value="$PROJECT_DIR$/myModules/admin/section.py" />
         <option value="$PROJECT_DIR$/myModules/model/signup.py" />
         <option value="$PROJECT_DIR$/myModules/user/edit.py" />
         <option value="$PROJECT_DIR$/templates/template/header.html" />
-        <option value="$PROJECT_DIR$/myModules/user/profile.py" />
         <option value="$PROJECT_DIR$/myModules/model/login.py" />
         <option value="$PROJECT_DIR$/static/js/query.js" />
         <option value="$PROJECT_DIR$/myModules/model/database/query.py" />
@@ -226,7 +228,10 @@
         <option value="$PROJECT_DIR$/static/sass/styleA.scss" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/myModules/tools/tools.py" />
+        <option value="$PROJECT_DIR$/templates/pages/admin.html" />
         <option value="$PROJECT_DIR$/myModules/paper_manager/upload.py" />
+        <option value="$PROJECT_DIR$/myModules/admin/admin.py" />
+        <option value="$PROJECT_DIR$/myModules/user/profile.py" />
       </list>
     </option>
   </component>
@@ -318,6 +323,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iShare" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myModules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -812,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/sass/constants.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -891,16 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-27">
           <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#45#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myModules/user/profile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
           <folding>
             <element signature="e#0#45#0" expanded="false" />
           </folding>
@@ -1052,14 +1058,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/sass/mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -1070,7 +1068,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/upload.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="391">
           <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding />
         </state>
@@ -1084,16 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myModules/tools/tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="53" column="39" lean-forward="true" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1102,23 +1090,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="28" column="12" lean-forward="false" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myModules/paper_manager/upload.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myModules/tools/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myModules/admin/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        <state relative-caret-position="204">
+          <caret line="63" column="43" lean-forward="false" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myModules/user/profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

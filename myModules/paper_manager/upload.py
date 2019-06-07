@@ -44,7 +44,7 @@ def upload(user):
 
                 flash("Could not upload paper")
 
-                return redirect(url_for('upload'))
+                return redirect(url_for('upload', user=user))
 
             else:
                 # check if title exist in the database
