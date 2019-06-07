@@ -42,7 +42,6 @@
 
 @mixin centerAbsolute{
   position: absolute;
-  z-index: -1;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -88,10 +87,9 @@
 
 @mixin beforeForm($content){
   &::before{
-    @include centerAbsolute;
     content: $content;
     display: block;
-    height: 25em;
+    height: 30em;
     border: 1px solid color('pink-gentle');
     color: color('pink-gentle');
   }

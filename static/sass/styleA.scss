@@ -273,6 +273,7 @@ nav{
 
 /* FLASHES BEGINS HERE */
 .flashes{
+  margin-top: 50px;
   .flash-success{
     @include flashes(color('green-jade'), lightgreen);
     &::before{
@@ -297,15 +298,26 @@ nav{
   display: flex;
   justify-content: center;
   form{
-    position: relative;
     display: flex;
     flex-direction: column;
     align-self: center;
     justify-content: center;
-    width: 80%;
+    top: 0;
+    @media (max-width: 800px) {
+      @include centerAbsolute;
+      width: 100vw;
+    }
+    width: 800px;
     height: 100vh;
-    padding: 25px;
-    @include beforeForm('Upload a paper');
+    @media (max-width: 400px) {
+      @include centerAbsolute;
+      width: 100vw;
+    }
+
+    label{
+      margin-top: 15px;
+    }
+    //@include beforeForm('Upload a paper');
     input{
       &[type='submit']{
         @include land-btn;
@@ -322,6 +334,9 @@ nav{
     }
     textarea{
       resize: none;
+    }
+    .loading{
+      align-self: center;
     }
   }
 }
@@ -425,6 +440,8 @@ nav{
   }
 
 }
+
+//TODO: MAKE SECTIONS LOOK NICER
 .sections{
   margin: 50px;
   a{
@@ -492,9 +509,6 @@ nav{
 /* EDIT BEGINS */
 .edit{
   @extend .upload;
-  form{
-    @include beforeForm('Edit Paper')
-  }
 }
 /* EDIT ENDS */
 

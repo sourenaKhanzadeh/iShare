@@ -1,8 +1,8 @@
-from app import app, request, render_template
-from myModules.model.database.database import repos ,global_database, ids
+from app import app, request, render_template, url_for
+from myModules.model.database.database import global_database, ids
 from flask import session, redirect, flash
 from myModules.tools.tools import validate
-
+import re
 
 def limitFile(file):
     pass
@@ -29,7 +29,8 @@ def upload(user):
         # user is submitting the paper
         else:
             # get date stars and avatar and validate data
-            date, stars, avatar = validate(request)
+            #check if user enter the correct information
+            date, stars, avatar, pdf = validate(request)
 
             # Api maximum limit has reached
             if isinstance(stars, dict) or isinstance(avatar, dict):
@@ -38,27 +39,46 @@ def upload(user):
                 # redirect to homepage
                 return redirect('/')
 
-            #TODO:// prevent html injection
-            #TODO:// check all test cases
-            # insert into the database
-            repos.insert({
-                'username':session['username'],
-                'title': request.form['title'],
-                'url_repo': request.form['repo'],
-                'url_pdf': request.form['pdf'],
-                'date': f'{date}',
-                'description': request.form['desc'],
-                'star':stars,
-                'avatar':avatar,
-                'section':request.form['section'],
-                'pending':True,
-                'approved':False
-            })
+            # check if paper is valid
+            if None in {date, stars, avatar, pdf}:
 
-            # success flash popped up
-            flash("Paper Successfully Uploaded")
-            # redirect to the homepage
-            return redirect('/')
+                flash("Could not upload paper")
+
+                return redirect(url_for('upload'))
+
+            else:
+                # check if title exist in the database
+                if global_database.find_one(ids['repo'],
+                    title=request.form['title']) is not None  \
+                    or  re.search(r'\W', request.form['title']):
+                    flash("A Paper With The Same Title is Uploaded Or The Title Has Symbols In It")
+
+                    return redirect(url_for('upload', user=user))
+
+                else:
+
+                    #TODO:// prevent html injection
+
+                    # insert into the database
+                    global_database.insert(ids['repo'],
+                        username = session['username'],
+                        title = request.form['title'],
+                        url_repo = request.form['repo'],
+                        url_pdf = pdf,
+                        date = f'{date}',
+                        description = request.form['desc'],
+                        star = stars,
+                        avatar = avatar,
+                        section = request.form['section'],
+                        pending = True,
+                        approved = False
+
+                    )
+
+                    # success flash popped up
+                    flash("Paper Successfully Uploaded")
+                    # redirect to the homepage
+                    return redirect('/')
 
         # user entered the wrong url
     else:

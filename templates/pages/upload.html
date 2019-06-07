@@ -5,15 +5,15 @@
 <div class="upload">
     <form align="center" method="post">
         <label for="title">Title</label>
-        <input type="text" name="title">
+        <input type="text" name="title" required>
         <label for="repo">Url to The Repository</label>
-        <input type="text" name="repo">
+        <input type="url" name="repo" required>
         <label for="pdf">Url to The PDF</label>
-        <input type="text" name="pdf">
+        <input type="url" name="pdf" required>
         <label for="desc">Description</label>
-        <textarea name="desc" cols="6" rows="6"></textarea>
+        <textarea name="desc" cols="6" rows="6" required></textarea>
         <label for="section"> Choose a section </label>
-        <select name="section">
+        <select name="section" required>
             {% for section in all_sections %}
                 <option>
                     {{ section['section'] }}
@@ -21,7 +21,7 @@
             {% endfor %}
         </select>
         <input type="submit" name="submit" value="Upload" onclick="preload()">
-    <div class="loading" align="center"></div>
+        <div class="loading" align="center"></div>
     </form>
 </div>
 

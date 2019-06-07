@@ -2,17 +2,24 @@
 {% block body %}
 <div class="login">
     <form method="post">
+        {% if sign %}
+        <h1>Sign Up</h1>
+        <hr>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="email.....">
+        <label for="username"> Username</label>
+        <input type="text" name="username" placeholder="username.....">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="password.....">
+        {% endif %}
+
+        {% if not sign %}
         <h1>Login</h1>
         <hr>
         <label for="username"> Username</label>
         <input type="text" name="username" placeholder="username.....">
-        {% if sign %}
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="email.....">
-        {% endif %}
         <label for="password">Password</label>
         <input type="password" name="password" placeholder="password.....">
-        {% if not sign %}
         <input type="submit" name="login" value="Login">
         <div class="sign"><a href="/account/register">SignUp</a></div>
         {% else %}
