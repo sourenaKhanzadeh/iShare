@@ -1,5 +1,5 @@
 from app import app, render_template
-from myModules.model.database.database import global_database
+from myModules.model.database.database import global_database, ids
 from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
 
@@ -7,6 +7,9 @@ from myModules.tools.tools import millify
 def allTime():
     # set a limit
     limit = request.args.get('limit', 2, type=int)
+
+    # get admin
+    admin = global_database.find_one(ids['user'], username=session['username'], fsr=True)
 
     # if clicked on sections
     if request.args.get('section') != None:
@@ -73,4 +76,5 @@ def allTime():
     # render all time
     return render_template('pages/query.html',
                            queries=queries,
-                           all_sections=all_sections)
+                           all_sections=all_sections,
+                           admin=admin)

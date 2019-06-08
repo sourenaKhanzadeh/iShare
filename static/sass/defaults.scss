@@ -27,9 +27,13 @@ hr {
 button{
   cursor: pointer;
   outline: none;
-  background-color: color('skin-tan2');
-  color: lavenderblush;
   border: none;
+  width: 6em;
+  height: 3em;
+  color: lavenderblush;
+  background-color: color('orange-dark');
+  @include hoverContent('\21D2', color('blue-sky'), 5px);
+
   &:active {
     color: #B64926;
   }

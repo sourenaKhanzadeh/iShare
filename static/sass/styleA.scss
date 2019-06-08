@@ -356,7 +356,6 @@ nav{
   margin: 0 auto;
   section{
     position: relative;
-    margin: 40px 0;
     border: 1px solid color('pink-hot');
     box-shadow: 0 0 50px 10px #00000055;
     display: flex;
@@ -417,6 +416,13 @@ nav{
       $portion: 60px;
       width: $portion;
       height: $portion;
+    }
+    .sections{
+      a{
+        font-size: 12pt;
+        float: left;
+        margin: 0;
+      }
     }
 
   }

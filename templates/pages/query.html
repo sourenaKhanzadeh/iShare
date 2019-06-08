@@ -19,9 +19,19 @@
                     <a class="git" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
                     <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
                 </div>
+                <div class="sections">
+                    <a  href="/Browse-all-time?section={{ query['section'] }}">{{ query['section'] }}</a>
+                </div>
+                {%if admin%}
+                <div>
+                    <button> Edit </button>
+                    <button> Delete </button>
+                </div>
+                {% endif %}
             </section>
         {% endif %}
     {% endfor%}
+
 </div>
 {% if queries|length > 1 %}
     <div class="load">
