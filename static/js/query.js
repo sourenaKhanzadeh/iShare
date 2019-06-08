@@ -33,7 +33,7 @@ $('#load_more').click(()=>{
             // if not then fade the load more button
             $('#load_more').fadeOut(1000);
         // check if user is approved
-        if (data.approved){
+        if (data.approved && data.admin === undefined){
             $('.query').append(
                 `<section>
                 <a href="/${data.username}/${data.title}"><h1>${data.title}</h1></a>
@@ -45,8 +45,34 @@ $('#load_more').click(()=>{
                     <a class="git" href="${data.url_repo}"><i class="fab fa-github"></i></a>
                     <a class="pdf" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
                 </div>
-            </section>`
-            )
+                <div class="sections">
+                    <a  href="/Browse-all-time?section=${data.section}">${data.section}</a>
+                </div>
+            </section>
+            `
+            );
+        }
+        if(data.admin){
+            $('.query').append(`<section>
+            <a href="/${data.username}/${data.title}"><h1>${data.title}</h1></a>
+            <h4>on ${data.date} by ${data.username}</h4>
+            <p>${data.description}</p>
+            <div>
+                <img src="${data.avatar}">
+                <i class="fa fa-star">${data.stars}</i>
+                <a class="git" href="${data.url_repo}"><i class="fab fa-github"></i></a>
+                <a class="pdf" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
+            </div>
+            <div class="sections">
+                    <a  href="/Browse-all-time?section=${data.section}">${data.section}</a>
+            </div>
+            <div class="admin__btn">
+                <button onclick="window.location="/${data.admin}/edit/${data.title}"> Edit </button>
+                <button onclick="window.location="/${data.admin}/delete/${data.title}"> Delete </button>
+            </div>
+        </section>
+        `)
+
         }
     })
 });

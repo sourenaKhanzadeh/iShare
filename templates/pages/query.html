@@ -22,10 +22,10 @@
                 <div class="sections">
                     <a  href="/Browse-all-time?section={{ query['section'] }}">{{ query['section'] }}</a>
                 </div>
-                {%if admin%}
-                <div>
-                    <button> Edit </button>
-                    <button> Delete </button>
+                {%if admin %}
+                <div class="admin__btn">
+                    <button onclick="window.location=`/{{ admin['username'] }}/edit/{{query['title']}}`"> Edit </button>
+                    <button onclick="window.location=`/{{ admin['username'] }}/delete/{{query['title']}}`"> Delete </button>
                 </div>
                 {% endif %}
             </section>

@@ -87,7 +87,19 @@ class Database:
         elif id == 3:
             insert.insertComment(kwargs)
 
+    def delete_one(self,id, **kwargs):
+        from myModules.model.database.deleteone import DeleteOne
 
+        delete = DeleteOne(client)
+
+        if id == 0:
+            delete.deleteOneUser(kwargs)
+        elif id == 1:
+            delete.deleteOneRepo(kwargs)
+        elif id == 2:
+            delete.deleteOneSection(kwargs)
+        elif id == 3:
+            delete.deleteOneComment(kwargs)
 
 
 # export the database

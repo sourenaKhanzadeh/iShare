@@ -4,7 +4,7 @@ from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
 
 @app.route('/Browse-all-time', methods=['GET'])
-def allTime():
+def all_time():
     # set a limit
     limit = request.args.get('limit', 2, type=int)
 
@@ -49,10 +49,14 @@ def allTime():
             'avatar':nex['avatar'],
             'url_pdf':nex['url_pdf'],
             'url_repo':nex['url_repo'],
-            'stars':nex['star'],
+            'stars':millify(nex['star']),
             'queries_count':query.count(),
-            'limit':limit
+            'limit':limit,
+            'section':nex['section']
         }
+
+        if admin:
+            content.update({"admin":admin['username']})
 
         # upload as json
         return jsonify(content)
