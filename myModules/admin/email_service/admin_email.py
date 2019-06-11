@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from validate_email import validate_email
 
 class Email:
     """
@@ -11,8 +12,10 @@ class Email:
     def __init__(self, admin, password):
         self._admin = admin
         self._password = password
-
-        self.server = self.server()
+        try:
+            self.server = self.server()
+        except Exception as e:
+            print("Error:"  + str(e) )
 
     def server(self, iD=0):
         """
@@ -24,6 +27,7 @@ class Email:
             return smtplib.SMTP('smtp.gmail.com', 587)
 
     def connection(self):
+        self.server.ehlo()
         # start TLS for security
         self.server.starttls()
 
@@ -48,7 +52,7 @@ class Email:
             # sending the mail
             self.server.sendmail(msg['From'], msg['To'], msg.as_string())
 
-            print("Sent....." + msg.as_string())
+            print("sent....\n" + msg.as_string())
 
             # terminating the session
             self.server.quit()
@@ -70,17 +74,20 @@ class Email:
     def password(self, value):
         self._password = value
 
-username = "Your_Username"
-password = "Your_Password"
+# write username and password here
+username = "ENTER_USERNAME"
+password = "ENTER_PASSWORD"
 
-to = "Enter_Email"
-msg = "Enter_Message"
+# to = "email@email.com"
+# msg = "Enter_Message"
 
 # attach the file html
-attachment = "email-content.html"
+attachment = "D://Users//www//iShare//myModules//admin//email_service//email-content.html"
 
 with open(attachment, 'r') as file:
     attachment = file.read()
 
+# export admin email
 admin_email = Email(username, password)
-# admin_email.send_to(to, "Enter_Subject", msg, attachment)
+# print("Sent....." + msg.as_string())
+# admin_email.send_to(to, 'Welcome TO iShare', '', attachment)

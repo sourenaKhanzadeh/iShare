@@ -1,6 +1,7 @@
 from app import app, request, render_template
 from myModules.model.database.database import all_users, global_database, ids
 from myModules.model.hash import User
+from myModules.admin.email_service.admin_email import admin_email, attachment
 from flask import flash, redirect
 
 @app.route('/account/register', methods=['GET', 'POST'])
@@ -16,6 +17,10 @@ def register():
         # if user does not exist in the database then return a flash
         # CREATE A FLASH FOR THE ERROR
         if username == None:
+            # send the new member an email with html attachment
+            admin_email.send_to(request.form['email'], 'Welcome to iShare', '',
+                                attachment.replace('[USER]', user.username))
+
             # get all users data
             user = {
                 'username': user.username,
