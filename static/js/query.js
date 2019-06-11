@@ -67,8 +67,8 @@ $('#load_more').click(()=>{
                     <a  href="/Browse-all-time?section=${data.section}">${data.section}</a>
             </div>
             <div class="admin__btn">
-                <button onclick="window.location="/${data.admin}/edit/${data.title}"> Edit </button>
-                <button onclick="window.location="/${data.admin}/delete/${data.title}"> Delete </button>
+                <button onclick="window.location='/${data.admin}/edit/${data.title}'"> Edit </button>
+                <button onclick="window.location='/${data.admin}/delete/${data.title}'"> Delete </button>
             </div>
         </section>
         `)

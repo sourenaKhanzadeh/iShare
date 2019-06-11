@@ -8,8 +8,12 @@ def all_time():
     # set a limit
     limit = request.args.get('limit', 2, type=int)
 
-    # get admin
-    admin = global_database.find_one(ids['user'], username=session['username'], fsr=True)
+    # user logged in
+    if session.get('username') is not None:
+        # check if admin
+        admin = global_database.find_one(ids['user'], username=session['username'], fsr=True)
+    else:
+        admin = None
 
     # if clicked on sections
     if request.args.get('section') != None:
@@ -55,7 +59,7 @@ def all_time():
             'section':nex['section']
         }
 
-        if admin:
+        if admin is not None:
             content.update({"admin":admin['username']})
 
         # upload as json
