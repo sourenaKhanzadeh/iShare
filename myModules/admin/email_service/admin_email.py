@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import os
 
 class Email:
     """
@@ -80,8 +81,12 @@ password = "ENTER_PASSWORD"
 # to = "email@email.com"
 # msg = "Enter_Message"
 
+# get current location
+__location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
 # attach the file html
-attachment = "D://Users//www//iShare//myModules//admin//email_service//email-content.html"
+attachment = os.path.join(__location__,"email-content.html")
 
 with open(attachment, 'r') as file:
     attachment = file.read()
