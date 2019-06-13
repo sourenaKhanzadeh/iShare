@@ -3,21 +3,17 @@ from app import app, request, render_template
 
 # import database
 from myModules.model.database.database import repos
-
-# import regex
-import re
-
-# import the post login
 from myModules.model.logout import *
 from myModules.model.login import *
 from myModules.user.profile import *
+from myModules.user.delete import *
+from myModules.user.settings import *
 from myModules.paper_manager.detail import *
 from myModules.paper_manager.upload import *
+from myModules.paper_manager.query import *
 from myModules.admin.admin import *
 from myModules.admin.delete import *
 from myModules.admin.edit import *
-from myModules.user.delete import *
-from myModules.paper_manager.query import *
 
 # import logout
 # import signUP

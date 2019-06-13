@@ -79,6 +79,11 @@ nav{
           $top: $top + 40px;
           top: ($top);
         }
+        #settings{
+          $top: $top + 40px;
+          top: ($top);
+          background-color: darken(color('gold-dark'), 25);
+        }
         #admin{
           $top: $top + 40px;
           top: ($top);
@@ -652,3 +657,48 @@ canvas{
   }
 }
 /* COMMENTS ENDS */
+
+/* SETTINGS BEGIN */
+.settings{
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  .deactive{
+    background-color: lighten(red, 10);
+    border: 1px solid color('red-harsh');
+  }
+  .active{
+    background-color: lighten(green, 10);
+    border: 1px solid color('teals');
+  }
+  .btn_deactive{
+    tansform:translateX(0);
+  }
+  .btn_active {
+    transform: translateX(25px);
+  }
+  section{
+    display: flex;
+    margin: 10px 0;
+    .checkbox{
+      float: right;
+      margin: 0 150px;
+      width: 50px;
+      border-radius: 20px;
+      button{
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        border: 1px solid black;
+        transition: transform 150ms ease-in-out;
+        &::after{
+          content: '';
+        }
+        &:active{
+          background-color: red;
+        }
+      }
+    }
+  }
+}
+/* SETTINGS END */

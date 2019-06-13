@@ -1,0 +1,19 @@
+{% extends './template/header.html'%}
+
+{% block body%}
+<div class="settings">
+    <h1>Settings</h1>
+    <hr>
+    <section>
+        Discussion: <div class="checkbox active" id="dis"><button class="btn_active" id="btn_dis"></button></div>
+    </section>
+    <section>
+        Wave Animation: <div class="checkbox active" id="wave"><button class="btn_active" id="btn_wave"></button></div>
+    </section>
+    <button>Save</button>
+
+</div>
+<script src="{{ url_for('static', filename='js/settings.js') }}">
+
+</script>
+{% endblock %}

@@ -38,6 +38,11 @@
                     <li id="upload">
                         <a href="/{{session['username']}}/upload">Upload</a>
                     </li>
+                    <li id="settings">
+                        <a href="/{{session['username']}}/settings">
+                            Settings
+                        </a>
+                    </li>
                     {% if session['fsr']%}
                         <li id="admin">
                             <a href="/{{ session['username'] }}/admin">Admin</a>
