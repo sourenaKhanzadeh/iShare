@@ -2,7 +2,6 @@ from myModules.github.users import GitUser
 import datetime
 from app import flash
 import math
-import re
 
 millnames = ['','K',' M',' B','T']
 

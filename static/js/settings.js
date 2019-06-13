@@ -5,7 +5,7 @@
 let dis_value = document.querySelector('.settings #dis').classList.contains('active') ? 1:0;
 let wave_value = document.querySelector('.settings #wave').classList.contains('active') ? 1:0;
 
-function toggle(id) {
+function toggle(id, btn_value) {
     let check_box = document.querySelector(`.settings #${id}`);
     let btn = document.querySelector(`.settings .checkbox #btn_${id}`);
     // deactivate the button and checkbox if is already set
@@ -28,11 +28,11 @@ function toggle(id) {
 }
 // if dis button is clicked
 document.querySelector('.settings #dis').addEventListener('click', ()=>{
-    toggle('dis');
+    toggle('dis', dis_value);
 });
 
 
 // if wave button is clicked
 document.querySelector('.settings #wave').addEventListener('click', ()=>{
-    toggle('wave');
+    toggle('wave', wave_value);
 });
