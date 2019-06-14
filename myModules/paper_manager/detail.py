@@ -1,4 +1,4 @@
-from app import app, render_template, socketio, send, session, request,jsonify
+from app import app, render_template, session, request,jsonify
 from myModules.model.database.database import global_database, ids, comments
 import locale
 
@@ -68,7 +68,7 @@ def detail(user, title):
                            session=session,
                            comments=all_comments)
 
-@socketio.on('message')
-def handleMessage(msg):
-    print(f"Message: {msg}")
-    send(msg, broadcast=True)
+# @socketio.on('message')
+# def handleMessage(msg):
+#     print(f"Message: {msg}")
+#     send(msg, broadcast=True)
