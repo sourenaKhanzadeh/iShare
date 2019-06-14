@@ -5,10 +5,6 @@ from urllib.parse import urlparse
 
 URL = "mongodb://localhost:27017/"
 client = MongoClient(os.environ.get('MONGODB_URI', URL))
-if client != URL:
-    print(client)
-    db_name = urlparse(os.environ.get('MONGODB_URI')).path[1:]
-    client = MongoClient(os.environ.get('MONGODB_URI'))
 db = client['iShare']
 
 # create the user login
