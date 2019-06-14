@@ -3,9 +3,13 @@ from pymongo import MongoClient
 import os
 from urllib.parse import urlparse
 
-URL = "mongodb://localhost:27017/"
-client = MongoClient(os.environ.get('MONGODB_URI', URL))
-db = client['iShare']
+if os.environ.get('MONGODB_URI'):
+    client = MongoClient(os.environ.get('MONGODB_URI'))
+    db = client.drop_database('iShare')
+else:
+    URL = "mongodb://localhost:27017/"
+    client = MongoClient(URL)
+    db = client['iShare']
 
 # create the user login
 all_users = db["allusers"]
