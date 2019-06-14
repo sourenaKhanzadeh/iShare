@@ -4,8 +4,15 @@ import os
 from urllib.parse import urlparse
 
 if os.environ.get('MONGODB_URI'):
-    client = MongoClient(os.environ.get('MONGODB_URI'))
-    db = client.drop_database('iShare')
+    URL = os.environ.get('MONGODB_URI')
+    user = URL.split('://')[1]
+    temp = user
+    user = user[:user.index(':')]
+    password = temp[temp.index(':')+1:temp.index('@')]
+    password = URL.split('://')[1][:URL.index(':')-2]
+    client = MongoClient(URL)
+    db = client.get_database('iShare')
+    db.authenticate(user, password)
 else:
     URL = "mongodb://localhost:27017/"
     client = MongoClient(URL)
