@@ -1,7 +1,8 @@
 import pymongo
+import os
 
 URL = "mongodb://localhost:27017/"
-client = pymongo.MongoClient(URL)
+client = pymongo.MongoClient(os.environ.get('MONGODB_URI', URL))
 db = client['iShare']
 
 # create the user login
