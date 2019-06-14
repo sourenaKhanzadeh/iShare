@@ -3,12 +3,9 @@ from pymongo import MongoClient
 import os
 from urllib.parse import urlparse
 
-try:
-    URL = "mongodb://localhost:27017/"
-    client = MongoClient(os.environ.get('MONGODB_URI', URL))
-    db = client['iShare']
-except Exception:
-    print("Failed TO Connect To The Database....")
+URL = "mongodb://localhost:27017/"
+client = MongoClient(os.environ.get('MONGODB_URI', URL))
+db = client['iShare']
 
 # create the user login
 all_users = db["allusers"]
