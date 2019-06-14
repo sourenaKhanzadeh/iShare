@@ -9,7 +9,6 @@ if os.environ.get('MONGODB_URI'):
     temp = user
     user = user[:user.index(':')]
     password = temp[temp.index(':')+1:temp.index('@')]
-    password = URL.split('://')[1][:URL.index(':')-2]
     client = MongoClient(URL)
     db = client.get_database('iShare')
     db.authenticate(user, password)
