@@ -9,7 +9,7 @@ try:
     db = client['iShare']
 except Exception:
     print("Failed TO Connect To The Database....")
-    
+
 # create the user login
 all_users = db["allusers"]
 
