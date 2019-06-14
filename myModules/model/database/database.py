@@ -11,7 +11,7 @@ if os.environ.get('MONGODB_URI'):
     password = temp[temp.index(':')+1:temp.index('@')]
     client = MongoClient(URL)
     db = client.get_database('iShare')
-    db.authenticate(user, password)
+    # db.authenticate(user, password)
 else:
     URL = "mongodb://localhost:27017/"
     client = MongoClient(URL)
