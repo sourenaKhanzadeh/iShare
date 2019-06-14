@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d656594d-e9d6-4415-baa3-113c84b913b1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,7 +60,7 @@
           <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/requirements.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
+                <state relative-caret-position="136">
                   <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
                   <folding />
                 </state>
@@ -95,7 +96,7 @@
               <file leaf-file-name="styleA.scss" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/static/sass/styleA.scss">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="94">
+                    <state relative-caret-position="145">
                       <caret line="680" column="18" lean-forward="false" selection-start-line="680" selection-start-column="18" selection-end-line="680" selection-end-column="18" />
                       <folding />
                     </state>
@@ -924,7 +925,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/sass/styleA.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
+        <state relative-caret-position="145">
           <caret line="680" column="18" lean-forward="false" selection-start-line="680" selection-start-column="18" selection-end-line="680" selection-end-column="18" />
           <folding />
         </state>
@@ -1123,7 +1124,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="136">
           <caret line="53" column="14" lean-forward="false" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
           <folding />
         </state>
