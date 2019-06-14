@@ -1,2 +1,2 @@
 # Welcome to iShare
-[Samplpe Logo](iShare_logo.png)
+![Sample Logo](iShare_logo.png)
