@@ -10,7 +10,7 @@ if os.environ.get('MONGODB_URI'):
     user = user[:user.index(':')]
     password = temp[temp.index(':')+1:temp.index('@')]
     client = MongoClient(URL)
-    db = client.get_database('iShare')
+    db = client.get_database('heroku_dxftrcxt')
     # db.authenticate(user, password)
 else:
     URL = "mongodb://localhost:27017/"
