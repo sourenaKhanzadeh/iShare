@@ -24,7 +24,7 @@
                 </div>
                 {%if admin %}
                 <div class="admin__btn">
-                    <button onclick="window.location=`/{{ admin['username'] }}/edit/{{query['title']}}`"> Edit </button>
+                    <button onclick="window.location=`/{{ admin['username'] }}/edit/{{query['username']}}/{{query['title']}}`"> Edit </button>
                     <button onclick="window.location=`/{{ admin['username'] }}/delete/{{query['title']}}`"> Delete </button>
                 </div>
                 {% endif %}

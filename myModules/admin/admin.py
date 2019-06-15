@@ -59,9 +59,9 @@ def admin(user):
 
             # take repo title
             title = request.form['repo']
-
+            print(request.form['approve'])
             # if admin approved
-            if request.form['approve'] == 1:
+            if int(request.form['approve']) == 1:
                 # then approve the paper
                 repos.update({'title':title}, {'$set':{'approved':True, 'pending':False}})
                 # message admin they successfully approved

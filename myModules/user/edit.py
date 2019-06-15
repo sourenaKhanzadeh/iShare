@@ -1,5 +1,5 @@
 from myModules.user.profile import *
-from app import app, render_template, request
+from app import app, render_template, request, session, flash
 from myModules.tools.tools import validate
 from myModules.model.database.database import global_database, ids, repos
 
@@ -27,7 +27,7 @@ def edit(user,title):
     # user update the paper
     else:
         # get date stars and avatar and validate data
-        date, stars, avatar = validate(request)
+        date, stars, avatar, pdf = validate(request)
 
         # Api maximum limit has reached
         if isinstance(stars, dict) or isinstance(avatar, dict):
@@ -41,7 +41,7 @@ def edit(user,title):
             'username':session['username'],
             'title': request.form['title'],
             'url_repo': request.form['repo'],
-            'url_pdf': request.form['pdf'],
+            'url_pdf': pdf,
             'date': f'{date}',
             'description': request.form['desc'],
             'star':stars,
