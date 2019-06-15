@@ -18,6 +18,13 @@ This is a very simple app that allows you to connect your repository code to a p
 
 ## Instructions
 ---
+```bash
+    git clone https://github.com/sourenaKhanzadeh/iShare.git
+    
+    cd iShare
+    
+    python config.py
+```
 > 1. run __config.py__ 
 > 1. Enter all inputs __config.py__ requires
 > 1. _OPTIONAL_: delete __config.py__ 
