@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 import os
 
 app = Flask(__name__)
-# app.debug = True
+app.debug = True
 # set secret key
 app.config['SECRET_KEY'] = 'ImAPrettyBird'
 

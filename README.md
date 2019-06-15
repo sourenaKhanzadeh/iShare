@@ -1,5 +1,5 @@
 # Welcome to iShare
-![Sample Logo](iShare_logo.png)
+![Sample Logo](static/images/iShare_logo.png)
 ## About iShare
 ---
 This is a very simple app that allows you to connect your repository code to a piece of paper. This app is very similar to [paperswithcode.com](https://paperswithcode.com). You can modify this app the way you want to. Follow the instructions sections to use iShare like it's meant to be used. In iShare you can create sections as an admin, have disscussion in each paper, and allow users to upload their git repository with a pdf paper attached to it.  
@@ -113,6 +113,8 @@ Install heroku plugin < mlab > to be able to use iShare fully.
       * profile.py
       * settings.py
 * static
+    * images
+      * iShare_logo.png
     * css
       * styleA.css
     * js

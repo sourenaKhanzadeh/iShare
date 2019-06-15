@@ -21,7 +21,8 @@
 
 {% else %}
     <div class="welcome">
-        <h1>Welcome To iShare</h1>
+        <img src="{{ url_for( 'static', filename='images/iShare_logo.png' ) }}">
+        <h1>Welcome to iShare</h1>
         <h2>Search</h2>
         <input id="sea" type="text" name="search">
         <button id="search">
