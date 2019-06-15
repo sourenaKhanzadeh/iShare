@@ -17,9 +17,11 @@ def register():
         # if user does not exist in the database then return a flash
         # CREATE A FLASH FOR THE ERROR
         if username == None:
-            # send the new member an email with html attachment
-            admin_email.send_to(request.form['email'], 'Welcome to iShare', '',
-                                attachment.replace('[USER]', user.username))
+            # if admin allows email sending
+            if admin_email is not None:
+                # send the new member an email with html attachment
+                admin_email.send_to(request.form['email'], 'Welcome to iShare', '',
+                                    attachment.replace('[USER]', user.username))
 
             # get all users data
             user = {

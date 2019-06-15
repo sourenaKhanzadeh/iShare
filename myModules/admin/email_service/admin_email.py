@@ -75,8 +75,8 @@ class Email:
         self._password = value
 
 # write username and password here
-username = "ENTER_USERNAME"
-password = "ENTER_PASSWORD"
+username = "['ENTER_USERNAME']"
+password = "['ENTER_PASSWORD']"
 
 # to = "email@email.com"
 # msg = "Enter_Message"
@@ -92,6 +92,7 @@ with open(attachment, 'r') as file:
     attachment = file.read()
 
 # export admin email
-admin_email = Email(username, password)
+admin_email = Email(username, password) if username != "['ENTER_USERNAME']" and password != "['ENTER_PASSWORD']" else None
+
 # print("Sent....." + msg.as_string())
 # admin_email.send_to(to, 'Welcome TO iShare', '', attachment)
