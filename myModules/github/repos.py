@@ -1,5 +1,3 @@
-from myModules.model.database.database import repos
-from app import app, request, render_template
 from myModules.github.github_api import gitApi
 import requests
 

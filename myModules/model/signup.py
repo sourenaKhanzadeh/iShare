@@ -18,8 +18,8 @@ def register():
         # CREATE A FLASH FOR THE ERROR
         if username == None:
             # send the new member an email with html attachment
-            # admin_email.send_to(request.form['email'], 'Welcome to iShare', '',
-            #                     attachment.replace('[USER]', user.username))
+            admin_email.send_to(request.form['email'], 'Welcome to iShare', '',
+                                attachment.replace('[USER]', user.username))
 
             # get all users data
             user = {

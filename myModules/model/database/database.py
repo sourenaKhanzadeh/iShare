@@ -1,20 +1,19 @@
-import pymongo
 from pymongo import MongoClient
 import os
-from urllib.parse import urlparse
 
+# online host
 if os.environ.get('MONGODB_URI'):
+    # OPTIONAL: change MONGODB_URI
     URL = os.environ.get('MONGODB_URI')
-    user = URL.split('://')[1]
-    temp = user
-    user = user[:user.index(':')]
-    password = temp[temp.index(':')+1:temp.index('@')]
     client = MongoClient(URL)
+    # CHANGE THE NAME OF THE DATABASE TO YOUR CURRENT DATABASE
     db = client.get_database('heroku_dxftrcxt')
     # db.authenticate(user, password)
+# localhost
 else:
     URL = "mongodb://localhost:27017/"
     client = MongoClient(URL)
+    # You can change client here
     db = client['iShare']
 
 # create the user login
@@ -40,7 +39,7 @@ ids = {
 class Database:
     """
     Mongodb
-    URL: mongodb://localhost:27017/
+    LOCAL_URL: mongodb://localhost:27017/
     Database Name: iShare
     Collections
     -----------
@@ -57,6 +56,22 @@ class Database:
         self.comments = comments
 
     def query(self, id, sort='star',limit=2, d=-1, **kwargs):
+        """
+        (int, str, int, int, **dict) -> Cursor
+        query the collections
+        @id: id of the collection
+            ids = {
+                'user':0,
+                'repo':1,
+                'section':2,
+                'comments':3
+            }
+        @sort: sort stars by default
+        @limit: determine the limit of the queries
+        @d: descending order by default
+        @kwargs: filter the query
+        :return: Cursor to the next query
+        """
         from myModules.model.database.query import Query
 
         query = Query(client)
