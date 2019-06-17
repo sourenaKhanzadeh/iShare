@@ -12,15 +12,15 @@ class GitUser:
         :param per_page: how many users per page allowed
         """
         # if page does not exist
-        if page is None:
+        # if page is None:
             # got to page 1
-            page = 1
+            # page = 1
 
-        self.page = page
-        self.per_page = per_page
+        # self.page = page
+        # self.per_page = per_page
         self.user = user
-        self.repos = self.getAllRepo(user)
-        self.users = self.search(user)
+        # self.repos = self.getAllRepo(user)
+        # self.users = self.search(user)
 
 
 

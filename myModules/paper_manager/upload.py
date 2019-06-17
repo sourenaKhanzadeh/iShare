@@ -70,8 +70,8 @@ def upload(user):
                         star = stars,
                         avatar = avatar,
                         section = request.form['section'],
-                        pending = False,
-                        approved = True
+                        pending = True,
+                        approved = False
 
                     )
 
