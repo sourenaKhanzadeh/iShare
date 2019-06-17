@@ -49,8 +49,8 @@ def upload(user):
             else:
                 # check if title exist in the database
                 if global_database.find_one(ids['repo'],
-                    title=request.form['title']) is not None  \
-                    or  re.search(r'\W', request.form['title']):
+                    title=request.form['title']) is not None or \
+                    any(char in request.form.get('title') for char in {'?', '!', '/', '\\'}):
                     flash("A Paper With The Same Title is Uploaded Or The Title Has Symbols In It")
 
                     return redirect(url_for('upload', user=user))
