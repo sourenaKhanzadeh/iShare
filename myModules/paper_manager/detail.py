@@ -1,12 +1,10 @@
 from app import app, render_template, session, request,jsonify
 from myModules.model.database.database import global_database, ids, comments
-import locale
+
 
 
 @app.route('/<user>/<title>')
 def detail(user, title):
-    # set local to US
-    locale.setlocale(locale.LC_ALL, 'en_US')
 
     # get repo out of the database
     repo = global_database.find_one(ids['repo'],
@@ -24,7 +22,7 @@ def detail(user, title):
         all_comments = all_comments['comments']
 
     # make star human readable
-    repo['star'] = locale.format('%d', repo['star'], True)
+    repo['star'] = "{:,}".format(repo['star'])
 
     # user made comments
     if request.args.get('user') is not None:

@@ -20,6 +20,11 @@ def millify(n):
 
 
 def validate(request):
+    """
+    validate pdf and title
+    :param request:
+    :return:
+    """
     # get current date
     current = datetime.datetime.now()
     date = current.strftime('%d %B %Y')
