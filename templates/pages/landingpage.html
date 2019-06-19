@@ -53,7 +53,9 @@
         document.querySelector('.loading').style.display = 'block';
     });
 </script>
+{%if set['wave'] == 1 %}
 <script src="{{ url_for( 'static', filename='js/wave.js' ) }}"></script>
+{%endif%}
 <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 {% endblock %}
 

@@ -5,12 +5,28 @@
     <h1>Settings</h1>
     <hr>
     <section>
-        Discussion: <div class="checkbox active" id="dis"><button class="btn_active" id="btn_dis"></button></div>
+        Discussion:
+        {% if set['diss']%}
+        <div class="checkbox active" id="dis"><button class="btn_active" id="btn_dis"></button></div>
+        {%else%}
+        <div class="checkbox deactive" id="dis"><button class="btn_deactive" id="btn_dis"></button></div>
+        {%endif%}
     </section>
     <section>
-        Wave Animation: <div class="checkbox active" id="wave"><button class="btn_active" id="btn_wave"></button></div>
+        Wave Animation:
+        {%if set['wave']%}
+            <div class="checkbox active" id="wave"><button class="btn_active" id="btn_wave"></button></div>
+        {%else%}
+            <div class="checkbox deactive" id="wave"><button class="btn_deactive" id="btn_wave"></button></div>
+        {%endif%}
     </section>
-    <button>Save</button>
+    <section>
+        <label for="email">Web Email:</label>  <input type="text" name="email" placeholder="Enter Email.." id="email">
+    </section>
+    <section>
+        <label for="email">Web Password:</label>  <input type="password" name="email" placeholder="Enter Password.." id="email_pass">
+    </section>
+    <button id="save">Save</button>
 
 </div>
 <script src="{{ url_for('static', filename='js/settings.js') }}">

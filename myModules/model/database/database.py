@@ -28,6 +28,16 @@ sections = db['sections']
 # create discussions
 comments = db['comments']
 
+# global settings
+global_settings = db['settings']
+
+# insert the default globals
+if global_settings.count() == 0:
+    global_settings.insert({
+        'wave':1,
+        'diss':1,
+    })
+
 # collections id
 ids = {
     'user':0,

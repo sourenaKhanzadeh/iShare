@@ -697,6 +697,9 @@ canvas{
   section{
     display: flex;
     margin: 10px 0;
+    label{
+      margin-right: 20px;
+    }
     .checkbox{
       float: right;
       margin: 0 150px;

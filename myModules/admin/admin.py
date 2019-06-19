@@ -59,7 +59,6 @@ def admin(user):
 
             # take repo title
             title = request.form['repo']
-            print(request.form['approve'])
             # if admin approved
             if int(request.form['approve']) == 1:
                 # then approve the paper

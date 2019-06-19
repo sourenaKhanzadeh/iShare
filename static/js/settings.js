@@ -25,14 +25,49 @@ function toggle(id, btn_value) {
        btn.classList.remove('btn_deactive');
        btn_value = 1;
    }
+   return btn_value
 }
 // if dis button is clicked
 document.querySelector('.settings #dis').addEventListener('click', ()=>{
-    toggle('dis', dis_value);
+    dis_value = toggle('dis', dis_value);
 });
 
 
 // if wave button is clicked
 document.querySelector('.settings #wave').addEventListener('click', ()=>{
-    toggle('wave', wave_value);
+    wave_value = toggle('wave', wave_value);
 });
+
+// get email and password
+let email = $('#email').val();
+let email_pass = $('#email_pass').val();
+
+// if save is clicked
+document.querySelector('#save').addEventListener('click',()=>{
+    $('.loading').css('display', 'block');
+    $.ajax({
+        type: "GET",
+        cache: false,
+        data:{
+            wave:wave_value,
+            dis:dis_value,
+            email:email,
+            email_pass: email_pass
+        },
+        url: window.location,
+        dataType: "json",
+        success: function(data) {
+
+        },
+        // error: function(jqXHR) {
+        //     alert("error: " + jqXHR.status);
+        //     console.log(jqXHR);
+        // }
+        }).done((data)=>{
+            // fade out the pre loader after 1sec
+            $('.loading').fadeOut(1000);
+
+    });
+
+});
+

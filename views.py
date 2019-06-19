@@ -2,7 +2,7 @@
 from app import app, request, render_template
 
 # import database
-from myModules.model.database.database import repos
+from myModules.model.database.database import repos, global_settings
 from myModules.model.logout import *
 from myModules.model.login import *
 from myModules.user.profile import *
@@ -21,12 +21,16 @@ from myModules.model.signup import *
 
 @app.route('/')
 def welcome():
-    # get all users with name
+    #get settings
+    sett = global_settings.find().next()
 
-    return render_template('pages/landingpage.html', session=session, page=0)
+    return render_template('pages/landingpage.html',
+                           session=session, page=0, set=sett)
 
 @app.route('/<repo>')
 def search(repo):
+    # get settings
+    sett = global_settings.find().next()
 
     #TODO: PAGE PAGINATION
     user = repo
@@ -57,6 +61,7 @@ def search(repo):
     return render_template('pages/landingpage.html',
                            repositories=repository,
                            page=page,
-                           user=user)
+                           user=user,
+                           set=sett)
 
 
