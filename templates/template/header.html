@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <!-- CHANGE TITLE HERE -->
-    <title>['Title']</title>
+    <title>{%block title%}{%endblock%}</title>
+    <!-- Add Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/iShare_logo.png') }}">
+
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- styleA.css -->
@@ -14,7 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <!-- SOCKET IO -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
-
 
 </head>
 <body>
