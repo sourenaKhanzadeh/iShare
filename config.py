@@ -28,11 +28,9 @@ For more informations go to  https://github.com/sourenaKhanzadeh/iShare
 #####################
 #   LOCATIONS HERE  #
 #####################
-HEADER_LOC = os.path.join(__location__ ,'templates//template//header.html')
 EMAIL_SERVICES_LOC = os.path.join(__location__ ,'myModules//admin//email_service//admin_email.py')
 LANDING_LOC = os.path.join(__location__ ,'templates//pages//landingpage.html')
 
-header_html = open(HEADER_LOC).read()
 admin_email_py = open(EMAIL_SERVICES_LOC).read()
 landing_html = open(LANDING_LOC).read()
 
@@ -41,15 +39,11 @@ try:
     title = input("\n\nEnter Your Websites Title: ")
 
     # replace websites title
-    header_html = header_html.replace("['Title']", title)
     landing_html = landing_html.replace("['Title']", title)
 
-    header_html_write = open(HEADER_LOC, 'w')
-    header_html_write.write(header_html)
-    header_html_write.close()
 
     landing_html_write = open(LANDING_LOC, 'w')
-    landing_html_write.write(header_html)
+    landing_html_write.write(landing_html)
     landing_html_write.close()
 
     # input website email and password
@@ -61,6 +55,9 @@ try:
         # replace websites main Email address and password
         admin_email_py = admin_email_py.replace("['ENTER_USERNAME']", admin_email)
         admin_email_py = admin_email_py.replace("['ENTER_PASSWORD']", admin_password)
+    else:
+        admin_email_py = admin_email_py.replace("['ENTER_USERNAME']", "")
+        admin_email_py = admin_email_py.replace("['ENTER_PASSWORD']", "")
 
     # overwrite admin_email.py
     admin_email_py_write = open(EMAIL_SERVICES_LOC, 'w')

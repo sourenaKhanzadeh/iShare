@@ -38,7 +38,6 @@ def register():
             return redirect('/?Register=success')
 
         else:
-            #TODO: GET ALL ERRORS AND DISPLAY IT AS WARNING TO THE USER
             flash("Username Already Taken")
             return render_template('pages/login-register.html', sign=True)
 
