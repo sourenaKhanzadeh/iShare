@@ -27,7 +27,11 @@ Welcome
 {% else %}
     <div class="welcome">
         <img src="{{ url_for( 'static', filename='images/iShare_logo.png' ) }}">
-        <h1>Welcome to iShare</h1>
+        {% if not set.get('title')%}
+            <h1>Welcome to ['Title']</h1>
+        {% else %}
+            <h1>Welcome to {{set['title']}}</h1>
+        {% endif %}
         <h2>Search</h2>
         <input id="sea" type="text" name="search">
         <button id="search">

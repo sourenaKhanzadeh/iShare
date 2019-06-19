@@ -720,5 +720,15 @@ canvas{
       }
     }
   }
+
+  i{
+    @include centerAbsolute;
+    display: none;
+    font-size: 40em;
+    color: teal;
+    transition: transform 250ms ease;
+    animation: fade 2s, scaleUp 150ms;
+
+  }
 }
 /* SETTINGS END */

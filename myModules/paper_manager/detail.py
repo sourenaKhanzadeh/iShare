@@ -1,10 +1,12 @@
 from app import app, render_template, session, request,jsonify, flash, redirect
-from myModules.model.database.database import global_database, ids, comments
+from myModules.model.database.database import global_database, ids, comments, global_settings
 
 
 
 @app.route('/<path:user>/<path:title>')
 def detail(user, title):
+    # get global settings
+    sett = global_settings.find().next()
 
     # get repo out of the database
     repo = global_database.find_one(ids['repo'],
@@ -69,7 +71,8 @@ def detail(user, title):
         return render_template('pages/detail.html',
                                repo=repo,
                                session=session,
-                               comments=all_comments)
+                               comments=all_comments,
+                               set=sett)
     else:
         flash("not found: " + title)
         return redirect('/')

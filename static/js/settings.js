@@ -39,20 +39,26 @@ document.querySelector('.settings #wave').addEventListener('click', ()=>{
 });
 
 // get email and password
-let email = $('#email').val();
-let email_pass = $('#email_pass').val();
 
 // if save is clicked
 document.querySelector('#save').addEventListener('click',()=>{
-    $('.loading').css('display', 'block');
+    let email = $('#email').val();
+    let email_pass = $('#email_pass').val();
+    let title = $('#title').val();
+    let settings_i = $('.settings i');
+
+    settings_i.css('display', 'block');
+    settings_i.fadeOut(1000);
+    // $('.loading').css('display', 'block');
     $.ajax({
         type: "GET",
         cache: false,
         data:{
             wave:wave_value,
             dis:dis_value,
-            email:email,
-            email_pass: email_pass
+            admin_email:email,
+            admin_pass: email_pass,
+            web_title: title
         },
         url: window.location,
         dataType: "json",

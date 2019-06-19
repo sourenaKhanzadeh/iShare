@@ -26,13 +26,26 @@ settings
         {%endif%}
     </section>
     <section>
-        <label for="email">Web Email:</label>  <input type="text" name="email" placeholder="Enter Email.." id="email">
+        <label for="title">Web Title:</label>  <input type="text"
+                                                      name="title"
+                                                      placeholder="Enter Title.."
+                                                      id="title"
+                                                      value="{{title}}">
+    </section>
+
+    <section>
+        <label for="email">Web Email:</label>  <input type="text"
+                                                      name="email"
+                                                      placeholder="Enter Email.."
+                                                      id="email"
+                                                      value="{{email}}">
     </section>
     <section>
-        <label for="email">Web Password:</label>  <input type="password" name="email" placeholder="Enter Password.." id="email_pass">
+        <label for="pass">Web Password:</label>  <input type="password" name="pass" placeholder="Enter Password.." id="email_pass">
     </section>
     <button id="save">Save</button>
 
+    <i class="fas fa-check-circle"></i>
 </div>
 <script src="{{ url_for('static', filename='js/settings.js') }}">
 

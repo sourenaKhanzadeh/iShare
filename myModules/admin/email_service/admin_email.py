@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from myModules.model.database.database import global_settings
 import os
 
 class Email:
@@ -75,8 +76,9 @@ class Email:
         self._password = value
 
 # write username and password here
-username = "fortangaming"
-password = "So3859123456"
+username = global_settings.find().next().get('email','')
+password = global_settings.find().next().get('email_pass','')
+
 
 # to = "email@email.com"
 # msg = "Enter_Message"

@@ -19,22 +19,24 @@
         <section>
             <i class="fa fa-star">{{  repo['star']  }}</i>
         </section>
-        <div class="msg">
-            <textarea rows="5" placeholder="Write a public comment...."></textarea>
-            <button id="comment"> comment </button>
-            <h2>Discussion</h2>
-            <hr>
-            <ul>
-                {% if comments%}
-                    {% for comment in comments %}
-                        <h3>{{ comment['username'] }}</h3>
-                        <h5>{{ comment['date'] }}</h5>
-                        <li>{{ comment['comment'] }}</li>
-                    {% endfor %}
-                {% endif %}
-            </ul>
-            <div class="loading"></div>
-        </div>
+        {% if set['diss']%}
+            <div class="msg">
+                <textarea rows="5" placeholder="Write a public comment...."></textarea>
+                <button id="comment"> comment </button>
+                <h2>Discussion</h2>
+                <hr>
+                <ul>
+                    {% if comments%}
+                        {% for comment in comments %}
+                            <h3>{{ comment['username'] }}</h3>
+                            <h5>{{ comment['date'] }}</h5>
+                            <li>{{ comment['comment'] }}</li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <div class="loading"></div>
+            </div>
+        {% endif %}
     </div>
 <script>
     let user = `{{session['username']}}`;
