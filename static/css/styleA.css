@@ -255,6 +255,8 @@ nav {
   margin: 20px; }
   .search button {
     border: 1px solid black;
+    height: 19px;
+    width: 40px;
     color: lavenderblush;
     background-color: #E87551; }
     .search button:active {
@@ -661,6 +663,8 @@ nav {
 
 .section {
   margin: 20px; }
+  .section button {
+    height: 20px; }
   .section #remove {
     background-color: #8E2800; }
 

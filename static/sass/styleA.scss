@@ -187,6 +187,8 @@ nav{
   margin: 20px;
   button{
     border: 1px solid black;
+    height: 19px;
+    width: 40px;
     color: lavenderblush;
     background-color: color('skin-tan2');
     &:active{
@@ -588,6 +590,9 @@ nav{
 }
 
 .section{
+  button{
+    height: 20px;
+  }
   margin: 20px;
   #remove{
     background-color: color('red-harsh');

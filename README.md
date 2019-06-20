@@ -16,6 +16,11 @@ This is a very simple app that allows you to connect your repository code to a p
 * ### Animation's
   * wave animation for the landing page 
 
+## Tasks
+- [ ]  Page Pagination 
+- [ ]  tags 
+- [ ]  Enhanced Sections 
+- [ ]  About Page 
 ## Instructions
 ---
 ```bash
