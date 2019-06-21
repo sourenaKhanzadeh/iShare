@@ -25,7 +25,7 @@ This is a very simple app that allows you to connect your repository code to a p
 - [x]  ~~Page Pagination~~ 
 - [x]  ~~tags~~ 
 - [ ]  Enhanced Sections 
-- [ ]  About Page 
+- [x]  ~~About Page~~ 
 ## Instructions
 ---
 ```bash

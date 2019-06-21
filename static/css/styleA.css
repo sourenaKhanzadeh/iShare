@@ -702,6 +702,7 @@ nav {
       width: 100px;
       height: 100px; }
     .detail section p {
+      margin: 0 5px;
       max-height: 300px;
       overflow-y: scroll; }
     .detail section a {

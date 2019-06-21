@@ -8,6 +8,7 @@ from myModules.model.login import *
 from myModules.user.profile import *
 from myModules.user.delete import *
 from myModules.user.settings import *
+from myModules.user.about import *
 from myModules.paper_manager.detail import *
 from myModules.paper_manager.upload import *
 from myModules.paper_manager.query import *
