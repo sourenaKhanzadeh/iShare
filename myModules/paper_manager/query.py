@@ -19,15 +19,20 @@ def all_time():
     if request.args.get('section') != None:
 
         # query according to their section
-        query = global_database.query(1,limit=limit,
+        query = global_database.query(ids['repo'],limit=limit,
             approved=True,
             section=request.args.get('section')
         )
-
+    elif request.args.get('tag') != None:
+        # query according to their tags
+        query = global_database.query(ids['repo'], limit=limit,
+                                      approved=True,
+                                      tags=request.args.get('tag')
+                                      )
     else:
 
         # query all time
-        query = global_database.query(1, limit=limit,
+        query = global_database.query(ids['repo'], limit=limit,
             approved=True
         )
 
@@ -36,35 +41,36 @@ def all_time():
     # user clicked on load_more
     if limit > 2 and query.count() != 0:
 
-        # get its limit
-        for i in range(limit-1):
-            query.next()
+        try:
+            # get the second last query
+            nex = query[limit-1]
 
-        # get the second last query
-        nex = query.next()
+            # store the content
+            content = {
+                'username':nex['username'],
+                'title':nex['title'],
+                'approved':nex['approved'],
+                'date':nex['date'],
+                'description':nex['description'],
+                'avatar':nex['avatar'],
+                'url_pdf':nex['url_pdf'],
+                'url_repo':nex['url_repo'],
+                'stars':millify(nex['star']),
+                'queries_count':query.count(),
+                'limit':limit,
+                'section':nex['section'],
+                'tags':nex['tags']
+            }
 
-        # store the content
-        content = {
-            'username':nex['username'],
-            'title':nex['title'],
-            'approved':nex['approved'],
-            'date':nex['date'],
-            'description':nex['description'],
-            'avatar':nex['avatar'],
-            'url_pdf':nex['url_pdf'],
-            'url_repo':nex['url_repo'],
-            'stars':millify(nex['star']),
-            'queries_count':query.count(),
-            'limit':limit,
-            'section':nex['section']
-        }
+            if admin is not None:
+                content.update({"admin":admin['username']})
 
-        if admin is not None:
-            content.update({"admin":admin['username']})
+        except IndexError:
+            content = None
+
 
         # upload as json
         return jsonify(content)
-
 
     # query all the repos
     for elem in  query:

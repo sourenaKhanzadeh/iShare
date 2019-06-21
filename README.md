@@ -1,5 +1,5 @@
 ### Name: Sourena Khanzadeh
-### Online Demo: [iShare](https://ishareflask.herokuapp.com
+### Online Demo: [iShare](https://ishareflask.herokuapp.com)
 ### Project Title: iShare
 ### Instructor: [Ghassem Tofighi](https://ghassem.com)
 ### License: [MIT License](https://opensource.org/licenses/MIT)
@@ -23,7 +23,7 @@ This is a very simple app that allows you to connect your repository code to a p
 
 ## Tasks
 - [x]  ~~Page Pagination~~ 
-- [ ]  tags 
+- [x]  ~~tags~~ 
 - [ ]  Enhanced Sections 
 - [ ]  About Page 
 ## Instructions

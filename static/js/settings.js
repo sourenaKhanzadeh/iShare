@@ -45,6 +45,7 @@ document.querySelector('#save').addEventListener('click',()=>{
     let email = $('#email').val();
     let email_pass = $('#email_pass').val();
     let title = $('#title').val();
+    let max_tags = $('#max_tags').val();
     let settings_i = $('.settings i');
 
     settings_i.css('display', 'block');
@@ -58,7 +59,8 @@ document.querySelector('#save').addEventListener('click',()=>{
             dis:dis_value,
             admin_email:email,
             admin_pass: email_pass,
-            web_title: title
+            web_title: title,
+            max_tags:max_tags
         },
         url: window.location,
         dataType: "json",

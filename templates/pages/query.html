@@ -27,6 +27,11 @@
                 <div class="sections">
                     <a  href="/Browse-all-time?section={{ query['section'] }}">{{ query['section'] }}</a>
                 </div>
+                <div class="tags">
+                    {% for tag in query['tags']%}
+                    <a href="/Browse-all-time?tag={{ tag }}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
                 {%if admin %}
                 <div class="admin__btn">
                     <button onclick="window.location=`/{{ admin['username'] }}/edit/{{query['username']}}/{{query['title']}}`"> Edit </button>

@@ -23,6 +23,10 @@
                 </option>
             {% endfor %}
         </select>
+        <label for="tags">Tags: (maximum 5 tags allowed) use ; to separate the tags</label>
+        <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required>{% for tag in query['tags']%}{{tag}};{% endfor %}
+        </textarea>
+
         <input type="submit" name="submit" value="Save Changes" onclick="preload()">
         <div class="loading" align="center"></div>
     </form>

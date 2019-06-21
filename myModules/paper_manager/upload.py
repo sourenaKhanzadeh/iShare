@@ -1,5 +1,5 @@
 from app import app, request, render_template, url_for
-from myModules.model.database.database import global_database, ids
+from myModules.model.database.database import global_database, ids, global_settings
 from flask import session, redirect, flash
 from myModules.tools.tools import validate
 import re
@@ -47,10 +47,21 @@ def upload(user):
                 return redirect(url_for('upload', user=user))
 
             else:
+                # get tags
+                tags = str(request.form.get('tags'))
+                tags = tags.split(';')
+                tags.pop()
+
+                max_tags = int(global_settings.find().next().get('max_tags', 5))
+                # tag overload
+                if len(tags) > max_tags:
+                    flash("Maximum Tags Reached")
+                    return redirect(url_for('upload', user=user))
+
                 # check if title exist in the database
                 if global_database.find_one(ids['repo'],
                     title=request.form['title']) is not None or \
-                    any(char in request.form.get('title') for char in {'?', '!', '/', '\\'}):
+                    any(char in request.form.get('title') for char in {'?', '!', '/', '\\', '<', '>'}):
                     flash("A Paper With The Same Title is Uploaded Or The Title Has Symbols In It")
 
                     return redirect(url_for('upload', user=user))
@@ -70,8 +81,9 @@ def upload(user):
                         star = stars,
                         avatar = avatar,
                         section = request.form['section'],
+                        tags =tags,
                         pending = True,
-                        approved = False
+                        approved = False,
 
                     )
 

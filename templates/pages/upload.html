@@ -16,7 +16,7 @@ Upload Paper
         <label for="pdf">Url to The PDF</label>
         <input type="url" name="pdf" required>
         <label for="desc">Description</label>
-        <textarea name="desc" cols="6" rows="6" required></textarea>
+        <textarea pattern="^([- \w\d\u00c0-\u024f]+)$" name="desc" cols="6" rows="6" required></textarea>
         <label for="section"> Choose a section </label>
         <select name="section" required>
             {% for section in all_sections %}
@@ -25,6 +25,9 @@ Upload Paper
                 </option>
             {% endfor %}
         </select>
+
+        <label for="tags">Tags: (maximum 5 tags allowed) use ; to separate the tags</label>
+        <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required></textarea>
         <input type="submit" name="submit" value="Upload" onclick="preload()">
         <div class="loading" align="center"></div>
     </form>

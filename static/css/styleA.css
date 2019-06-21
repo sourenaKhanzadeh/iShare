@@ -521,13 +521,31 @@ nav {
     .query section img {
       width: 60px;
       height: 60px; }
-    .query section .sections a {
-      font-size: 12pt;
-      float: left;
-      margin: -45px; }
+    .query section .sections {
+      margin: 10px; }
+      .query section .sections a {
+        font-size: 12pt;
+        float: left; }
+    .query section .tags {
+      margin: 10px;
+      color: lavenderblush; }
+      .query section .tags a {
+        background-color: #e87551;
+        font-size: 10pt;
+        float: left; }
+        .query section .tags a::after {
+          content: "⇒";
+          margin-left: 5px;
+          opacity: 0;
+          font-size: 1rem;
+          transition: opacity 250ms ease-in-out, margin-left 250ms ease-in-out; }
+        .query section .tags a:hover {
+          background-color: #3498DB; }
+          .query section .tags a:hover::after {
+            opacity: 1;
+            margin-left: 10px; }
     .query section .admin__btn {
-      margin: 0 5px;
-      margin-top: -40px; }
+      margin: 10px 5px; }
 
 .load {
   display: flex;

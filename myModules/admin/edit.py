@@ -1,6 +1,6 @@
 from myModules.user.profile import *
 from app import app, url_for,redirect, session, flash, render_template, request
-from myModules.model.database.database import global_database, ids, repos
+from myModules.model.database.database import global_database, ids, repos, global_settings
 
 @app.route('/<admin>/edit/<user>/<title>', methods=['GET', 'POST'])
 def edit_repo(admin, user, title):
@@ -38,6 +38,18 @@ def edit_repo(admin, user, title):
             # redirect to homepage
             return redirect('/')
 
+        # get tags
+        tags = str(request.form.get('tags'))
+        tags = tags.split(';')
+        tags.pop()
+
+        max_tags = int(global_settings.find().next().get('max_tags', 5))
+
+        # tag overload
+        if len(tags) > max_tags:
+            flash("Maximum Tags Reached")
+            return redirect(url_for('edit_repo', admin=admin,user=user, title=title))
+
         # get data from user
         content = {
             'username': user,
@@ -48,9 +60,10 @@ def edit_repo(admin, user, title):
             'description': request.form['desc'],
             'star': stars,
             'avatar': avatar,
-            'pending': True,
+            'tags':tags,
             'section': request.form['section'],
-            'approved': True
+            'approved': True,
+            'pending': False
         }
         # update the repo
         repos.replace_one({'username': user, 'title': title}, content, True)

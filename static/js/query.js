@@ -23,6 +23,8 @@ $('#load_more').click(()=>{
     }).done((data)=>{
         // fade out the pre loader after 1sec
         $('.loading').fadeOut(1000);
+        if (data === null)
+            $('#load_more').css('display', 'none');
 
         // if query does not exits destroy load_more
         if(data.queries_count === 0)
@@ -34,8 +36,7 @@ $('#load_more').click(()=>{
             $('#load_more').fadeOut(1000);
         // check if user is approved
         if (data.approved && data.admin === undefined){
-            $('.query').append(
-                `<section>
+            let text = `<section>
                 <a href="/${data.username}/${data.title}"><h1>${data.title}</h1></a>
                 <h4>on ${data.date} by ${data.username}</h4>
                 <p>${data.description}</p>
@@ -48,12 +49,25 @@ $('#load_more').click(()=>{
                 <div class="sections">
                     <a  href="/Browse-all-time?section=${data.section}">${data.section}</a>
                 </div>
-            </section>
-            `
+            `;
+            let tags = "<div class='tags'>";
+            for(var i =0; i<data.tags.length;i++)
+                tags += `<a href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}`;
+            tags += "</div>";
+
+            text += tags;
+             text += `
+                <div class="admin__btn">
+                    <button onclick="window.location='/${data.admin}/edit/${data.title}'"> Edit </button>
+                    <button onclick="window.location='/${data.admin}/delete/${data.title}'"> Delete </button>
+                </div>
+                    </section>`;
+           $('.query').append(
+                text
             );
         }
         if(data.admin){
-            $('.query').append(`<section>
+            let text = `<section>
             <a href="/${data.username}/${data.title}"><h1>${data.title}</h1></a>
             <h4>on ${data.date} by ${data.username}</h4>
             <p>${data.description}</p>
@@ -66,12 +80,22 @@ $('#load_more').click(()=>{
             <div class="sections">
                     <a  href="/Browse-all-time?section=${data.section}">${data.section}</a>
             </div>
-            <div class="admin__btn">
-                <button onclick="window.location='/${data.admin}/edit/${data.title}'"> Edit </button>
-                <button onclick="window.location='/${data.admin}/delete/${data.title}'"> Delete </button>
-            </div>
-        </section>
-        `)
+            
+        `;
+
+            let tags = "<div class='tags'>";
+            for(var i =0; i<data.tags.length;i++)
+                tags += `<a href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}`;
+            tags += "</div>";
+
+            text += tags;
+            text += `
+                <div class="admin__btn">
+                    <button onclick="window.location='/${data.admin}/edit/${data.title}'"> Edit </button>
+                    <button onclick="window.location='/${data.admin}/delete/${data.title}'"> Delete </button>
+                </div>
+                    </section>`;
+            $('.query').append(text);
 
         }
     })

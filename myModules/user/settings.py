@@ -3,7 +3,7 @@ from myModules.model.database.database import global_settings, global_database, 
 
 @app.route('/<user>/settings')
 def settings(user):
-    sett = global_settings.find().next()
+    sett = global_settings.find().next() if global_settings.count() != 0 else {}
     admin_email = sett.get('email', None)
     web_title = sett.get('title', None)
 
@@ -21,6 +21,7 @@ def settings(user):
                     'email':request.args['admin_email'],
                     'email_pass':request.args['admin_pass'],
                     'title':request.args['web_title'],
+                    'max_tags':request.args['max_tags']
                     }
             })
 

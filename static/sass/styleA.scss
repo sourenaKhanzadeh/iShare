@@ -443,16 +443,25 @@ nav{
       height: $portion;
     }
     .sections{
+      margin: 10px;
       a{
         font-size: 12pt;
         float: left;
-        margin: -45px;
+      }
+    }
+    .tags{
+      margin: 10px;
+      color: lavenderblush;
+      a{
+        @include hoverContent('\21D2',color('blue-sky'), 5px);
+        background-color: #e87551;
+        font-size: 10pt;
+        float: left;
       }
     }
     .admin{
       &__btn{
-        margin: 0 5px;
-        margin-top: -40px;
+        margin: 10px 5px;
       }
     }
 
