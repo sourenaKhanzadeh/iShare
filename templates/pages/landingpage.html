@@ -46,19 +46,27 @@ Welcome
 <script>
     // get current page
     let page = {{ page }};
+    let offset = {{offset}};
+    let limit = {{limit}};
+    let max = {{maxx}};
 
+    if(offset < max)
     // go to the next page
     $('.fa-angle-double-right').on('click', ()=>{
+        offset += limit;
+        if (offset >= max)offset = limit - 1;
         page++;
-        window.location = `{{user}}?page=${page}`;
+        window.location = `{{user}}?page=${page}&limit=${limit}&offset=${offset}`;
         document.querySelector('.loading').style.display = 'block';
     });
 
     // go back a page
     if(page > 1)
     $('.fa-angle-double-left').on('click', ()=>{
+        offset -= limit;
+        if (offset < 0)offset=0;
         page--;
-        window.location = `{{user}}?page=${page}`;
+        window.location = `{{user}}?page=${page}&limit=${limit}&offset=${offset}`;
         document.querySelector('.loading').style.display = 'block';
     });
 </script>

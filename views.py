@@ -29,28 +29,55 @@ def welcome():
 
 @app.route('/<repo>')
 def search(repo):
+    """
+    search engine logic
+    :param repo: search user, title or tags
+    :return: query result
+    """
     # get settings
     sett = global_settings.find().next()
 
-    #TODO: PAGE PAGINATION
+    #PAGE PAGINATION SETTINGS
     user = repo
+
+    limit = int(request.args.get('limit', 10))
+    offset = int(request.args.get('offset', 0))
+
 
     # regex pattern
     pattern = re.compile(repo , re.IGNORECASE)
+
+    search_logic = {'$or':[{'title':pattern},
+                        {'username':pattern},
+                        {'section':pattern}],
+                         '$and':[{'approved':True}]}
+
     # get all liked repos or username and sort it deafeningly by the amount of repo star
-    search = repos.find({'$or':[{'title':pattern},
-                        {'username':pattern}],
-                         '$and':[{'approved':True}]}).sort('star', -1)
+    temp = repos.find(search_logic).sort('star', -1)
+    if temp.count() != 0:
+        if offset >= temp.count():
+            offset = temp.count() - 1
 
-    # list of repositories
-    repository = []
+        last_id = temp[offset]['star']
 
-    # append the repos
-    for repo in search:
-        repository.append(repo)
+        if {'$gte':last_id} not in  search_logic['$and']:
+            search_logic['$and'].append({'star':{'$lte': last_id}})
+        else:
+            search_logic['$and']['star']['$lte'] = last_id
+
+
+        search = repos.find(search_logic).sort('star', -1).limit(limit)
+
+        # list of repositories
+        repository = []
+
+        # append the repos
+        for repo in search:
+            repository.append(repo)
 
     # if repos do not exist
-    if len(repository) == 0:
+    else:
+        repository = None
         # then message the user
         flash("Could not find a result.....")
 
@@ -62,6 +89,9 @@ def search(repo):
                            repositories=repository,
                            page=page,
                            user=user,
-                           set=sett)
+                           set=sett,
+                           limit=limit,
+                           offset=offset,
+                           maxx = temp.count())
 
 

@@ -17,7 +17,7 @@ This is a very simple app that allows you to connect your repository code to a p
   * wave animation for the landing page 
 
 ## Tasks
-- [ ]  Page Pagination 
+- [x]  ~~Page Pagination~~ 
 - [ ]  tags 
 - [ ]  Enhanced Sections 
 - [ ]  About Page 
