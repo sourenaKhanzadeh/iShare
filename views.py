@@ -31,7 +31,7 @@ def welcome():
 def search(repo):
     """
     search engine logic
-    :param repo: search user, title or tags
+    :param repo: search user, title ,tags or section
     :return: query result
     """
     # get settings

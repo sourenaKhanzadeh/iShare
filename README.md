@@ -1,3 +1,8 @@
+### Name: Sourena Khanzadeh
+### Online Demo: [iShare](https://ishareflask.herokuapp.com
+### Project Title: iShare
+### Instructor: [Ghassem Tofighi](https://ghassem.com)
+### License: [MIT License](https://opensource.org/licenses/MIT)
 # Welcome to iShare
 ![Sample Logo](static/images/iShare_logo.png)
 ## About iShare

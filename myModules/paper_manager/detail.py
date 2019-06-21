@@ -13,7 +13,6 @@ def detail(user, title):
         username=user,
         title=title
     )
-    print(repr(title))
     # get repo comments
     all_comments = global_database.find_one(ids['comments'],
             title=title
