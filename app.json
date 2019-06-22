@@ -2,6 +2,6 @@
   "name": "iShare",
   "description": "Organize Github Repos and attach a paper...",
   "repository": "https://github.com/sourenaKhanzadeh/iShare",
-  "logo": "static/images/iShare_logo.png",
+  "logo": "https://commons.wikimedia.org/wiki/File:LION_XII.png",
   "keywords": ["iShare", "dynamic", "repo_management"]
 }
