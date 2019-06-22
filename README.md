@@ -68,7 +68,7 @@ install using _pip_
     pip install [package]
 ```
 ## Heroku Deployment
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://iShare.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 ---
 Install heroku plugin < mlab > to be able to use iShare fully.
 ```bash
