@@ -70,10 +70,9 @@ install using _pip_
 ## Automatic Heroku Deployment
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 ---
-Install heroku plugin < mlab > to be able to use iShare fully.
+Install heroku plugin < mlab > to be able to use iShare.
 go to __settings__ in heroku and reveal config, insert MONGODB_URI
-in confi vars and add [mongodb URI], for more information go to [here](https://docs.mlab.com/connecting/#connect-string)
-as its value 
+in confi vars and add [mongodb URI value], for more information go to [here](https://docs.mlab.com/connecting/#connect-string)
 
 ## manual Heroku Deployement
 ```bash
