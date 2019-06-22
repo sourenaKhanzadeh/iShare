@@ -6,6 +6,6 @@
   "image": "https://commons.wikimedia.org/wiki/File:LION_XII.png",
   "env": {
     "MONGODB_URI":'mongo_db connector'
-  }
+  },
   "keywords": ["iShare", "dynamic", "repo_management"]
 }
