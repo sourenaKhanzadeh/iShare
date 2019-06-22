@@ -5,7 +5,7 @@
   "logo": "https://github.com/sourenaKhanzadeh/iShare/blob/master/static/images/iShare_logo.png",
   "image": "https://commons.wikimedia.org/wiki/File:LION_XII.png",
   "env": {
-    "MONGODB_URI":'mongo_db connector'
+    "MONGODB_URI":"mongo_db connector"
   },
   "keywords": ["iShare", "dynamic", "repo_management"]
 }
