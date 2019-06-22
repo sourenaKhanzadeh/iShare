@@ -1,0 +1,7 @@
+{
+  "name": "iShare",
+  "description": "Organize Github Repos and attach a paper...",
+  "repository": "https://github.com/sourenaKhanzadeh/iShare",
+  "logo": "https://github.com/sourenaKhanzadeh/iShare/blob/master/static/images/iShare_logo.png",
+  "keywords": ["iShare", "dynamic", "repo_management"]
+}
