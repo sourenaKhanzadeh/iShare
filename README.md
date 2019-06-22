@@ -26,12 +26,46 @@ This is a very simple app that allows you to connect your repository code to a p
 - [x]  ~~tags~~ 
 - [ ]  Enhanced Sections 
 - [x]  ~~About Page~~ 
+## Watch This Video
+---
+[![video](camera.png)](https://www.youtube.com/watch?v=cEFqgPxfpx8)
+
 ## Automatic Heroku Deployment
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 ---
 Install heroku plugin < mlab > to be able to use iShare.
 go to __settings__ in heroku and reveal config, insert MONGODB_URI
 in confi vars and add [mongodb URI value], for more information go to [here](https://docs.mlab.com/connecting/#connect-string)
+
+## To Add an Admin
+---
+sign up as a regular user, then go to mlab, find the user you want to make admin, turn that user __fsr__ from false to true.
+
+## How To Change Email Content Sent To New Users
+---
+go to myModules>admin>email_services>email_content.html
+
+change email_content.html as you wish.
+```html
+<h1>Welcome To iShare</h1>
+    <section>
+        <p>Thank You For Joining The Community, [USER]</p>
+        <p> Click here and join our youtube <a href="https://youtube.com">YouTube</a></p>
+</section>
+```
+_NOTE_: ['USER'] will be replaced by the new  user that just signed up and gets the greeting.
+
+## Change About Us
+---
+go to templates>pages>about.html
+
+change about.html as you please:
+```html
+{% block body%}
+<!-- Write About your website here-->
+
+{% endblock %}
+```
 
 ## Mannual Installation: _Not__Recommended_ (_NOTE_:You Must deploy to heroku mannually)
 ---
@@ -124,6 +158,7 @@ install using _pip_
       * tools.py
    * user
       * delete.py
+      * about.py
       * edit.py
       * profile.py
       * settings.py
@@ -158,6 +193,7 @@ install using _pip_
       * query.html
       * settings.html
       * upload.html
+      * about.html
     * template
       * footer.html
       * header.html
