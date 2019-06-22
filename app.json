@@ -8,16 +8,9 @@
     "MONGODB_URI":"mongo_db connector"
   },
   "addons": [
-    "openredis",
     {
-      "plan": "mongolab:shared-single-small",
+      "plan": "mongolab:sandbox",
       "as": "MONGO"
-    },
-    {
-      "plan": "heroku-postgresql",
-      "options": {
-        "version": "9.5"
-      }
     }
   ],
   "keywords": ["iShare", "dynamic", "repo_management"]
