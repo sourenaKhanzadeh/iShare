@@ -72,7 +72,7 @@ install using _pip_
 ---
 Install heroku plugin < mlab > to be able to use iShare fully.
 go to __settings__ in heroku and reveal config, insert MONGODB_URI
-in confi vars and add mongodb://username:password@ds217671.mlab.com:17671/heroku_dxftrcxt
+in confi vars and add [mongodb URI]
 as its value 
 
 ## manual Heroku Deployement
