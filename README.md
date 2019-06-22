@@ -26,7 +26,14 @@ This is a very simple app that allows you to connect your repository code to a p
 - [x]  ~~tags~~ 
 - [ ]  Enhanced Sections 
 - [x]  ~~About Page~~ 
-## Instructions (Optional, _NOTE_:You Must deploy to heroku mannually)
+## Automatic Heroku Deployment
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+---
+Install heroku plugin < mlab > to be able to use iShare.
+go to __settings__ in heroku and reveal config, insert MONGODB_URI
+in confi vars and add [mongodb URI value], for more information go to [here](https://docs.mlab.com/connecting/#connect-string)
+
+## Mannual Installation: _Not__Recommended_ (_NOTE_:You Must deploy to heroku mannually)
 ---
 ```bash
     git clone https://github.com/sourenaKhanzadeh/iShare.git
@@ -67,13 +74,6 @@ install using _pip_
 ```bash
     pip install -r requirements.txt
 ```
-## Automatic Heroku Deployment
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
----
-Install heroku plugin < mlab > to be able to use iShare.
-go to __settings__ in heroku and reveal config, insert MONGODB_URI
-in confi vars and add [mongodb URI value], for more information go to [here](https://docs.mlab.com/connecting/#connect-string)
-
 ## manual Heroku Deployement
 ```bash
   npm install -g heroku
