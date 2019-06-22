@@ -5,6 +5,25 @@
 ### License: [MIT License](https://opensource.org/licenses/MIT)
 # Welcome to iShare
 ![Sample Logo](static/images/iShare_logo.png)
+---------------------
+| Welcome to iShare |
+---------------------
+For more informations go to  https://github.com/sourenaKhanzadeh/iShare
+
+-----------------------------------------------------------------------
+    /^\   ---------    ==   ==  ----------   ===========     *========
+    \//  / =====\ \\   ||   ||  | ===  == |  | |  _____  |  ||
+    |||   \\     \_\\  ||   ||  | ^     ^ |  | |  |   | |   ||
+    |||  = \\          =======  | - (.) - |  | |=========   |========
+    |||  || \\         =======  |\/\/\/\/\|  | |     \ \    ||
+    |||  ||  \\        ||   ||    \\   //    | |      \ \   ||
+    ===  ======        ==   ==   =========   ===      ===    =========
+-----------------------------------------------------------------------
+
+
+
+Enter Your Websites Title: iShare
+
 ## About iShare
 ---
 This is a very simple app that allows you to connect your repository code to a piece of paper. This app is very similar to [paperswithcode.com](https://paperswithcode.com). You can modify this app the way you want to. Follow the instructions sections to use iShare like it's meant to be used. In iShare you can create sections as an admin, have disscussion in each paper, and allow users to upload their git repository with a pdf paper attached to it.  
