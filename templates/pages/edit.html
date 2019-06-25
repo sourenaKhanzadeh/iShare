@@ -5,16 +5,20 @@
 
 
 {% block body%}
-<div class="edit">
-    <form align="center" method="post">
+<div class="edit mx-auto border border-info">
+    <form class="d-flex flex-column" align="center" method="post">
         <label for="title">Title</label>
         <input type="text" name="title" value="{{ query['title'] }}">
+        <small class="form-text text-muted">Give a cool title </small>
         <label for="repo">Url to The Repository</label>
         <input type="text" name="repo" value="{{ query['url_repo'] }}">
+        <small class="form-text text-muted">example: https://github.com/tensorflow/tensorflow </small>
         <label for="pdf">Url to The PDF</label>
         <input type="text" name="pdf" value="{{ query['url_pdf'] }}">
+        <small class="form-text text-muted">example: http://www.pdf995.com/samples/pdf.pdf </small>
         <label for="desc">Description</label>
         <textarea name="desc" cols="6" rows="6">{{ query['description'] }}</textarea>
+        <small class="form-text text-muted">write down your description... </small>
         <label for="section"> Choose a section </label>
         <select name="section">
             {% for section in all_sections %}
@@ -23,11 +27,13 @@
                 </option>
             {% endfor %}
         </select>
+        <small class="form-text text-muted">choose a unique section</small>
+
         <label for="tags">Tags: (maximum 5 tags allowed) use ; to separate the tags</label>
         <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required>{% for tag in query['tags']%}{{tag}};{% endfor %}
         </textarea>
-
-        <input type="submit" name="submit" value="Save Changes" onclick="preload()">
+        <small class="form-text text-muted">separate tags with ; , i.e: hello world;</small>
+        <input class="btn btn-outline-info" type="submit" name="submit" value="Save Changes" onclick="preload()">
         <div class="loading" align="center"></div>
     </form>
 </div>

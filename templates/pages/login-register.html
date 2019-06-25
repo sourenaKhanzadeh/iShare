@@ -6,35 +6,53 @@ Sign Up
 
 
 {% block body %}
-<div class="login">
-    <form method="post">
+<div class="login border border-info">
+    <form class="d-flex flex-column bd-highlight mb-3" method="post">
         {% if sign %}
         <h1>Sign Up</h1>
         <hr>
         <label for="email">Email</label>
-        <input type="email" name="email" placeholder="email.....">
+        <input class="form-control" type="email" name="email" placeholder="email.....">
         <label for="username"> Username</label>
-        <input type="text" name="username" placeholder="username.....">
+        <input class="form-control" type="text" name="username" placeholder="username.....">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="password.....">
+        <div class="input-group mb-3">
+        <input id="sign" class="form-control" type="password" name="password" placeholder="password.....">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" onclick="pass_toggle('sign')"  type="button" id="button-addon2"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
         {% endif %}
 
         {% if not sign %}
         <h1>Login</h1>
         <hr>
         <label for="username"> Username</label>
-        <input type="text" name="username" placeholder="username.....">
+        <input class="form-control" type="text" name="username" placeholder="username.....">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="password.....">
-        <input type="submit" name="login" value="Login">
-        <div class="sign"><a href="/account/register">SignUp</a></div>
+        <div class="input-group mb-3">
+        <input id="log" class="form-control" type="password" name="password" placeholder="password.....">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" onclick="pass_toggle('log')"  type="button" id="button-addon2"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+        <input class="btn btn-outline-info" type="submit" name="login" value="Login">
+        <a class="btn btn-outline-info" href="/account/register">SignUp</a>
         {% else %}
-            <input type="submit" name="sign" value="SignUp">
+            <input class="btn btn-outline-info" type="submit" name="sign" value="SignUp">
         {% endif %}
         <div class="clip"></div>
     </form>
 </div>
 <script>
+    function pass_toggle(pass) {
+      var x = document.getElementById(pass);
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
     $('.sign').on('click', ()=>{
         window.location = '/account/register';
     })

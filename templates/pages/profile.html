@@ -6,34 +6,34 @@
 
 
 {% block body%}
-<div class="profile">
+<div class="profile row">
     {% for query in queries %}
-        <section>
-            <h1>{{ query['title'] }}</h1>
-            <h4>
+        <section class="mx-auto col-lg-3 col-md-5 col-sm-12">
+            <h3>{{ query['title'] }}</h3>
+            <small class="text-muted">
                 on {{ query['date'] }} by {{ query['username'] }}
                 {% if query['pending']%}
-                    <i class="fa fa-minus-circle status"></i>
+                    <i class="fa fa-minus-circle status"> pending</i>
                 {% else %}
                     {% if query['approved']%}
-                        <i class="fa fa-check-circle status"></i>
+                        <i class="fa fa-check-circle status"> approved</i>
                     {% else %}
-                        <i class="fa fa-times-circle status"></i>
+                        <i class="fa fa-times-circle status"> disapproved</i>
                     {% endif %}
                 {% endif %}
-            </h4>
+            </small>
             <div>
-                <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}'">Edit</button>
+                <button class="btn btn-md btn-outline-info" onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}'">Edit</button>
                 {% if not query['approved']%}
-                    <button onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}/delete'">Delete</button>
+                    <button class="btn btn-md btn-outline-danger" onclick="window.location = '/{{session['username'] }}/profile/{{ query['title']}}/delete'">Delete</button>
                 {% endif %}
             </div>
             <p>{{ query['description'] }}</p>
             <img src="{{ query['avatar'] }}">
             <div>
             <i class="fa fa-star">{{ query['star'] }}</i>
-                <a class="git" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
-                <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
+                <a class="git btn btn-primary" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
+                <a class="pdf btn btn-secondary" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
             </div>
         </section>
     {% endfor %}

@@ -1,0 +1,266 @@
+/* Animations */
+@keyframes scaleUp {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+
+    }
+}
+
+/* NAV BAR*/
+    nav a img{
+        width: 40px;
+        height: 40px;
+    }
+
+/* SIDEBAR */
+.side-bar-right{
+    position: fixed;
+    background-color: #212529;
+    padding: 10px;
+    width: 200px;
+    right: 0;
+    margin: 50px 0;
+    text-align: center;
+    z-index: 10;
+}
+    .side-bar-right li{
+        float: left;
+        margin: 5px 0;
+        list-style: none;
+    }
+
+    #logout{
+        cursor: pointer;
+        color:red;
+    }
+        #logout:hover{
+            color: white;
+        }
+
+/* Landing page*/
+.welcome{
+    margin: 250px 0;
+    font-size: 4em;
+}
+    .welcome img{
+        width: 100px;
+        height: 100px;
+    }
+    .welcome h1{
+        /*color: #17a2b8;*/
+        font-size: 4rem;
+    }
+    .welcome h2{
+        /*color: #17a2b8;*/
+        font-size: 3rem;
+    }
+    .welcome input{
+        width: 70vw;
+        text-align: center;
+    }
+    .welcome button{
+        font-size: 40pt;
+        padding: 0.5em;
+        width: 40vw;
+        margin: 20px 0;
+    }
+
+.repos{
+    padding: 100px;
+    width: 90%;
+    margin: 20px 5%;
+}
+    .repos img{
+        width: 50%;
+        margin: 0 25%;
+    }
+    .repos button{
+        width: 100%;
+        margin: 10px;
+    }
+    .repos .paper{
+        padding: 50px;
+    }
+
+.page{
+    width: 100px;
+}
+
+/* Upload */
+.upload, .edit{
+    padding: 100px;
+    margin: 100px 0;
+    width: 75vw;
+}
+    .upload small, .edit small{
+        margin: 10px 0;
+    }
+/* Canvas */
+canvas{
+    position: absolute;
+    bottom: 0;
+    z-index: -10;
+}
+
+/*Flashes*/
+.flashes{
+    width: 50vw;
+}
+
+/* Browse-all-time */
+.query{
+    width: 80vw;
+    /*max-width: 540px;*/
+}
+    .query img{
+        width: 50px;
+        height: 50px;
+    }
+    .query .git, .query .pdf{
+        float: right;
+        width: 100px;
+        margin: 0 2px;
+    }
+    .query .tags{
+        margin: 15px 0;
+    }
+        .query .tags a{
+            margin: 2px 5px;
+        }
+    .query .fa-star{
+        color: orange;
+    }
+/* Sections */
+.sections{
+    max-width: 600px;
+    margin: 15px 0;
+}
+
+.section{
+    max-width: 500px;
+    margin: 40px;
+}
+    .section select{
+        margin: 10px 0;
+    }
+/* load more */
+#load_more{
+    margin: 50px auto;
+}
+
+/* Admin */
+    .admin section{
+        padding: 50px;
+    }
+    .admin .git, .admin .pdf{
+        float: right;
+        width: 100px;
+        margin: 0 5px;
+    }
+
+    .admin .fa-star{
+        color: orange;
+    }
+    .admin .read{
+    }
+    .admin img{
+        width: 20%;
+        margin: 10px 40%;
+    }
+    .admin .card-group{
+        margin: 50px 0;
+    }
+
+/* details */
+    .detail section{
+        text-align: center;
+    }
+    .detail img{
+        margin: 0 30%;
+        width: 40%;
+    }
+    .detail .fa-star{
+        color: orange;
+    }
+
+    .msg textarea{
+        width: 90%;
+        margin: 15px 5%;
+    }
+    .msg button{
+        margin: 15px 5%;
+    }
+    .msg .col-md-2{
+        background-color: #17a2b8;
+        width: 50px;
+    }
+    .msg .card{
+      max-width: 600px;
+    }
+
+/* Login/signup */
+.login{
+    width: 80%;
+    margin: 10%;
+}
+    .login form{
+        padding: 100px;
+    }
+    .login input[type=submit]{
+        margin: 50px 0;
+    }
+
+    .login a{
+        color: #17a2b8;
+
+    }
+
+/* Profile */
+.profile{
+    padding: 25px;
+}
+
+    .profile p{
+        max-height: 100px;
+        overflow-y: scroll;
+    }
+    .profile img{
+        width: 40%;
+        margin: 0 30%;
+    }
+
+    .profile .git, .profile .pdf{
+        float: right;
+        width:50px;
+    }
+
+.settings{
+    padding: 200px;
+}
+    .settings button{
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .settings .fa-check-circle{
+        display: none;
+        font-size: 100pt;
+        animation: scaleUp 150ms;
+    }
+    
+
+.fa-star, .fa-minus-circle{
+    color: orange;
+}
+
+.fa-check-circle{
+    color: teal;
+}
+
+.fa-times-circle{
+    color: red;
+}
+

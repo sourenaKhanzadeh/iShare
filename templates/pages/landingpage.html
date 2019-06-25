@@ -7,37 +7,42 @@ Welcome
 
 {% block body%}
 {% if repositories %}
-    <div class="search">
-        <input type="search" id="sea"><button id="search2"><i class="fa fa-search"></i></button>
-    </div>
-    <div class="repos">
+    <!--<div class="search">-->
+        <!--<input type="search" id="sea"><button id="search2"><i class="fa fa-search"></i></button>-->
+    <!--</div>-->
+    <div class="repos row border border-primary">
             {% for repo in repositories %}
-            <div class="git-profile">
+            <div class="git-profile col-xl-2 col-lg-3 col-md-6 col-sm-8">
                 <img src="{{repo['avatar']}}">
-                <h2>{{repo['title']}}</h2>
-                <button onclick="window.location='/{{repo['username']}}/{{repo['title']}}'">view</button>
+                <h4>{{repo['title']}}</h4>
+                <button class="btn btn-outline-info" onclick="window.location='/{{repo['username']}}/{{repo['title']}}'">view</button>
             </div>
             {% endfor %}
     <div class="loading"></div>
     </div>
-    <div class="page">
-        <i class="fa fa-angle-double-left"></i>  <span> {{page}} </span> <i class="fa fa-angle-double-right"></i>
-    </div>
+<nav aria-label="...">
+  <ul class="page pagination pagination-lg mx-auto">
+      <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+      <li class="page-item"><div class="page-link">{{page}}</div></li>
+      <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+      <!--<div class="page">-->
+    </ul>
 
 {% else %}
-    <div class="welcome">
-        <img src="{{ url_for( 'static', filename='images/iShare_logo.png' ) }}">
+    <div class="welcome d-flex  flex-column justify-content-center">
+        <!--<img class="align-self-center" src="{{ url_for( 'static', filename='images/iShare_logo.png' ) }}">-->
+        <img class="align-self-center" src="{{ url_for( 'static', filename='images/iShare_v2_landing.png' ) }}">
         {% if not set.get('title')%}
-            <h1>Welcome to ['Title']</h1>
+            <h1 class="align-self-center">Welcome to iShare</h1>
         {% else %}
-            <h1>Welcome to {{set['title']}}</h1>
+            <h1 class="align-self-center">Welcome to {{set['title']}}</h1>
         {% endif %}
-        <h2>Search</h2>
-        <input id="sea" type="text" name="search">
-        <button id="search">
+        <h2 class="align-self-center">Search</h2>
+        <input class="border border-info rounded align-self-center" id="sea2" type="text" name="search">
+        <button class="btn btn-lg btn-outline-info align-self-center" id="search">
             GO
         </button>
-        <div class="loading"></div>
+        <div class="align-self-center loading"></div>
 
     </div>
 {% endif %}

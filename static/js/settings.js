@@ -1,9 +1,9 @@
 /**
  * Created by Owner on 6/13/2019.
  */
+let dis_value = document.querySelector('.settings #btn_dis').checked ? 1:0;
+let wave_value = document.querySelector('.settings #btn_wave').cheked ? 1:0;
 
-let dis_value = document.querySelector('.settings #dis').classList.contains('active') ? 1:0;
-let wave_value = document.querySelector('.settings #wave').classList.contains('active') ? 1:0;
 
 function toggle(id, btn_value) {
     let check_box = document.querySelector(`.settings #${id}`);
@@ -55,8 +55,8 @@ document.querySelector('#save').addEventListener('click',()=>{
         type: "GET",
         cache: false,
         data:{
-            wave:wave_value,
-            dis:dis_value,
+            wave: document.querySelector('.settings #btn_wave').checked ? 1:0,
+            dis: document.querySelector('.settings #btn_dis').checked ? 1:0,
             admin_email:email,
             admin_pass: email_pass,
             web_title: title,

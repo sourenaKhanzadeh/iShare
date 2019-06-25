@@ -7,16 +7,20 @@ Upload Paper
 
 {% block body%}
 
-<div class="upload">
-    <form align="center" method="post">
+<div class="upload mx-auto border border-info">
+    <form class="d-flex flex-column" align="center" method="post">
         <label for="title">Title</label>
-        <input type="text" name="title" required>
+        <input class="form control" type="text" name="title" required>
+        <small class="form-text text-muted">Give a cool title </small>
         <label for="repo">Url to The Repository</label>
         <input type="url" name="repo" required>
+        <small class="form-text text-muted">example: https://github.com/tensorflow/tensorflow </small>
         <label for="pdf">Url to The PDF</label>
         <input type="url" name="pdf" required>
+        <small class="form-text text-muted">example: http://www.pdf995.com/samples/pdf.pdf </small>
         <label for="desc">Description</label>
         <textarea pattern="^([- \w\d\u00c0-\u024f]+)$" name="desc" cols="6" rows="6" required></textarea>
+        <small class="form-text text-muted">write down your description... </small>
         <label for="section"> Choose a section </label>
         <select name="section" required>
             {% for section in all_sections %}
@@ -25,10 +29,12 @@ Upload Paper
                 </option>
             {% endfor %}
         </select>
+        <small class="form-text text-muted">choose a unique section</small>
 
         <label for="tags">Tags: (maximum 5 tags allowed) use ; to separate the tags</label>
         <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required></textarea>
-        <input type="submit" name="submit" value="Upload" onclick="preload()">
+        <small class="form-text text-muted">separate tags with ; , i.e: hello world;</small>
+        <input class="btn btn-outline-info" type="submit" name="submit" value="Upload" onclick="preload()">
         <div class="loading" align="center"></div>
     </form>
 </div>

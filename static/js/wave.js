@@ -2,6 +2,12 @@
  * Created by Owner on 5/23/2019.
  */
 
+// styleA.css color
+// let color = "#E87551";
+
+// styleB.css color
+let color = "#17a2b8";
+
 // get canvas
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
@@ -26,7 +32,7 @@ const Wave = {
   frequency:0.01,
   increase_freq:1,
   flag : true,
-  color:'#E87551',
+  color:color,
   draw:function () {
     c.clearRect(0, 0, canvas.width, canvas.height);
     c.beginPath();

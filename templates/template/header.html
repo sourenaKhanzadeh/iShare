@@ -10,7 +10,13 @@
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- styleA.css -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleA.css') }}">
+    <!--<link rel="stylesheet" href="{{ url_for('static',filename='css/styleA.css') }}">-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleB.css') }}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <!-- AJAX -->
@@ -21,50 +27,112 @@
 </head>
 <body>
 <!-- CREATING A NAV-BAR -->
-<nav>
-    <i class="fas fa-grip-horizontal" id="menu" onclose="defaultNav();"></i>
-    <ul>
-        <li><a href="/"><img src="{{ url_for( 'static', filename='images/iShare_logo.png' ) }}"></a></li>
-        <li class="underline"><a href="/Browse-all-time">Browse All Time</a></li>
-        <div class="nav-right">
-            <ul>
-                <li class="underline"><a href="/about">About</a></li>
-                {% if not session['username'] %}
-                <li class="underline"><a href="/account/login">Login/Register</a></li>
-                {% else %}
-                <li class="underline" id="user"><a href="/{{session['username']}}/profile">Hello , {{session['username']}}</a></li>
-                <ul>
-                    <li id="logout">
-                        Log Out
-                    </li>
-                    <li id="upload">
-                        <a href="/{{session['username']}}/upload">Upload</a>
-                    </li>
-                    {% if session['fsr']%}
-                    <li id="settings">
-                        <a href="/{{session['username']}}/settings">
-                            Settings
-                        </a>
-                    </li>
-                        <li id="admin">
-                            <a href="/{{ session['username'] }}/admin">Admin</a>
-                        </li>
-                    {% endif %}
-                </ul>
-                {% endif %}
-            </ul>
-        </div>
+<nav class="navbar navbar-dark bg-dark top-bar navbar-expand-lg">
+  <a href="/">
+      <!--<img class="nav-brand" src="{{ url_for( 'static', filename='images/iShare_logo.png' ) }}">-->
+      <img class="nav-brand" src="{{ url_for( 'static', filename='images/iShare_v2.png' ) }}">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/Browse-all-time">Browse-all-time <span class="sr-only">(current)</span></a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/about">About<span class="sr-only">(current)</span></a>
+      </li>
     </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <input id="sea" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button onclick="search();" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
+  </div>
 </nav>
+<div class="side-bar-right">
+    <!-- Sidebar -->
+    <ul class="sidebar-nav">
+       {% if not session['username'] %}
+        <li class="nav-item">
+        <a class="btn btn-outline-info my-2 my-sm-0" href="/account/login">Login/Register<span class="sr-only">(current)</span></a>
+      </li>
+        {% else %}
+
+        <li class="nav-item">
+        <a class="btn btn-outline-info my-2 my-sm-0" href="/{{session['username']}}/profile">Hello , {{session['username']}}<span class="sr-only">(current)</span></a>
+      </li>
+      </li>
+        <li id="upload">
+            <a class="btn btn-outline-info my-2 my-sm-0" href="/{{session['username']}}/upload">Upload</a>
+        </li>
+            {% if session['fsr']%}
+            <li id="settings">
+                <a class="btn btn-outline-dark my-2 my-sm-0" href="/{{session['username']}}/settings">
+                    Settings
+                </a>
+            </li>
+            <li id="admin">
+                <a class="btn btn-outline-dark my-2 my-sm-0"href="/{{ session['username'] }}/admin">Admin</a>
+            </li>
+            {% endif %}
+        <li id="logout">
+        <a class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
+        {% endif %}
+    </ul>
+
+</div>
+
+<!--STYLEA.css-->
+
+<!--<nav class="navbar navbar-dark bg-dark top-bar">-->
+    <!--&lt;!&ndash;<i class="fas fa-grip-horizontal" id="menu" onclose="defaultNav();"></i>&ndash;&gt;-->
+    <!--<div class="top-bar-left">-->
+        <!--<ul class="dropdown menu">-->
+            <!--<li><a href="/"><img class="menu-image" src="{{ url_for( 'static', filename='images/iShare_logo.png' ) }}"></a></li>-->
+            <!--<li class="underline"><a href="/Browse-all-time">Browse All Time</a></li>-->
+            <!--<ul>-->
+                <!--<li class="underline"><a href="/about">About</a></li>-->
+                <!--{% if not session['username'] %}-->
+                <!--<li class="underline"><a href="/account/login">Login/Register</a></li>-->
+                <!--{% else %}-->
+                <!--<li class="underline" id="user"><a href="/{{session['username']}}/profile">Hello , {{session['username']}}</a></li>-->
+                <!--<ul class="top-bar-right">-->
+                    <!--<li id="logout">-->
+                        <!--Log Out-->
+                    <!--</li>-->
+                    <!--<li id="upload">-->
+                        <!--<a href="/{{session['username']}}/upload">Upload</a>-->
+                    <!--</li>-->
+                    <!--{% if session['fsr']%}-->
+                    <!--<li id="settings">-->
+                        <!--<a href="/{{session['username']}}/settings">-->
+                            <!--Settings-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li id="admin">-->
+                        <!--<a href="/{{ session['username'] }}/admin">Admin</a>-->
+                    <!--</li>-->
+                    <!--{% endif %}-->
+                <!--</ul>-->
+                <!--{% endif %}-->
+            <!--</ul>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</nav>-->
+
+
 {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <div class="flashes">
-            {% for message in messages %}
+{% if messages %}
+<div class="flashes mx-auto">
+{% for message in messages %}
+
                 {% with suc = 'Success' in message%}
                     {% if suc %}
-                        <div class="flash-success">{{message}}</div>
+                        <div class="flash-success alert alert-success">{{message}}</div>
                     {% else %}
-                        <div class="flash-failure">{{message}}</div>
+                        <div class="flash-failure alert alert-danger">{{message}}</div>
                     {% endif %}
                 {% endwith %}
             {% endfor %}

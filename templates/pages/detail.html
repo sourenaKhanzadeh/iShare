@@ -7,14 +7,14 @@
 {% block body%}
 
     <div class="detail">
-        <h1>{{ repo['title'] }}</h1>
         <section>
             <img src="{{ repo['avatar'] }}">
+            <h1>{{ repo['title'] }}</h1>
             <p>{{ repo['description'] }}</p>
         </section>
         <section>
-            <a class="git" href="{{ repo['url_repo'] }}"><i class="fab fa-github"> Code</i></a>
-            <a class="pdf" href="{{ repo['url_pdf'] }}"><i class="far fa-file-pdf"> Paper</i></a>
+            <a class="git btn btn-lg btn-primary" href="{{ repo['url_repo'] }}"><i class="fab fa-github"> Code</i></a>
+            <a class="pdf btn btn-lg btn-secondary" href="{{ repo['url_pdf'] }}"><i class="far fa-file-pdf"> Paper</i></a>
         </section>
         <section>
             <i class="fa fa-star">{{  repo['star']  }}</i>
@@ -22,18 +22,28 @@
         {% if set['diss']%}
             <div class="msg">
                 <textarea rows="5" placeholder="Write a public comment...."></textarea>
-                <button id="comment"> comment </button>
+                <button class="btn btn-lg btn-outline-warning" id="comment"> comment </button>
                 <h2>Discussion</h2>
                 <hr>
-                <ul>
-                    {% if comments%}
-                        {% for comment in comments %}
-                            <h3>{{ comment['username'] }}</h3>
-                            <h5>{{ comment['date'] }}</h5>
-                            <li>{{ comment['comment'] }}</li>
-                        {% endfor %}
-                    {% endif %}
-                </ul>
+                {% if comments%}
+                    {% for comment in comments %}
+                <div class="card mb-3">
+                      <div class="row no-gutters">
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ comment['username'] }}</h5>
+                            <p class="card-text">{{ comment['comment'] }}</p>
+                            <p class="card-text"><small class="text-muted">{{ comment['date'] }}</small></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                <area>
                 <div class="loading"></div>
             </div>
         {% endif %}

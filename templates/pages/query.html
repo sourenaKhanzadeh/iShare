@@ -6,47 +6,56 @@
 
 
 {% block body%}
-<div class="sections">
+<div class="sections mx-auto row">
     {% for section in all_sections %}
-        <a href="/Browse-all-time?section={{ section['section'] }}">{{ section['section'] }}</a><br><br>
+        <a class="col-xl col-lg-2 col-sm-3 col-md-4 btn btn-outline-primary" href="/Browse-all-time?section={{ section['section'] }}">{{ section['section'] }}</a><br><br>
     {% endfor %}
 </div>
-<div class="query">
+<div class="query mx-auto">
     {% for query in queries %}
         {% if query['approved'] %}
-            <section>
-                <a href="/{{ query['username'] }}/{{ query['title']}}"><h1>{{ query['title'] }}</h1></a>
-                <h4>on {{ query['date'] }} by {{ query['username'] }}</h4>
-                <p>{{ query['description'] }}</p>
-                <div>
-                    <img src="{{ query['avatar'] }}">
-                    <i class="fa fa-star">{{ query['star'] }}</i>
-                    <a class="git" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
-                    <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
+            <section class="shadow-lg p-3 mb-5 bg-white rounded card md-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img class="card-img" src="{{ query['avatar'] }}">
+                    </div>
                 </div>
-                <div class="sections">
-                    <a  href="/Browse-all-time?section={{ query['section'] }}">{{ query['section'] }}</a>
+                <div class="col-md-12">
+                    <div class="card-body">
+
+                        <a class="card-title" href="/{{ query['username'] }}/{{ query['title']}}"><h1>{{ query['title'] }}</h1></a>
+                        <small class="text-muted">on {{ query['date'] }} by {{ query['username'] }}</small>
+                        <p class="card-text">{{ query['description'] }}</p>
+                        <div>
+                            <i class="fa fa-star">{{ query['star'] }}</i>
+                            <a class="git btn btn-lg btn-primary" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
+                            <a class="pdf btn btn-lg btn-secondary" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
+                        </div>
+                        <div class="sections">
+                            <a  class="card-text btn btn-outline-primary" href="/Browse-all-time?section={{ query['section'] }}">{{ query['section'] }}</a>
+                        </div>
+                        <div class="tags">
+                            {% for tag in query['tags']%}
+                            <a class="card-text btn btn-outline-warning" href="/Browse-all-time?tag={{ tag }}">{{ tag }}</a>
+                            {% endfor %}
+                        </div>
+                        {%if admin %}
+                        <div class="admin__btn">
+                            <button class="btn btn-outline-info" onclick="window.location=`/{{ admin['username'] }}/edit/{{query['username']}}/{{query['title']}}`"> Edit </button>
+                            <button class="btn btn-outline-danger" onclick="window.location=`/{{ admin['username'] }}/delete/{{query['title']}}`"> Delete </button>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="tags">
-                    {% for tag in query['tags']%}
-                    <a href="/Browse-all-time?tag={{ tag }}">{{ tag }}</a>
-                    {% endfor %}
-                </div>
-                {%if admin %}
-                <div class="admin__btn">
-                    <button onclick="window.location=`/{{ admin['username'] }}/edit/{{query['username']}}/{{query['title']}}`"> Edit </button>
-                    <button onclick="window.location=`/{{ admin['username'] }}/delete/{{query['title']}}`"> Delete </button>
-                </div>
-                {% endif %}
             </section>
         {% endif %}
     {% endfor%}
 
 </div>
 {% if queries|length > 1 %}
-    <div class="load">
+    <div class="load d-flex flex-column align-item-center">
         <div class="loading"></div>
-        <button id="load_more">Load more</button>
+        <button id="load_more" class="shadow p-3 mb-5 btn btn-lg btn-outline-success">Load more</button>
     </div>
 {% endif%}
 <script src="{{ url_for('static', filename='js/query.js') }}"></script>

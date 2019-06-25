@@ -8,13 +8,19 @@ function search(){
     document.querySelector('.loading').style.display = 'block';
     window.location = $('#sea').val();
 }
+
+function search2() {
+    document.querySelector('.loading').style.display = 'block';
+    window.location = $('#sea2').val();
+
+}
 $('#search').on('click', ()=>{
-    search();
+    search2();
 });
 document.addEventListener('keyup', (event)=>{
     if(event.which === 13 || evet.key === 13)
     {
-        search();
+        search2();
     }
 });
 

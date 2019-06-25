@@ -10,45 +10,61 @@ settings
     <h1>Settings</h1>
     <hr>
     <section>
-        Discussion:
         {% if set['diss']%}
-        <div class="checkbox active" id="dis"><button class="btn_active" id="btn_dis"></button></div>
+        <div class="custom-control custom-switch checkbox active" id="dis">
+            <input type="checkbox" value="dis"  checked class="custom-control-input btn_active active" id="btn_dis">
+              <label class="custom-control-label" for="btn_dis">Discussion</label>
+        </div>
         {%else%}
-        <div class="checkbox deactive" id="dis"><button class="btn_deactive" id="btn_dis"></button></div>
+        <div class="custom-control custom-switch checkbox active" id="dis">
+            <input type="checkbox" value="dis" class="custom-control-input btn_active active" id="btn_dis">
+              <label class="custom-control-label" for="btn_dis">DDiscussion</label>
+        </div>
         {%endif%}
     </section>
     <section>
-        Wave Animation:
         {%if set['wave']%}
-            <div class="checkbox active" id="wave"><button class="btn_active" id="btn_wave"></button></div>
+            <div class="custom-control custom-switch checkbox active" id="wave">
+                <input type="checkbox" value="wave" checked class="custom-control-input btn_active" id="btn_wave">
+                  <label class="custom-control-label" for="btn_wave">Wave Animation</label>
+            </div>
         {%else%}
-            <div class="checkbox deactive" id="wave"><button class="btn_deactive" id="btn_wave"></button></div>
+            <div class="custom-control custom-switch checkbox active" id="wave">
+                <input type="checkbox" value="wave" class="custom-control-input btn_active" id="btn_wave">
+                  <label class="custom-control-label" for="btn_wave">Wave Animation</label>
+            </div>
         {%endif%}
     </section>
     <section>
-        <label for="title">Web Title:</label>  <input type="text"
-                                                      name="title"
-                                                      placeholder="Enter Title.."
-                                                      id="title"
-                                                      value="{{title}}">
+        <label for="title">Web Title:</label>
+        <input class="form-control"
+            type="text"
+            name="title"
+            placeholder="Enter Title.."
+            id="title"
+            value="{{title}}">
     </section>
 
     <section>
-        <label for="email">Web Email:</label>  <input type="text"
-                                                      name="email"
-                                                      placeholder="Enter Email.."
-                                                      id="email"
-                                                      value="{{email}}">
+        <label for="email">Web Email:</label>
+        <input class="form-control"
+            type="text"
+            name="email"
+            placeholder="Enter Email.."
+            id="email"
+            value="{{email}}">
     </section>
     <section>
-        <label for="pass">Web Password:</label>  <input type="password" name="pass" placeholder="Enter Password.." id="email_pass">
+        <label for="pass">Web Password:</label>
+        <input class="form-control" type="password" name="pass" placeholder="Enter Password.." id="email_pass">
     </section>
     <section>
-        <label for="tags">Max-Tags:</label>  <input type="number" name="tags" id="max_tags" value="5">
+        <label for="tags">Max-Tags:</label>
+        <input class="form-control" type="number" name="tags" id="max_tags" value="5">
     </section>
-    <button id="save">Save</button>
+    <button class="btn btn-outline-success" id="save">Save</button>
 
-    <i class="fas fa-check-circle"></i>
+    <i class="mx-auto fas fa-check-circle"></i>
 </div>
 <script src="{{ url_for('static', filename='js/settings.js') }}">
 

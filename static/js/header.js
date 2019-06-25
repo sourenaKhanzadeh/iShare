@@ -13,34 +13,37 @@ function preload(){
     $('.loading').css('display', 'block');
 }
 
+if(bar !== null){
 
-bar.addEventListener('click', ()=>{
-    let css = {
-        'display':'flex',
-        'flex-direction':'column'
-    };
-    $('nav ul').css(css);
-    nav.css('height','200px');
-    setTimeout(remove, 4000);
-});
+    bar.addEventListener('click', ()=>{
+        let css = {
+            'display':'flex',
+            'flex-direction':'column'
+        };
+        $('nav ul').css(css);
+        nav.css('height','200px');
+        setTimeout(remove, 4000);
+    });
 
-function defaultNav(){
-    let css = {
-        'display':'block'
-    };
-    $('nav ul').css(css);
 
-    nav.css('height', '50px');
+    function defaultNav(){
+        let css = {
+            'display':'block'
+        };
+        $('nav ul').css(css);
+
+        nav.css('height', '50px');
+    }
+
+    function remove(){
+        defaultNav();
+        $('nav ul').css('display', 'none');
+    }
+
+    //media query if media 800px
+    let media = window.matchMedia('(min-width: 800px)');
+    media.addListener(defaultNav);
 }
-
-function remove(){
-    defaultNav();
-    $('nav ul').css('display', 'none');
-}
-
-//media query if media 800px
-let media = window.matchMedia('(min-width: 800px)');
-media.addListener(defaultNav);
 
 // post input
 /**

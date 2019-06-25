@@ -7,7 +7,7 @@ Admin
 {% block body%}
 <div class="section">
     <label for="drop">Sections</label>
-    <select name="drop">
+    <select class="custom-select" name="drop">
         {% for section in all_sections %}
             <option>
                 {{ section['section'] }}
@@ -15,25 +15,25 @@ Admin
         {% endfor %}
     </select>
     <input type="text" id="section">
-    <button id="add"> Add <i class="fa fa-plus"></i></button>
-    <button id="remove"> Remove <i class="fa fa-minus"></i></button>
+    <button class="btn btn-outline-success" id="add"> Add <i class="fa fa-plus"></i></button>
+    <button class="btn btn-outline-danger" id="remove"> Remove <i class="fa fa-minus"></i></button>
 </div>
-<div class="admin">
+<div class="admin d-flex flex-column">
     {% for query in queries %}
         {% if query['pending'] %}
-            <section>
+            <section class="border border-info">
+                <img src="{{ query['avatar'] }}">
                 <h1>{{ query['title'] }}</h1>
                 <h4>on {{ query['date'] }} by {{ query['username'] }}</h4>
                 <p>{{ query['description'] }}</p>
-                <img src="{{ query['avatar'] }}">
-                <div>
+                <div class="read mx-auto">
                     <i class="fa fa-star">{{ query['star'] }}</i>
-                    <a class="git" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
-                    <a class="pdf" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
+                    <a class="git btn btn-primary" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
+                    <a class="pdf btn btn-secondary" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
                 </div>
-                <div>
-                    <button><i class="fa fa-check-circle" onclick="post('/{{session['username']}}/admin', {'approve':1, 'repo':'{{query['title']}}'}); preload();"></i></button>
-                    <button><i class="fa fa-times-circle" onclick="post('/{{session['username']}}/admin', {'approve':0, 'repo':'{{query['title']}}'}); preload();"></i></button>
+                <div class="card-group">
+                    <button class="card btn btn-lg btn-outline-success" onclick="post('/{{session['username']}}/admin', {'approve':1, 'repo':'{{query['title']}}'}); preload();">Approve <i class="fa fa-check-circle"></i></button>
+                    <button class="card btn btn-lg btn-outline-danger" onclick="post('/{{session['username']}}/admin', {'approve':0, 'repo':'{{query['title']}}'}); preload();">Disapprove <i class="fa fa-times-circle"></i></button>
                 </div>
             </section>
         {% endif %}
