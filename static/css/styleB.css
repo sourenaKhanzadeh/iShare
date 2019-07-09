@@ -20,12 +20,20 @@
     position: fixed;
     background-color: #212529;
     padding: 10px;
-    width: 200px;
+    width: 0;
     right: 0;
     margin: 50px 0;
     text-align: center;
     z-index: 10;
+    transition: width 300ms ease-in-out;
 }
+    .side-bar-right .hover{
+        margin-left: -60px;
+        margin-top: -10px;
+        border-radius: 0;
+        background-color:#212529;
+        transition: transform 300ms ease-in-out;
+    }
     .side-bar-right li{
         float: left;
         margin: 5px 0;
@@ -112,27 +120,72 @@ canvas{
 
 /* Browse-all-time */
 .query{
-    width: 80vw;
+    width: 90vw;
+    position: relative;
     /*max-width: 540px;*/
 }
-    .query img{
-        width: 50px;
+    .query .icon{
+        /*text-align: center;;*/
+        font-size: 10pt;
+        width: 100px;
         height: 50px;
+        border: 1px solid #FFA50066;
+        text-align: center;
+    }
+    .query .icon img{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 0;
+        top: 0;
+        padding: 2px;
+    }
+    .query .icon i{
+        position: absolute;
+        left: 50px;
+        top: 25px;
+        font-size: 8pt;
+        min-width: 70px;
+        margin-top: -5px;
+        height: 30px;
+        padding: 5px;
+
+    }
+
+    .query img{
+        margin: 20px;
     }
     .query .git, .query .pdf{
         float: right;
         width: 100px;
-        margin: 0 2px;
+        margin: 2px 0;
     }
-    .query .tags{
-        margin: 15px 0;
+    .query .tag{
+        color: orange;
+        font-size: 8pt;
     }
-        .query .tags a{
-            margin: 2px 5px;
+        .query .tag:hover{
+            color:white;
         }
     .query .fa-star{
         color: orange;
     }
+
+    .query .title{
+        font-size: 1.5rem;
+        font-weight: bolder;
+    }
+    .query p{
+        max-height: 150px;
+        overflow-y: scroll;
+    }
+    .query .query_sec{
+        font-size: 8pt;
+        margin: 4px 0;
+    }
+.btn{
+    cursor: pointer;
+}
 /* Sections */
 .sections{
     max-width: 600px;

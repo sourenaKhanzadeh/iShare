@@ -15,49 +15,48 @@
     {% for query in queries %}
         {% if query['approved'] %}
             <section class="shadow-lg p-3 mb-5 bg-white rounded card md-3">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img class="card-img" src="{{ query['avatar'] }}">
+                <div class="d-flex">
+                    <div  class="d-flex flex-column">
+                        <div class="icon">
+                                <img src="{{query['avatar']}}">
+                            <i style="font-size: 14pt" class="fas fa-star"><br><span style="font-size: 10pt">{{query['star']}}</span></i>
+                            <br><br>
+                        </div>
+                        <a href="/Browse-all-time?section={{query['section']}}" class="query_sec btn btn-outline-primary">{{query['section']}}</a>
+                        <a class="git btn btn-primary btn-lg" href="query['url_repo']"><i class="fab fa-github"></i></a>
+                        <a class="pdf btn btn-secondary btn-lg" href="query['url_pdf']"><i class="far fa-file-pdf"></i></a>
+                    </div>
+                    <div>
+                        <img src="https://via.placeholder.com/225">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <a class="title" href="/{{query['username']}}/{{query['title']}}">{{query['title']}}</a>
+                        <small class="text-muted">{{query['date']}} by {{query['username']}}</small>
+                        <p>{{query['description']}}</p>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="card-body">
-
-                        <a class="card-title" href="/{{ query['username'] }}/{{ query['title']}}"><h1>{{ query['title'] }}</h1></a>
-                        <small class="text-muted">on {{ query['date'] }} by {{ query['username'] }}</small>
-                        <p class="card-text">{{ query['description'] }}</p>
-                        <div>
-                            <i class="fa fa-star">{{ query['star'] }}</i>
-                            <a class="git btn btn-lg btn-primary" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>
-                            <a class="pdf btn btn-lg btn-secondary" href="{{ query['url_pdf'] }}"><i class="far fa-file-pdf"></i></a>
-                        </div>
-                        <div class="sections">
-                            <a  class="card-text btn btn-outline-primary" href="/Browse-all-time?section={{ query['section'] }}">{{ query['section'] }}</a>
-                        </div>
-                        <div class="tags">
-                            {% for tag in query['tags']%}
-                            <a class="card-text btn btn-outline-warning" href="/Browse-all-time?tag={{ tag }}">{{ tag }}</a>
-                            {% endfor %}
-                        </div>
-                        {%if admin %}
-                        <div class="admin__btn">
-                            <button class="btn btn-outline-info" onclick="window.location=`/{{ admin['username'] }}/edit/{{query['username']}}/{{query['title']}}`"> Edit </button>
-                            <button class="btn btn-outline-danger" onclick="window.location=`/{{ admin['username'] }}/delete/{{query['title']}}`"> Delete </button>
-                        </div>
-                        {% endif %}
-                    </div>
+                <div>
+                    {% for tag in query['tags']%}
+                        <a href="/Browse-all-time?tag={{tag}}" class="tag btn btn-outline-warning">{{tag}}</a>
+                    {% endfor %}
                 </div>
+                {% if admin%}
+                    <div class="admin__btn">
+                        <button class="btn btn-outline-info" onclick="window.location=`/{{session['user']}}/edit/{{query['title']}}`"> Edit </button>
+                        <button class="btn btn-outline-danger" onclick="window.location=`/{{session['user']}}/delete/{{query['title']}}`"> Delete </button>
+                    </div>
+                {% endif %}
             </section>
         {% endif %}
     {% endfor%}
 
 </div>
-{% if queries|length > 1 %}
-    <div class="load d-flex flex-column align-item-center">
-        <div class="loading"></div>
-        <button id="load_more" class="shadow p-3 mb-5 btn btn-lg btn-outline-success">Load more</button>
-    </div>
-{% endif%}
+<!--{% if queries|length > 1 %}-->
+    <!--<div class="load d-flex flex-column align-item-center">-->
+        <!--<div class="loading"></div>-->
+        <!--<button id="load_more" class="shadow p-3 mb-5 btn btn-lg btn-outline-success">Load more</button>-->
+    <!--</div>-->
+<!--{% endif%}-->
 <script src="{{ url_for('static', filename='js/query.js') }}"></script>
 
 {% endblock %}
