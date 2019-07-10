@@ -96,18 +96,18 @@ window.onscroll = function(ev) {
 
 
 let hover = $('.hover');
-let toggle = true;
+let toggler = true;
 hover.on('click', ()=>{
-    if(toggle){
+    if(toggler){
        $('.side-bar-right').css('width', '200px');
        hover.css('transform','translateX(-90px)');
        hover.html(`<i class="fas fa-angle-double-right"></i>`);
-       toggle = false;
+       toggler = false;
     }
     else{
        $('.side-bar-right').css('width', '0');
        hover.css('transform','translateX(0)');
        hover.html(`<i class="fas fa-angle-double-left"></i>`);
-       toggle = true;
+       toggler = true;
     }
 });
