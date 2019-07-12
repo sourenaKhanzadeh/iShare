@@ -114,8 +114,8 @@ window.addEventListener('scroll', ()=>{
                 text += tags;
                 text += `
                             <div class="admin__btn">
-                                <button class="btn btn-outline-info" onclick="window.location='/${data.admin}/edit/${data.title}'"> Edit </button>
-                                <button class="btn btn-outline-danger" onclick="window.location='/${data.admin}/delete/${data.title}'"> Delete </button>
+                                <button class="btn btn-outline-info" onclick="window.location='/${data.admin}/edit/${data.title}'"><i class="fas fa-edit"></i> </button>
+                                <button class="btn btn-outline-danger" onclick="window.location='/${data.admin}/delete/${data.title}'"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
