@@ -43,31 +43,32 @@ window.addEventListener('scroll', ()=>{
                 $('#load_more').fadeOut(1000);
             // check if user is approved
             if (data.approved && data.admin === undefined){
-                let text = `<section class="shadow-lg p-3 mb-5 bg-white rounded card md-3">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img class="card-img" src="${data.avatar}">
+                let text = `
+                    <section class="shadow-lg p-3 mb-5 bg-white rounded card md-3">
+                <div class="d-flex">
+                    <div  class="d-flex flex-column">
+                        <div class="icon">
+                                <img src="${data.avatar}">
+                            <i style="font-size: 14pt" class="fas fa-star"><br><span style="font-size: 10pt">${data.stars}</span></i>
+                            <br><br>
                         </div>
+                        <a href="/Browse-all-time?section=${data.section}" class="query_sec btn btn-outline-primary">${data.section}</a>
+                        <a class="git btn btn-primary btn-lg" href="${data.url_repo}"><i class="fab fa-github"></i></a>
+                        <a class="pdf btn btn-secondary btn-lg" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
                     </div>
-                    <div class="col-md-12">
-                        <div class="card-body">
-    
-                            <a href="/${data.username}/${data.title}"><h1>${data.title}</h1></a>
-                            <small class="text-muted">on ${data.date} by ${data.username}</small>
-                            <p>${data.description}</p>
-                            <div>
-                                <i class="fa fa-star">${data.stars}</i>
-                                <a class="git btn btn-lg btn-primary" href="${data.url_repo}"><i class="fab fa-github"></i></a>
-                                <a class="pdf btn btn-lg btn-secondary" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
-                            </div>
-                            <div class="sections">
-                                <a  class="btn btn-outline-primary" href="/Browse-all-time?section=${data.section}">${data.section}</a>
-                             
-                            </div>
+                    <div>
+                        <img src="https://via.placeholder.com/225">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <a class="title" href="/${data.user}/${data.title}">${data.title}</a>
+                        <small class="text-muted">${data.date} by ${data.user}</small>
+                        <p>${data.description}</p>
+                    </div>
+                </div>
                 `;
                 let tags = "<div class='tags'>";
                 for(var i =0; i<data.tags.length;i++)
-                    tags += `<a class="card-text btn btn-outline-warning" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}  </a>`;
+                    tags += `<a class="tag btn btn-outline-warning" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}  </a>`;
                 tags += `   </div>
                         </div>
                         </div>`;
@@ -80,30 +81,34 @@ window.addEventListener('scroll', ()=>{
                 );
             }
             if(data.admin){
-                let text = `<section class="shadow-lg p-3 mb-5 bg-white rounded card md-3">
-                <div class="row no-gutters">
-                    <img class="card-img" src="${data.avatar}">
+                let text = `
+                    <section class="shadow-lg p-3 mb-5 bg-white rounded card md-3">
+                <div class="d-flex">
+                    <div  class="d-flex flex-column">
+                        <div class="icon">
+                                <img src="${data.avatar}">
+                            <i style="font-size: 14pt" class="fas fa-star"><br><span style="font-size: 10pt">${data.stars}</span></i>
+                            <br><br>
+                        </div>
+                        <a href="/Browse-all-time?section=${data.section}" class="query_sec btn btn-outline-primary">${data.section}</a>
+                        <a class="git btn btn-primary btn-lg" href="${data.url_repo}"><i class="fab fa-github"></i></a>
+                        <a class="pdf btn btn-secondary btn-lg" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
+                    </div>
+                    <div>
+                        <img src="https://via.placeholder.com/225">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <a class="title" href="/${data.user}/${data.title}">${data.title}</a>
+                        <small class="text-muted">${data.date} by ${data.user}</small>
+                        <p>${data.description}</p>
+                    </div>
                 </div>
-                <div class="col-md-12">
-                        <div class="card-body">
-    
-                        <a class="card-title" href="/${data.username}/${data.title}"><h1>${data.title}</h1></a>
-                        <small class="text-muted">on ${data.date} by ${data.username}</small>
-                        <p class="card-text">${data.description}</p>
-                        <div>
-                            <i class="fa fa-star">${data.stars}</i>
-                            <a class="git btn btn-lg btn-primary" href="${data.url_repo}"><i class="fab fa-github"></i></a>
-                            <a class="pdf btn btn-lg btn-secondary" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
-                        </div>
-                        <div class="sections">
-                                <a class="card-text btn btn-outline-primary" href="/Browse-all-time?section=${data.section}">${data.section}</a>
-                        </div>
                 
             `;
 
                 let tags = "<div class='tags'>";
                 for(var i =0; i<data.tags.length;i++)
-                    tags += `<a  class="card-text btn btn-outline-warning" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}`;
+                    tags += `<a  class="tag btn btn-outline-warning" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}`;
                 tags += "</a></div>";
 
                 text += tags;

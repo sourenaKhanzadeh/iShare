@@ -183,6 +183,9 @@ canvas{
         font-size: 8pt;
         margin: 4px 0;
     }
+    .query .admin__btn{
+        margin: 20px 0;
+    }
 .btn{
     cursor: pointer;
 }

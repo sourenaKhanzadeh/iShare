@@ -42,7 +42,7 @@
                 </div>
                 {% if admin%}
                     <div class="admin__btn">
-                        <button class="btn btn-outline-info" onclick="window.location=`/{{session['user']}}/edit/{{query['title']}}`"> Edit </button>
+                        <button class="btn btn-outline-info" onclick="window.location=`/{{session['user']}}/edit/{{query['title']}}`"> <i class="fa"></i> </button>
                         <button class="btn btn-outline-danger" onclick="window.location=`/{{session['user']}}/delete/{{query['title']}}`"> Delete </button>
                     </div>
                 {% endif %}
