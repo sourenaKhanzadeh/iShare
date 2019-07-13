@@ -50,6 +50,8 @@ def edit_repo(admin, user, title):
             flash("Maximum Tags Reached")
             return redirect(url_for('edit_repo', admin=admin,user=user, title=title))
 
+        heroku = True if "heroku" in request.form.get('deploy',[None]) else False
+
         # get data from user
         content = {
             'username': user,
@@ -62,6 +64,7 @@ def edit_repo(admin, user, title):
             'avatar': avatar,
             'tags':tags,
             'section': request.form['section'],
+            'heroku':heroku,
             'approved': True,
             'pending': False
         }

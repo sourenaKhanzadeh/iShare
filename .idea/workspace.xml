@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d656594d-e9d6-4415-baa3-113c84b913b1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/paper_manager/query.py" afterPath="$PROJECT_DIR$/myModules/paper_manager/query.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/paper_manager/upload.py" afterPath="$PROJECT_DIR$/myModules/paper_manager/upload.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/styleB.css" afterPath="$PROJECT_DIR$/static/css/styleB.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/query.js" afterPath="$PROJECT_DIR$/static/js/query.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/edit.html" afterPath="$PROJECT_DIR$/templates/pages/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/query.html" afterPath="$PROJECT_DIR$/templates/pages/query.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pages/upload.html" afterPath="$PROJECT_DIR$/templates/pages/upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/template/header.html" afterPath="$PROJECT_DIR$/templates/template/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myModules/admin/edit.py" afterPath="$PROJECT_DIR$/myModules/admin/edit.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,21 +48,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="edit.html" pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/templates/pages/edit.html">
+              <file leaf-file-name="edit.py" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/myModules/admin/edit.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="281">
-                      <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="upload.py" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/myModules/paper_manager/upload.py">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="255">
-                      <caret line="85" column="37" lean-forward="false" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="37" />
+                    <state relative-caret-position="179">
+                      <caret line="52" column="69" lean-forward="false" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
                       <folding />
                     </state>
                   </provider>
@@ -129,15 +112,25 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="query.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="query.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/pages/query.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+                <state relative-caret-position="43">
+                  <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
                   <folding>
                     <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#span#0;n#i#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#!!top" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="edit.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/pages/edit.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="230">
+                  <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -219,7 +212,6 @@
         <option value="$PROJECT_DIR$/static/js/settings.js" />
         <option value="$PROJECT_DIR$/templates/pages/settings.html" />
         <option value="$PROJECT_DIR$/static/js/header.js" />
-        <option value="$PROJECT_DIR$/myModules/admin/edit.py" />
         <option value="$PROJECT_DIR$/templates/template/header.html" />
         <option value="$PROJECT_DIR$/templates/pages/upload.html" />
         <option value="$PROJECT_DIR$/myModules/paper_manager/upload.py" />
@@ -228,6 +220,7 @@
         <option value="$PROJECT_DIR$/static/css/styleB.css" />
         <option value="$PROJECT_DIR$/static/js/query.js" />
         <option value="$PROJECT_DIR$/templates/pages/edit.html" />
+        <option value="$PROJECT_DIR$/myModules/admin/edit.py" />
       </list>
     </option>
   </component>
@@ -1075,14 +1068,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myModules/admin/edit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="10" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/template/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
@@ -1093,46 +1078,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="40" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myModules/paper_manager/upload.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="85" column="37" lean-forward="false" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myModules/paper_manager/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="62" column="23" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="113" lean-forward="false" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="113" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pages/query.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="27" column="30" lean-forward="false" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#i#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1176,10 +1126,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myModules/paper_manager/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="72" column="20" lean-forward="true" selection-start-line="71" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myModules/paper_manager/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="62" column="23" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/query.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#i#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pages/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/pages/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state relative-caret-position="230">
           <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myModules/admin/edit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="52" column="69" lean-forward="false" selection-start-line="52" selection-start-column="69" selection-end-line="52" selection-end-column="69" />
           <folding />
         </state>
       </provider>
