@@ -60,8 +60,8 @@ window.addEventListener('scroll', ()=>{
                         <img src="https://via.placeholder.com/225">
                     </div>
                     <div class="card-body d-flex flex-column">
-                        <a class="title" href="/${data.user}/${data.title}">${data.title}</a>
-                        <small class="text-muted">${data.date} by ${data.user}</small>
+                        <a class="title" href="/${data.username}/${data.title}">${data.title}</a>
+                        <small class="text-muted">${data.date} by ${data.username}</small>
                         <p>${data.description}</p>
                     </div>
                 </div>
@@ -98,8 +98,8 @@ window.addEventListener('scroll', ()=>{
                         <img src="https://via.placeholder.com/225">
                     </div>
                     <div class="card-body d-flex flex-column">
-                        <a class="title" href="/${data.user}/${data.title}">${data.title}</a>
-                        <small class="text-muted">${data.date} by ${data.user}</small>
+                        <a class="title" href="/${data.username}/${data.title}">${data.title}</a>
+                        <small class="text-muted">${data.date} by ${data.username}</small>
                         <p>${data.description}</p>
                     </div>
                 </div>
