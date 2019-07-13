@@ -33,6 +33,15 @@
         <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required>{% for tag in query['tags']%}{{tag}};{% endfor %}
         </textarea>
         <small class="form-text text-muted">separate tags with ; , i.e: hello world;</small>
+        <div class="float-left">
+            <label for="deploy">Deployment's:</label><br>
+            {% if query['heroku'] %}
+                <input type="checkbox" name="deploy" value="heroku" checked> heroku <span class="iconify" data-icon="simple-icons:heroku" data-inline="false"></span>
+            {% else %}
+                <input type="checkbox" name="deploy" value="heroku"> heroku <span class="iconify" data-icon="simple-icons:heroku" data-inline="false"></span>
+            {% endif %}
+        </div>
+
         <input class="btn btn-outline-info" type="submit" name="submit" value="Save Changes" onclick="preload()">
         <div class="loading" align="center"></div>
     </form>

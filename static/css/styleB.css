@@ -106,6 +106,10 @@
     .upload small, .edit small{
         margin: 10px 0;
     }
+
+    .upload input[type='checkbox']{
+        text-align: justify;
+    }
 /* Canvas */
 canvas{
     position: absolute;
@@ -155,7 +159,7 @@ canvas{
     .query img{
         margin: 20px;
     }
-    .query .git, .query .pdf{
+    .query .git, .query .pdf, .query .purple{
         float: right;
         width: 100px;
         margin: 2px 0;
@@ -185,6 +189,15 @@ canvas{
     }
     .query .admin__btn{
         margin: 20px 0;
+    }
+    .query .purple{
+        background-color: white;
+        color: #6567a5;
+        border-color: #6567a5;
+    }
+    .query .purple:hover{
+        background-color: #6567a5;
+        color: white;
     }
 .btn{
     cursor: pointer;

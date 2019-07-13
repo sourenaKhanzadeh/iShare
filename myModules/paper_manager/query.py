@@ -44,8 +44,8 @@ def all_time():
         try:
             # get the second last query
             nex = query[limit-1]
-
             # store the content
+            print(nex.get('heroku', None))
             content = {
                 'username':nex['username'],
                 'title':nex['title'],
@@ -59,7 +59,8 @@ def all_time():
                 'queries_count':query.count(),
                 'limit':limit,
                 'section':nex['section'],
-                'tags':nex['tags']
+                'tags':nex['tags'],
+                'heroku':nex.get('heroku', None)
             }
 
             if admin is not None:

@@ -34,6 +34,10 @@ Upload Paper
         <label for="tags">Tags: (maximum 5 tags allowed) use ; to separate the tags</label>
         <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required></textarea>
         <small class="form-text text-muted">separate tags with ; , i.e: hello world;</small>
+        <div class="float-left">
+            <label for="deploy">Deployment's:</label><br>
+            <input type="checkbox" name="deploy" value="heroku"> heroku <span class="iconify" data-icon="simple-icons:heroku" data-inline="false"></span>
+        </div>
         <input class="btn btn-outline-info" type="submit" name="submit" value="Upload" onclick="preload()">
         <div class="loading" align="center"></div>
     </form>

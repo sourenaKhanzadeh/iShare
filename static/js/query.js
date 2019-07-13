@@ -54,7 +54,13 @@ window.addEventListener('scroll', ()=>{
                         </div>
                         <a href="/Browse-all-time?section=${data.section}" class="query_sec btn btn-outline-primary">${data.section}</a>
                         <a class="git btn btn-primary btn-lg" href="${data.url_repo}"><i class="fab fa-github"></i></a>
-                        <a class="pdf btn btn-secondary btn-lg" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
+                        <a class="pdf btn btn-secondary btn-lg" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>`
+                if (data.heroku)
+                text += `
+                        <a class="btn btn-info-outline purple" href="https://dashboard.heroku.com/new?template=${data.url_repo}"> <span class="iconify" data-icon="simple-icons:heroku" data-inline="false"></span> Heroku</a>
+                    `;
+
+                text += `
                     </div>
                     <div>
                         <img src="https://via.placeholder.com/225">
@@ -92,7 +98,13 @@ window.addEventListener('scroll', ()=>{
                         </div>
                         <a href="/Browse-all-time?section=${data.section}" class="query_sec btn btn-outline-primary">${data.section}</a>
                         <a class="git btn btn-primary btn-lg" href="${data.url_repo}"><i class="fab fa-github"></i></a>
-                        <a class="pdf btn btn-secondary btn-lg" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>
+                        <a class="pdf btn btn-secondary btn-lg" href="${data.url_pdf}"><i class="far fa-file-pdf"></i></a>`
+                if (data.heroku)
+                text += `
+                        <a class="btn btn-info-outline purple" href="https://dashboard.heroku.com/new?template=${data.url_repo}"> <span class="iconify" data-icon="simple-icons:heroku" data-inline="false"></span> Heroku</a>
+                    `;
+
+                text += `
                     </div>
                     <div>
                         <img src="https://via.placeholder.com/225">
@@ -114,7 +126,7 @@ window.addEventListener('scroll', ()=>{
                 text += tags;
                 text += `
                             <div class="admin__btn">
-                                <button class="btn btn-outline-info" onclick="window.location='/${data.admin}/edit/${data.user}/${data.title}'"><i class="fas fa-edit"></i> </button>
+                                <button class="btn btn-outline-info" onclick="window.location='/${data.admin}/edit/${data.username}/${data.title}'"><i class="fas fa-edit"></i> </button>
                                 <button class="btn btn-outline-danger" onclick="window.location='/${data.admin}/delete/${data.title}'"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>

@@ -69,7 +69,7 @@ def upload(user):
                 else:
 
                     #TODO:// prevent html injection
-
+                    heroku = True if "heroku" in request.form['deploy'] else False
                     # insert into the database
                     global_database.insert(ids['repo'],
                         username = session['username'],
@@ -83,8 +83,8 @@ def upload(user):
                         section = request.form['section'],
                         tags =tags,
                         pending = True,
+                        heroku=heroku,
                         approved = False,
-
                     )
 
                     # success flash popped up

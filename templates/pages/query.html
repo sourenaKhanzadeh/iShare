@@ -25,7 +25,9 @@
                         <a href="/Browse-all-time?section={{query['section']}}" class="query_sec btn btn-outline-primary">{{query['section']}}</a>
                         <a class="git btn btn-primary btn-lg" href="{{query['url_repo']}}"><i class="fab fa-github"></i></a>
                         <a class="pdf btn btn-secondary btn-lg" href="{{query['url_pdf']}}"><i class="far fa-file-pdf"></i></a>
-                        <!--<a href="https://dashboard.heroku.com/new?template={{query['url_repo']}}">Hello</a>-->
+                        {% if query['heroku']%}
+                            <a class="btn btn-info-outline purple" href="https://dashboard.heroku.com/new?template={{query['url_repo']}}"> <span class="iconify" data-icon="simple-icons:heroku" data-inline="false"></span> Heroku</a>
+                        {% endif %}
                     </div>
                     <div>
                         <img src="https://via.placeholder.com/225">
