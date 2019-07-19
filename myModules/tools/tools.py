@@ -2,6 +2,7 @@ from myModules.github.users import GitUser
 import datetime
 from app import flash
 import math
+import difflib
 
 millnames = ['','K',' M',' B','T']
 
@@ -65,3 +66,24 @@ def validate(request):
 
         return None, None, None, None
 
+
+def show_diff(seqm):
+    """Unify operations between two compared strings
+seqm is a difflib.SequenceMatcher instance whose a & b are strings"""
+    output= []
+    for opcode, a0, a1, b0, b1 in seqm.get_opcodes():
+        if opcode == 'equal':
+            output.append(seqm.a[a0:a1])
+        elif opcode == 'insert':
+            output.append("<ins>" + seqm.b[b0:b1] + "</ins>")
+        elif opcode == 'delete':
+            output.append("<del>" + seqm.a[a0:a1] + "</del>")
+        elif opcode == 'replace':
+            raise (NotImplementedError, "what to do with 'replace' opcode?")
+        else:
+            raise (RuntimeError, "unexpected opcode")
+    return ''.join(output)
+
+# sm= difflib.SequenceMatcher(None, "lorem ipsum dolor sit amet", "lorem foo ipsum dolor amet")
+# show_diff(sm)
+#Output: 'lorem<ins> foo</ins> ipsum dolor <del>sit </del>amet'
