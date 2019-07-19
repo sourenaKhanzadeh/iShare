@@ -2,7 +2,7 @@ from app import app, render_template
 from myModules.model.database.database import global_database, ids
 from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
-import urllib
+import slugify
 
 @app.route('/Browse-all-time', methods=['GET'])
 def all_time():
@@ -49,7 +49,9 @@ def all_time():
             # store the content
             content = {
                 'username':nex['username'],
+                '_id':str(nex['_id']),
                 'title':nex['title'],
+                'url_title':slugify.slugify(nex['title']),
                 'approved':nex['approved'],
                 'date':nex['date'],
                 'description':nex['description'],
@@ -78,6 +80,7 @@ def all_time():
     for elem in  query:
         # millify star
         elem['star'] = millify(elem['star'])
+        elem['url_title'] = slugify.slugify(elem['title'])
         queries.append(elem)
 
     # get all sections

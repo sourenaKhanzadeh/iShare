@@ -65,7 +65,7 @@ window.addEventListener('scroll', ()=>{
                         <img src="https://via.placeholder.com/225">
                     </div>
                     <div class="card-body d-flex flex-column">
-                        <a class="title" href="/${data.username}/${data.title}">${data.title}</a>
+                        <a class="title" href="/${data._id}/${data.url_title}">${data.title}</a>
                         <small class="text-muted">${data.date} by ${data.username}</small>
                         <p>${data.description}</p>
                     </div>
@@ -102,14 +102,13 @@ window.addEventListener('scroll', ()=>{
                 text += `
                         <a class="btn btn-info-outline purple" href="https://dashboard.heroku.com/new?template=${data.url_repo}"> <span class="iconify" data-icon="simple-icons:heroku" data-inline="false"></span> Heroku</a>
                     `;
-
                 text += `
                     </div>
                     <div>
                         <img src="https://via.placeholder.com/225">
                     </div>
                     <div class="card-body d-flex flex-column">
-                        <a class="title" href="/${data.username}/${data.title}">${data.title}</a>
+                        <a class="title" href="/${data._id}/${data.url_title}">${data.title}</a>
                         <small class="text-muted">${data.date} by ${data.username}</small>
                         <p>${data.description}</p>
                     </div>

@@ -1,21 +1,25 @@
 from app import app, render_template, session, request,jsonify, flash, redirect
 from myModules.model.database.database import global_database, ids, comments, global_settings
+from bson.objectid import ObjectId
+from flask import abort
 
-
-
-@app.route('/<path:user>/<path:title>')
-def detail(user, title):
+@app.route('/<path:id>/<path:title>')
+def detail(id, title):
     # get global settings
     sett = global_settings.find().next()
-
+    try:
+        ObjectId(id)
+    except Exception:
+        return abort(404)
     # get repo out of the database
     repo = global_database.find_one(ids['repo'],
-        username=user,
-        title=title
+        _id=ObjectId(id)
     )
+    print(repo)
+
     # get repo comments
     all_comments = global_database.find_one(ids['comments'],
-            title=title
+            _id=ObjectId(id)
     )
 
     if repo is not None:
@@ -34,7 +38,7 @@ def detail(user, title):
 
                 # if comment section exist
                 if global_database.find_one(ids['comments'],
-                            title=title
+                            _id=ObjectId(id)
                     ) is not None:
                     # get data
                     content = {
@@ -43,7 +47,7 @@ def detail(user, title):
                         'comment':request.args.get('comment')
                     }
                     # then update the comment section
-                    comments.update({'title':title},
+                    comments.update({'_id':ObjectId(id)},
                                     {
                                     '$push':{
                                         'comments':content
@@ -60,7 +64,7 @@ def detail(user, title):
                         }
                     # insert to the first comment to the database
                     global_database.insert(ids['comments'],
-                        title=title,
+                        _id=ObjectId(id),
                         comments=[content]
                     )
                     # send to ajax

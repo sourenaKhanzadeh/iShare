@@ -343,3 +343,15 @@ canvas{
     color: red;
 }
 
+.err_404{
+    position: absolute;
+    width: 400px;
+    right: 0;
+    left: 0;
+    top:300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid #17a2b8;
+    padding: 3em;
+}

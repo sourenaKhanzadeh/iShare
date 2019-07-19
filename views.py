@@ -1,5 +1,7 @@
 # import app
 from app import app, request, render_template
+import re
+import slugify
 
 # import database
 from myModules.model.database.database import repos, global_settings
@@ -15,6 +17,7 @@ from myModules.paper_manager.query import *
 from myModules.admin.admin import *
 from myModules.admin.delete import *
 from myModules.admin.edit import *
+from myModules.error_codes import *
 
 # import logout
 # import signUP
@@ -74,6 +77,7 @@ def search(repo):
 
         # append the repos
         for repo in search:
+            repo['url_title'] = slugify.slugify(repo['title'])
             repository.append(repo)
 
     # if repos do not exist
