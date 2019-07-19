@@ -2,6 +2,7 @@ from app import app, render_template
 from myModules.model.database.database import global_database, ids
 from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
+import urllib
 
 @app.route('/Browse-all-time', methods=['GET'])
 def all_time():
@@ -39,13 +40,13 @@ def all_time():
     queries = []
 
     # user clicked on load_more
-    if limit > 2 and query.count() != 0:
+    if limit > 2 and query.count() != 0 and limit <= query.count():
 
         try:
             # get the second last query
             nex = query[limit-1]
+
             # store the content
-            print(nex.get('heroku', None))
             content = {
                 'username':nex['username'],
                 'title':nex['title'],
@@ -59,7 +60,7 @@ def all_time():
                 'queries_count':query.count(),
                 'limit':limit,
                 'section':nex['section'],
-                'tags':nex['tags'],
+                'tags':nex.get('tags',[]),
                 'heroku':nex.get('heroku', None)
             }
 

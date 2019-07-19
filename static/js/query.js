@@ -21,7 +21,6 @@ window.addEventListener('scroll', ()=>{
             url: window.location,
             dataType: "json",
             success: function(data) {
-                console.log(data);
             },
             // error: function(jqXHR) {
             //     alert("error: " + jqXHR.status);
