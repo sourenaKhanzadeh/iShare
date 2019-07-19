@@ -30,7 +30,10 @@
         <small class="form-text text-muted">choose a unique section</small>
 
         <label for="tags">Tags: (maximum 5 tags allowed) use ; to separate the tags</label>
-        <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required>{% for tag in query['tags']%}{{tag}};{% endfor %}
+        <textarea pattern=['a-z''A-Z'] name="tags" cols="6" rows="6" required>
+            {% for tag in query['tags']%}
+                {{tag}};
+            {% endfor %}
         </textarea>
         <small class="form-text text-muted">separate tags with ; , i.e: hello world;</small>
         <div class="float-left">

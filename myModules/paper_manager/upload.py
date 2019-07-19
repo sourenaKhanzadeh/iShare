@@ -2,7 +2,7 @@ from app import app, request, render_template, url_for
 from myModules.model.database.database import global_database, ids, global_settings
 from flask import session, redirect, flash
 from myModules.tools.tools import validate
-import re
+
 
 def limitFile(file):
     pass
@@ -69,7 +69,7 @@ def upload(user):
                 else:
 
                     #TODO:// prevent html injection
-                    heroku = True if "heroku" in request.form['deploy'] else False
+                    heroku = True if "heroku" in request.form.get('deploy', []) else False
                     # insert into the database
                     global_database.insert(ids['repo'],
                         username = session['username'],

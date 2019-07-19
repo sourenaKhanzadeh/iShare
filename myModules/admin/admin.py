@@ -1,8 +1,7 @@
 from app import app, render_template, request
 from myModules.model.database.database import repos,all_users, sections
 from flask import session, redirect, flash
-from myModules.tools.tools import millify
-
+from myModules.tools.tools import millify, difflib, show_diff
 
 def queryAll(type):
     """
@@ -21,6 +20,29 @@ def queryAll(type):
         next_query = query.next()
         # millify star
         next_query['star'] = millify(next_query['star'])
+
+        # version control
+        if '<curr>' in next_query.get('new_title', []):
+            prev_curr_title = next_query['new_title'].split('<curr>')
+            # differentiate title
+            diff_title = difflib.SequenceMatcher(None, prev_curr_title[1], prev_curr_title[0])
+            diff_title = show_diff(diff_title)
+            next_query['new_title'] = diff_title
+        if '<curr>' in next_query.get('new_description', []):
+
+            prev_curr_desc = next_query['new_description'].split('<curr>')
+            # differentiate description
+            diff_des = difflib.SequenceMatcher(None, prev_curr_desc[1], prev_curr_desc[0])
+            diff_des = show_diff(diff_des)
+            print(next_query['description'])
+
+            next_query['new_description'] = diff_des
+
+
+        # TODO:// Show Description and title difference
+
+
+
         # append data into the query
         queries.append(next_query)
 
@@ -59,6 +81,7 @@ def admin(user):
 
             # take repo title
             title = request.form['repo']
+
             # if admin approved
             if int(request.form['approve']) == 1:
                 # then approve the paper

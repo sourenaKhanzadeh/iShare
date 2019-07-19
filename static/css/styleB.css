@@ -243,6 +243,16 @@ canvas{
         margin: 50px 0;
     }
 
+    .admin ins{
+        background: lightgreen;
+        margin: 0 5px;
+    }
+
+    .admin del{
+        background: palevioletred;
+        margin: 0 5px;
+    }
+
 /* details */
     .detail section{
         text-align: center;

@@ -23,9 +23,11 @@ Admin
         {% if query['pending'] %}
             <section class="border border-info">
                 <img src="{{ query['avatar'] }}">
-                <h1>{{ query['title'] }}</h1>
+                <h1>{{ query['new_title']|safe }}</h1>
                 <h4>on {{ query['date'] }} by {{ query['username'] }}</h4>
-                <p>{{ query['description'] }}</p>
+                <p>
+                    {{ query['new_description']|safe }}
+                </p>
                 <div class="read mx-auto">
                     <i class="fa fa-star">{{ query['star'] }}</i>
                     <a class="git btn btn-primary" href="{{ query['url_repo'] }}"><i class="fab fa-github"></i></a>

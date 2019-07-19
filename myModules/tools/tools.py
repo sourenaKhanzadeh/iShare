@@ -79,7 +79,11 @@ seqm is a difflib.SequenceMatcher instance whose a & b are strings"""
         elif opcode == 'delete':
             output.append("<del>" + seqm.a[a0:a1] + "</del>")
         elif opcode == 'replace':
-            raise (NotImplementedError, "what to do with 'replace' opcode?")
+            # raise (NotImplementedError, "what to do with 'replace' opcode?")
+            print(a0, a1)
+            print(b1, b0)
+            output.append("<del>" + seqm.a[a0:a1] + "</del>")
+            output.append("<ins>" + seqm.b[b0:b1] + "</ins>")
         else:
             raise (RuntimeError, "unexpected opcode")
     return ''.join(output)
