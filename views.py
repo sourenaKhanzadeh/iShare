@@ -23,7 +23,7 @@ from myModules.error_codes import *
 # import signUP
 from myModules.model.signup import *
 
-@app.route('/')
+@app.route('/Browse-all-time')
 def welcome():
     #get settings
     sett = global_settings.find().next()

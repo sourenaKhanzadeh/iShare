@@ -4,7 +4,7 @@ from flask import session, redirect, flash, request, jsonify
 from myModules.tools.tools import millify
 import slugify
 
-@app.route('/Browse-all-time', methods=['GET'])
+@app.route('/', methods=['GET'])
 def all_time():
     # set a limit
     limit = request.args.get('limit', 2, type=int)

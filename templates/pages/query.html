@@ -19,8 +19,9 @@
                     <div  class="d-flex flex-column">
                         <div class="icon">
                                 <img src="{{query['avatar']}}">
-                            <i style="font-size: 14pt" class="fas fa-star"><br><span style="font-size: 10pt">{{query['star']}}</span></i>
-                            <br><br>
+                        </div>
+                        <div class="star">
+                            <i class="fas fa-star"></i><span >{{query['star']}}</span>
                         </div>
                         <a href="/Browse-all-time?section={{query['section']}}" class="query_sec btn btn-outline-primary">{{query['section']}}</a>
                         <a class="git btn btn-primary btn-lg" href="{{query['url_repo']}}"><i class="fab fa-github"></i></a>
@@ -40,7 +41,7 @@
                 </div>
                 <div>
                     {% for tag in query['tags']%}
-                        <a href="/Browse-all-time?tag={{tag}}" class="tag btn btn-outline-warning">{{tag}}</a>
+                        <a href="/Browse-all-time?tag={{tag}}" class="tag">{{tag}}</a>
                     {% endfor %}
                 </div>
                 {% if admin%}

@@ -46,35 +46,30 @@
         <li class="nav-item">
         <a class="nav-link" href="/about">About<span class="sr-only">(current)</span></a>
       </li>
+
     </ul>
     <div class="form-inline my-2 my-lg-0">
       <input id="sea" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button onclick="search();" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        {% if not session['username']%}
-        <li class="nav-item">
-        <a class="btn btn-outline-info my-2 my-sm-0" href="/account/login">Login/Register<span class="sr-only">(current)</span></a>
-      </li>
-        {% else %}
-        <li class="nav-item">
-        <a class="btn btn-outline-info my-2 my-sm-0" href="/{{session['username']}}/profile">Hello , {{session['username']}}<span class="sr-only">(current)</span></a>
-        </li>
-        {% endif %}
-
+      <button id="search2" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </div>
+
+    {% if not session['username']%}
+    <a id="login" class="nav-item btn btn-outline-info my-2 my-sm-0" href="/account/login">Login/Register<span class="sr-only">(current)</span></a>
+    {% else %}
+    <a id="user" class="nav-item btn btn-outline-info my-2 my-sm-0" href="/{{session['username']}}/profile"><i class="fa fa-user"></i>  {{session['username']}}<span class="sr-only">(current)</span></a>
+    <a class="nav-item btn btn-outline-info my-2 my-sm-0" href="/{{session['username']}}/upload"><i with="upload paper" class="fas fa-plus-circle"></i></a>
+    <a id="logout" class="nav-item btn btn-outline-danger my-2 my-sm-0"><i class="fas fa-power-off"></i></a>
+    {% endif %}
+
   </div>
 </nav>
-{% if session['username'] %}
+{% if session['fsr'] and session['username']%}
 <div class="side-bar-right">
     <div class="hover btn btn-outline-info">
         <i class="fas fa-angle-double-left"></i>
     </div>
     <!-- Sidebar -->
     <ul class="sidebar-nav">
-
-        <li id="upload">
-            <a class="btn btn-outline-info my-2 my-sm-0" href="/{{session['username']}}/upload">Upload</a>
-        </li>
-            {% if session['fsr']%}
             <li id="settings">
                 <a class="btn btn-outline-dark my-2 my-sm-0" href="/{{session['username']}}/settings">
                     Settings
@@ -83,11 +78,9 @@
             <li id="admin">
                 <a class="btn btn-outline-dark my-2 my-sm-0"href="/{{ session['username'] }}/admin">Admin</a>
             </li>
-            {% endif %}
-        <li id="logout">
-        <a class="btn btn-outline-danger my-2 my-sm-0">Logout</a>
-        {% endif %}
+
     </ul>
+{% endif %}
 
 </div>
 

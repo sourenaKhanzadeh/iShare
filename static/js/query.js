@@ -48,8 +48,9 @@ window.addEventListener('scroll', ()=>{
                     <div  class="d-flex flex-column">
                         <div class="icon">
                                 <img src="${data.avatar}">
-                            <i style="font-size: 14pt" class="fas fa-star"><br><span style="font-size: 10pt">${data.stars}</span></i>
-                            <br><br>
+                        </div>
+                         <div class="star">
+                            <i class="fas fa-star"></i><span >${data.stars}</span>
                         </div>
                         <a href="/Browse-all-time?section=${data.section}" class="query_sec btn btn-outline-primary">${data.section}</a>
                         <a class="git btn btn-primary btn-lg" href="${data.url_repo}"><i class="fab fa-github"></i></a>
@@ -73,7 +74,7 @@ window.addEventListener('scroll', ()=>{
                 `;
                 let tags = "<div class='tags'>";
                 for(var i =0; i<data.tags.length;i++)
-                    tags += `<a class="tag btn btn-outline-warning" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}  </a>`;
+                    tags += `<a class="tag" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}  </a>`;
                 tags += `   </div>
                         </div>
                         </div>`;
@@ -92,8 +93,9 @@ window.addEventListener('scroll', ()=>{
                     <div  class="d-flex flex-column">
                         <div class="icon">
                                 <img src="${data.avatar}">
-                            <i style="font-size: 14pt" class="fas fa-star"><br><span style="font-size: 10pt">${data.stars}</span></i>
-                            <br><br>
+                        </div>
+                         <div class="star">
+                            <i class="fas fa-star"></i><span >${data.stars}</span>
                         </div>
                         <a href="/Browse-all-time?section=${data.section}" class="query_sec btn btn-outline-primary">${data.section}</a>
                         <a class="git btn btn-primary btn-lg" href="${data.url_repo}"><i class="fab fa-github"></i></a>
@@ -118,7 +120,7 @@ window.addEventListener('scroll', ()=>{
 
                 let tags = "<div class='tags'>";
                 for(var i =0; i<data.tags.length;i++)
-                    tags += `<a  class="tag btn btn-outline-warning" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}`;
+                    tags += `<a  class="tag" href="/Browse-all-time?tag=${data.tags[i]}">${data.tags[i]}`;
                 tags += "</a></div>";
 
                 text += tags;
